@@ -85,6 +85,7 @@
     <Content Include="Admin\assets\products\p2.jpg" />
     <Content Include="Admin\assets\products\p3.jpg" />
     <Content Include="Admin\assets\products\p4.jpg" />
+    <Content Include="Admin\giris.aspx" />
     <Content Include="Admin\pages\auth-confirm.html" />
     <Content Include="Admin\pages\auth-login-half.html" />
     <Content Include="Admin\pages\auth-login.html" />
@@ -288,6 +289,13 @@
     <Compile Include="Admin\adminlistele.aspx.designer.cs">
       <DependentUpon>adminlistele.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\giris.aspx.cs">
+      <DependentUpon>giris.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\giris.aspx.designer.cs">
+      <DependentUpon>giris.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -295,6 +303,8 @@
     <Compile Include="Admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="class\AdminCRUD.cs" />
+    <Compile Include="class\Adminn.cs" />
     <Compile Include="class\Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

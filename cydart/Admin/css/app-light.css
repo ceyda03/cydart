@@ -1461,12 +1461,13 @@ pre {
   .form-control:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #495057; }
-  .form-control:focus {
+.form-control:focus {
     color: #495057;
     background-color: #ffffff;
-    border-color: #9bbcff;
+    border-color: #59ab6e;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(27, 104, 255, 0.25); }
+    box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+}
   .form-control::placeholder {
     color: #6c757d;
     opacity: 1; }
