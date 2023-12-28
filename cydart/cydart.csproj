@@ -71,6 +71,9 @@
     <Content Include="Admin\adminekle.aspx" />
     <Content Include="Admin\adminguncelle.aspx" />
     <Content Include="Admin\adminlistele.aspx" />
+    <Content Include="Admin\altkatekle.aspx" />
+    <Content Include="Admin\altkatguncelle.aspx" />
+    <Content Include="Admin\altkatlistele.aspx" />
     <Content Include="Admin\assets\avatars\face-1.jpg" />
     <Content Include="Admin\assets\avatars\face-2.jpg" />
     <Content Include="Admin\assets\avatars\face-3.jpg" />
@@ -86,6 +89,13 @@
     <Content Include="Admin\assets\products\p3.jpg" />
     <Content Include="Admin\assets\products\p4.jpg" />
     <Content Include="Admin\giris.aspx" />
+    <Content Include="Admin\img\p3.jpg" />
+    <Content Include="Admin\katekle.aspx" />
+    <Content Include="Admin\katguncelle.aspx" />
+    <Content Include="Admin\katlistele.aspx" />
+    <Content Include="Admin\musekle.aspx" />
+    <Content Include="Admin\musguncelle.aspx" />
+    <Content Include="Admin\muslistele.aspx" />
     <Content Include="Admin\pages\auth-confirm.html" />
     <Content Include="Admin\pages\auth-login-half.html" />
     <Content Include="Admin\pages\auth-login.html" />
@@ -196,6 +206,10 @@
     <Content Include="Admin\pages\ui-tabs-accordion.html" />
     <Content Include="Admin\pages\ui-typograpy.html" />
     <Content Include="Admin\pages\widgets.html" />
+    <Content Include="Admin\profil.aspx" />
+    <Content Include="Admin\urunekle.aspx" />
+    <Content Include="Admin\urunguncelle.aspx" />
+    <Content Include="Admin\urunlistele.aspx" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\custom.css" />
     <Content Include="assets\css\fontawesome.css" />
@@ -289,6 +303,27 @@
     <Compile Include="Admin\adminlistele.aspx.designer.cs">
       <DependentUpon>adminlistele.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\altkatekle.aspx.cs">
+      <DependentUpon>altkatekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\altkatekle.aspx.designer.cs">
+      <DependentUpon>altkatekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\altkatguncelle.aspx.cs">
+      <DependentUpon>altkatguncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\altkatguncelle.aspx.designer.cs">
+      <DependentUpon>altkatguncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\altkatlistele.aspx.cs">
+      <DependentUpon>altkatlistele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\altkatlistele.aspx.designer.cs">
+      <DependentUpon>altkatlistele.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\giris.aspx.cs">
       <DependentUpon>giris.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,6 +337,76 @@
     </Compile>
     <Compile Include="Admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\katekle.aspx.cs">
+      <DependentUpon>katekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\katekle.aspx.designer.cs">
+      <DependentUpon>katekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\katguncelle.aspx.cs">
+      <DependentUpon>katguncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\katguncelle.aspx.designer.cs">
+      <DependentUpon>katguncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\katlistele.aspx.cs">
+      <DependentUpon>katlistele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\katlistele.aspx.designer.cs">
+      <DependentUpon>katlistele.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\musekle.aspx.cs">
+      <DependentUpon>musekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\musekle.aspx.designer.cs">
+      <DependentUpon>musekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\musguncelle.aspx.cs">
+      <DependentUpon>musguncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\musguncelle.aspx.designer.cs">
+      <DependentUpon>musguncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\muslistele.aspx.cs">
+      <DependentUpon>muslistele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\muslistele.aspx.designer.cs">
+      <DependentUpon>muslistele.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\profil.aspx.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\profil.aspx.designer.cs">
+      <DependentUpon>profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\urunekle.aspx.cs">
+      <DependentUpon>urunekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\urunekle.aspx.designer.cs">
+      <DependentUpon>urunekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\urunguncelle.aspx.cs">
+      <DependentUpon>urunguncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\urunguncelle.aspx.designer.cs">
+      <DependentUpon>urunguncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\urunlistele.aspx.cs">
+      <DependentUpon>urunlistele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\urunlistele.aspx.designer.cs">
+      <DependentUpon>urunlistele.aspx</DependentUpon>
     </Compile>
     <Compile Include="class\AdminCRUD.cs" />
     <Compile Include="class\Adminn.cs" />
@@ -339,6 +444,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

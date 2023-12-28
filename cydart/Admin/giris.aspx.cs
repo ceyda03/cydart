@@ -28,6 +28,15 @@ namespace cydart.Admin
                 admin.Ad = adminCRUD.getir(admin).Ad;
                 Session["ad"] = admin.Ad;
 
+                admin.Soyad = adminCRUD.getir(admin).Soyad;
+                Session["soyad"] = admin.Soyad;
+
+                admin.Tel = adminCRUD.getir(admin).Tel;
+                Session["tel"] = admin.Tel;
+
+                admin.Yetki = adminCRUD.getir(admin).Yetki;
+                Session["yetki"] = admin.Yetki;
+
                 admin.Ryol = adminCRUD.getir(admin).Ryol;
                 Session["resim"] = admin.Ryol;
                 Response.Redirect("index.aspx");

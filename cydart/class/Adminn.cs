@@ -23,7 +23,7 @@ namespace cydart
 
         public Adminn() { }
 
-        public Adminn(string kadi, string ad, string soyad, string email, string tel, string sifre, string ryol, byte yetki)
+        public Adminn(string kadi, string ad, string soyad, string email, string tel, string sifre, byte yetki, string ryol)
         {
             Kadi = kadi;
             Ad = ad;
@@ -31,8 +31,8 @@ namespace cydart
             Email = email;
             Tel = tel;
             Sifre = sifre;
-            Ryol = ryol;
             Yetki = yetki;
+            Ryol = ryol;
         }
     }
 }

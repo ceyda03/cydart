@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace cydart.Admin
 {
-    public partial class Admin : System.Web.UI.MasterPage
+    public partial class muslistele : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Convert.ToBoolean(Session["admin"]) != true)
-            {
-                Response.Redirect("giris.aspx");
-            }
+
         }
     }
 }

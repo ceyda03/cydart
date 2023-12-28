@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Şifre</label>
-                    <asp:TextBox ID="TextBox2" TextMode="Password" CssClass="form-control form-control-lg" Placeholder="Password" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" TextMode="Password" CssClass="form-control form-control-lg" Placeholder="Şifre" runat="server"></asp:TextBox>
                 </div>
                 <div class="checkbox mb-3">
                     <label>

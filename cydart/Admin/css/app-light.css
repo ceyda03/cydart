@@ -1813,9 +1813,10 @@ textarea.form-control {
   .btn:hover {
     color: #6c757d;
     text-decoration: none; }
-  .btn:focus, .btn.focus {
+.btn:focus, .btn.focus {
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(27, 104, 255, 0.25); }
+    box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+}
   .btn.disabled, .btn:disabled {
     opacity: 0.65; }
   .btn:not(:disabled):not(.disabled) {
@@ -1835,23 +1836,26 @@ fieldset:disabled a.btn {
         background-color: #157347;
         border-color: #157347;
     }
-  .btn-primary:focus, .btn-primary.focus {
-    color: #ffffff;
-    background-color: #0052f4;
-    border-color: #004ee7;
-    box-shadow: 0 0 0 0.2rem rgba(61, 127, 255, 0.5); }
+    .btn-primary:focus, .btn-primary.focus {
+        color: #ffffff;
+        background-color: #1b8b38;
+        border-color: #1b8b38;
+        box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+    }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #ffffff;
     background-color: #59ab6e;
     border-color: #59ab6e; }
-  .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-  .show > .btn-primary.dropdown-toggle {
-    color: #ffffff;
-    background-color: #004ee7;
-    border-color: #004ada; }
+    .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+    .show > .btn-primary.dropdown-toggle {
+        color: #ffffff;
+        background-color: #59ab6e;
+        border-color: #59ab6e;
+    }
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(61, 127, 255, 0.5); }
+        box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+    }
 
 .btn-secondary {
   color: #ffffff;
@@ -3557,8 +3561,8 @@ input[type="button"].btn-block {
 
 .badge {
   display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
+  padding: 0.4em 0.4em 0.2em;
+  font-size: 80%;
   font-weight: 600;
   line-height: 1;
   text-align: center;
@@ -8298,8 +8302,9 @@ img.navbar-brand-img {
       transition: none; } }
 
 .select2-container--bootstrap4.select2-container--focus .select2-selection {
-  border-color: #9bbcff;
-  box-shadow: 0 0 0 0.2rem rgba(27, 104, 255, 0.25); }
+    border-color: #59ab6e;
+    box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+}
 
 .select2-container--bootstrap4.select2-container--focus.select2-container--open .select2-selection {
   border-bottom: none;

@@ -4,6 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Admin Listesi</h2>
 
+    <%
+        System.Data.DataTable tablo = new System.Data.DataTable();
+        cydart.AdminCRUD adminCRUD = new cydart.AdminCRUD();
+        tablo = adminCRUD.tumliste();
+    %>
     <div class="row my-4">
         <!-- Small table -->
         <div class="col-md-12">
@@ -15,29 +20,53 @@
                             <tr>
                                 <th>No</th>
                                 <th>Fotoğraf</th>
+                                <th>Kullanıcı Adı</th>
                                 <th>Ad</th>
                                 <th>Soyad</th>
+                                <th>Email</th>
+                                <th>Telefon</th>
+                                <th>Şifre</th>
                                 <th>Yetki</th>
                                 <th>İşlemler</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>368</td>
-                                <td>Imani Lara</td>
-                                <td>(478) 446-9234</td>
-                                <td>Asset Management</td>
-                                <td>Borland</td>
-                                <td>
-                                    <button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="text-muted sr-only">Action</span>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Güncelle</a>
-                                        <a class="dropdown-item" href="#">Sil</a>
-                                    </div>
-                                </td>
-                            </tr>
+                            <%for (int i = 0; i < tablo.Rows.Count; i++)
+                              {
+                              %>
+                                <tr>
+                                    <td><% =tablo.Rows[i][0] %></td>
+                                    <td>
+                                        <%
+                                            if (tablo.Rows[i][7].ToString() != null) 
+                                            { %> 
+                                                <img src="<% =tablo.Rows[i][8] %>" style="max-height:50px" />
+                                         <% }  
+                                            else
+                                            { %>
+                                                <img src="img/p3.jpg" style="max-height:50px" />
+                                         <% }
+                                        %>
+                                    </td>
+                                    <td><% =tablo.Rows[i][1] %></td>
+                                    <td><% =tablo.Rows[i][2] %></td>
+                                    <td><% =tablo.Rows[i][3] %></td>
+                                    <td><% =tablo.Rows[i][4] %></td>
+                                    <td><% =tablo.Rows[i][5] %></td>
+                                    <td><% =tablo.Rows[i][6] %></td>
+                                    <td><% =tablo.Rows[i][7] %></td>
+                                    <td>
+                                        <button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="text-muted sr-only">Action</span>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="adminguncelle.aspx?gunid=<% =tablo.Rows[i][0] %>">Güncelle</a>
+                                            <a class="dropdown-item" href="adminlistele.aspx?id=<% =tablo.Rows[i][0] %>">Sil</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                              <%
+                              } %>
                         </tbody>
                     </table>
                 </div>
