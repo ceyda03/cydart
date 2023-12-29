@@ -89,6 +89,7 @@
     <Content Include="Admin\assets\products\p3.jpg" />
     <Content Include="Admin\assets\products\p4.jpg" />
     <Content Include="Admin\giris.aspx" />
+    <Content Include="Admin\img\logo.svg" />
     <Content Include="Admin\img\p3.jpg" />
     <Content Include="Admin\katekle.aspx" />
     <Content Include="Admin\katguncelle.aspx" />
@@ -210,6 +211,7 @@
     <Content Include="Admin\urunekle.aspx" />
     <Content Include="Admin\urunguncelle.aspx" />
     <Content Include="Admin\urunlistele.aspx" />
+    <Content Include="alisveris.aspx" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\custom.css" />
     <Content Include="assets\css\fontawesome.css" />
@@ -269,10 +271,12 @@
     <Content Include="assets\webfonts\fa-solid-900.svg" />
     <Content Include="assets\webfonts\slick.svg" />
     <Content Include="contact.html" />
+    <Content Include="index.aspx" />
     <Content Include="index.html" />
     <Content Include="shop-single.html" />
     <Content Include="shop.html" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.Master.cs">
@@ -408,10 +412,38 @@
     <Compile Include="Admin\urunlistele.aspx.designer.cs">
       <DependentUpon>urunlistele.aspx</DependentUpon>
     </Compile>
+    <Compile Include="alisveris.aspx.cs">
+      <DependentUpon>alisveris.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alisveris.aspx.designer.cs">
+      <DependentUpon>alisveris.aspx</DependentUpon>
+    </Compile>
     <Compile Include="class\AdminCRUD.cs" />
     <Compile Include="class\Adminn.cs" />
     <Compile Include="class\Db.cs" />
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\.DS_Store" />
@@ -437,6 +469,7 @@
     <Content Include="assets\webfonts\slick.woff" />
     <Content Include="Admin\Admin.Master" />
     <None Include="packages.config" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
