@@ -13,5 +13,14 @@ namespace cydart.Admin
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Kategori kategori = new Kategori(TextBox1.Text);
+            KategoriCRUD kategoriCRUD = new KategoriCRUD();
+            bool gelen = kategoriCRUD.anaKatEkle(kategori);
+
+            Response.Redirect("katlistele.aspx");
+        }
     }
 }
