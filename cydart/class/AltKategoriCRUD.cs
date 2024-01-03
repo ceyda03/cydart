@@ -8,19 +8,19 @@ using System.Web;
 namespace cydart
 {
 
-    public class KategoriCRUD
+    public class AltKategoriCRUD
     {
         Db db = new Db();
 
-        public bool ekle(Kategori kat)
+        public bool ekle(AltKategori altkat)
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("insert into Kategori values(@ad, @resim)", db.baglanti);
-            komut.Parameters.AddWithValue("@ad", kat.Ad);
-            komut.Parameters.AddWithValue("@resim", kat.Resim);
+            SqlCommand komut = new SqlCommand("insert into AltKategori values(@ad, @katid)", db.baglanti);
+            komut.Parameters.AddWithValue("@ad", altkat.Ad);
+            komut.Parameters.AddWithValue("@katid", altkat.Katid);
             int sonuc = komut.ExecuteNonQuery();
-            if (sonuc == 0)
+            if(sonuc == 0)
             {
                 cevap = false;
             }
@@ -32,7 +32,7 @@ namespace cydart
         {
             DataTable dt = new DataTable();
             db.ac();
-            SqlCommand komut = new SqlCommand("select * from Kategori", db.baglanti);
+            SqlCommand komut = new SqlCommand("select AltKat_No, AltKat_Ad, Kat_Ad from AltKategori, Kategori where AltKategori.Kat_id=Kategori.Kat_No", db.baglanti);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);
             db.kapat();

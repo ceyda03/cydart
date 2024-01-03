@@ -32,7 +32,7 @@
                 <h1 class="h6 mb-3">Giriş Yap</h1>
                 <div class="form-group">
                     <label for="inputEmail" class="sr-only">Email</label>
-                    <asp:TextBox ID="TextBox1" TextMode="Email" CssClass="form-control form-control-lg" Placeholder="Email" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" TextMode="Email" CssClass="form-control form-control-lg" Placeholder="Email" runat="server" ></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Şifre</label>

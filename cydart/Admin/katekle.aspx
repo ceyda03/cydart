@@ -12,6 +12,11 @@
                     <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Kategori Adı" runat="server"></asp:TextBox>
                 </div>
 
+                <div class="form-group">
+                    <label for="inputEmail4">Kategori Resmi</label>
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                </div>
+
                 <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Kaydet" OnClick="Button1_Click"/>
             </div>
         </div>

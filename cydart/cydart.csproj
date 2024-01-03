@@ -276,7 +276,6 @@
     <Content Include="shop-single.html" />
     <Content Include="shop.html" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.Master.cs">
@@ -421,7 +420,11 @@
     </Compile>
     <Compile Include="class\AdminCRUD.cs" />
     <Compile Include="class\Adminn.cs" />
+    <Compile Include="class\AltKategori.cs" />
+    <Compile Include="class\AltKategoriCRUD.cs" />
     <Compile Include="class\Db.cs" />
+    <Compile Include="class\Kategori.cs" />
+    <Compile Include="class\KategoriCRUD.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -436,13 +439,6 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

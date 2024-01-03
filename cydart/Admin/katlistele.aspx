@@ -7,7 +7,7 @@
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
         cydart.KategoriCRUD kategoriCRUD = new cydart.KategoriCRUD();
-        tablo = kategoriCRUD.anaKatListele();
+        tablo = kategoriCRUD.listele();
     %>
 
     <div class="row my-4">
@@ -21,6 +21,7 @@
                             <tr>
                                 <th>Kategori ID</th>
                                 <th>Kategori Adı</th>
+                                <th>Kategori Resmi</th>
                                 <th>İşlemler</th>
                             </tr>
                         </thead>
@@ -30,7 +31,17 @@
                               %>
                                 <tr>
                                     <td><% =tablo.Rows[i][0] %></td>
-                                    <td><% =tablo.Rows[i][2] %></td>
+                                    <td><% =tablo.Rows[i][1] %></td>
+                                    <td>
+                                        <% if (tablo.Rows[i][2].ToString() != "")
+                                           { %>
+                                                <img src="<% =tablo.Rows[i][2] %>" alt="Alternate Text" style="max-height:50px" />
+                                        <% } 
+                                           else
+                                           { %>
+                                                <img src="#" alt="Alternate Text" style="max-height:50px" />
+                                        <% } %>
+                                    </td>
                                     <td>
                                         <button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="text-muted sr-only">Action</span>

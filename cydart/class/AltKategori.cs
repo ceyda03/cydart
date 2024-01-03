@@ -5,21 +5,22 @@ using System.Web;
 
 namespace cydart
 {
-    public class Kategori
+
+    public class AltKategori
     {
-        int no;
-        string ad, resim;
+        int no, katid;
+        string ad;
 
         public int No { get => no; set => no = value; }
+        public int Katid { get => katid; set => katid = value; }
         public string Ad { get => ad; set => ad = value; }
-        public string Resim { get => resim; set => resim = value; }
 
-        public Kategori() { }
+        public AltKategori() { }
 
-        public Kategori(string ad, string resim)
+        public AltKategori(int katid, string ad)
         {
+            Katid = katid;
             Ad = ad;
-            Resim = resim;
         }
     }
 }

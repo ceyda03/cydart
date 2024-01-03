@@ -14,13 +14,12 @@ namespace cydart.Admin
         {
             if (!IsPostBack)
             {
-                DataTable dt = new DataTable();
                 KategoriCRUD kategoriCRUD = new KategoriCRUD();
-                dt = kategoriCRUD.anaKatListele();
+                DataTable dt = kategoriCRUD.listele();
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    DropDownList1.Items.Add(dt.Rows[i][2].ToString());
+                    DropDownList1.Items.Add(dt.Rows[i][1].ToString());
                     DropDownList1.Items[i].Value = dt.Rows[i][0].ToString();
                 }
             }
@@ -28,9 +27,9 @@ namespace cydart.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Kategori kategori = new Kategori(Convert.ToInt16(DropDownList1.SelectedValue), TextBox1.Text);
-            KategoriCRUD kategoriCRUD = new KategoriCRUD();
-            bool gelen = kategoriCRUD.altKatEkle(kategori);
+            AltKategori altKategori = new AltKategori(Convert.ToInt16(DropDownList1.SelectedValue), TextBox1.Text);
+            AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
+            bool gelen = altKategoriCRUD.ekle(altKategori);
 
             Response.Redirect("altkatlistele.aspx");
         }

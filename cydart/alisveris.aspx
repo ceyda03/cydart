@@ -8,26 +8,69 @@
 
             <%
                 cydart.Db db = new cydart.Db();
+                void KategoriListe(int parentId, System.Data.DataTable table)
+                {
+                    System.Data.DataRow[] altKategoriler = table.Select("pid = " + parentId);
+
+                    if (altKategoriler.Length > 0)
+                    {
+                        
+
+                        foreach (System.Data.DataRow altKategori in altKategoriler)
+                        {
+                            Response.Write("<li><a class='text-decoration-none' href='#'>" + altKategori["kat_adi"]);
+                            // Alt kategorileri kontrol etmek için fonksiyonu tekrar çağır
+                            KategoriListe(Convert.ToInt32(altKategori["id"]), table);
+                            Response.Write("</a></li>");
+                        }
+
+                        
+                    }
+                } 
+
                 System.Data.DataTable dt = new System.Data.DataTable();
-                System.Data.DataTable tablo = new System.Data.DataTable();
-                System.Data.DataTable urun = new System.Data.DataTable();
                 db.ac();
-                System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("select * from Kategori",db.baglanti);
+                System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("select * from Kategoriler", db.baglanti);
                 System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(komut);
                 adp.Fill(dt);
-                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("select * from AltKategori", db.baglanti);
-                System.Data.SqlClient.SqlDataAdapter adap = new System.Data.SqlClient.SqlDataAdapter(cmd);
-                adap.Fill(tablo);
-                System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("select * from Urun", db.baglanti);
-                System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter(command);
-                adapter.Fill(urun);
                 db.kapat();
+
+                System.Data.DataRow[] kokKategoriler = dt.Select("pid = 0");
+
+
+                //System.Data.DataTable dt = new System.Data.DataTable();
+                //System.Data.DataTable tablo = new System.Data.DataTable();
+                //System.Data.DataTable urun = new System.Data.DataTable();
+                //db.ac();
+                //System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("select * from Kategori",db.baglanti);
+                //System.Data.SqlClient.SqlDataAdapter adp = new System.Data.SqlClient.SqlDataAdapter(komut);
+                //adp.Fill(dt);
+                //System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("select * from AltKategori", db.baglanti);
+                //System.Data.SqlClient.SqlDataAdapter adap = new System.Data.SqlClient.SqlDataAdapter(cmd);
+                //adap.Fill(tablo);
+                //System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("select * from Urun", db.baglanti);
+                //System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter(command);
+                //adapter.Fill(urun);
+                //db.kapat();
             %>
 
             <div class="col-lg-3">
                 <h1 class="h2 pb-4">Kategoriler</h1>
                 <ul class="list-unstyled templatemo-accordion">
-                    <%for (int i = 0; i < dt.Rows.Count; i++)
+                    <% foreach (System.Data.DataRow kokKategori in kokKategoriler)
+                       {%>
+                        <li class="pb-3">
+                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                                <%= kokKategori["kat_adi"] %>
+                                <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                            </a>
+                            <ul class="collapse list-unstyled pl-3">
+                                <%KategoriListe(Convert.ToInt32(kokKategori["id"]), dt);%>
+                            </ul>
+                        </li>
+                     <%} %>
+
+                    <%--<%for (int i = 0; i < dt.Rows.Count; i++)
                       {%>
                         <li class="pb-3">
                             <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
@@ -44,7 +87,7 @@
                                   } %>
                             </ul>
                         </li>
-                    <%} %>
+                    <%} %>--%>
                 </ul>
             </div>
 
@@ -74,7 +117,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <%for (int i = 0; i < urun.Rows.Count; i++)
+<%--                    <%for (int i = 0; i < urun.Rows.Count; i++)
                       { %>        
                         <div class="col-md-4">
                             <div class="card mb-4 product-wap rounded-0">
@@ -113,7 +156,7 @@
                                 </div>
                             </div>
                         </div>
-                    <%} %>
+                    <%} %>--%>
                 </div>
                 <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">

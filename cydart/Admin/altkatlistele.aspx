@@ -6,8 +6,8 @@
 
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
-        cydart.KategoriCRUD kategoriCRUD = new cydart.KategoriCRUD();
-        tablo = kategoriCRUD.altKatListele();
+        cydart.AltKategoriCRUD altKategoriCRUD = new cydart.AltKategoriCRUD();
+        tablo = altKategoriCRUD.listele();
     %>
 
     <div class="row my-4">
@@ -21,7 +21,7 @@
                             <tr>
                                 <th>Alt Kategori ID</th>
                                 <th>Alt Kategori Adı</th>
-                                <th>Ana Kategori ID</th>
+                                <th>Ana Kategori Adı</th>
                                 <th>İşlemler</th>
                             </tr>
                         </thead>
@@ -31,15 +31,15 @@
                               %>
                                 <tr>
                                     <td><% =tablo.Rows[i][0] %></td>
-                                    <td><% =tablo.Rows[i][2] %></td>
                                     <td><% =tablo.Rows[i][1] %></td>
+                                    <td><% =tablo.Rows[i][2] %></td>
                                     <td>
                                         <button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="text-muted sr-only">Action</span>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="katguncelle.aspx?gunid=<% =tablo.Rows[i][0] %>">Güncelle</a>
-                                            <a class="dropdown-item" href="katlistele.aspx?id=<% =tablo.Rows[i][0] %>">Sil</a>
+                                            <a class="dropdown-item" href="altkatguncelle.aspx?gunid=<% =tablo.Rows[i][0] %>">Güncelle</a>
+                                            <a class="dropdown-item" href="altkatlistele.aspx?id=<% =tablo.Rows[i][0] %>">Sil</a>
                                         </div>
                                     </td>
                                 </tr>
