@@ -82,6 +82,7 @@
     <Content Include="Admin\assets\avatars\face-6.jpg" />
     <Content Include="Admin\assets\avatars\face-7.jpg" />
     <Content Include="Admin\assets\avatars\face-8.jpg" />
+    <Content Include="Admin\assets\images\logo.png" />
     <Content Include="Admin\assets\images\logo.svg" />
     <Content Include="Admin\assets\images\qrcode.svg" />
     <Content Include="Admin\assets\products\p1.jpg" />

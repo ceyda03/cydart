@@ -11,7 +11,12 @@ namespace cydart.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["id"] != null)
+            {
+                int gid = Convert.ToInt16(Request.QueryString["id"]);
+                AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
+                altKategoriCRUD.sil(gid);
+            }
         }
     }
 }

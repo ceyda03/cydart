@@ -58,9 +58,10 @@ namespace cydart
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("update AltKategori set AltKat_No=@a, Kat_id=@b", db.baglanti);
+            SqlCommand komut = new SqlCommand("update AltKategori set AltKat_Ad=@a, Kat_id=@b where AltKat_No=@id", db.baglanti);
             komut.Parameters.AddWithValue("@a", yad);
             komut.Parameters.AddWithValue("@b", ykatid);
+            komut.Parameters.AddWithValue("@id", gid);
             int sonuc = komut.ExecuteNonQuery();
             if (sonuc == 0)
             {
