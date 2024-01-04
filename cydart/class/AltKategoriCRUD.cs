@@ -20,7 +20,7 @@ namespace cydart
             komut.Parameters.AddWithValue("@ad", altkat.Ad);
             komut.Parameters.AddWithValue("@katid", altkat.Katid);
             int sonuc = komut.ExecuteNonQuery();
-            if(sonuc == 0)
+            if (sonuc == 0)
             {
                 cevap = false;
             }
@@ -37,6 +37,37 @@ namespace cydart
             adp.Fill(dt);
             db.kapat();
             return dt;
+        }
+
+        public bool sil(int gid)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("delete from AltKategori where AltKat_No=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", gid);
+            int sonuc = komut.ExecuteNonQuery();
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
+
+        public bool guncelle(int gid, string yad, string ykatid)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("update AltKategori set AltKat_No=@a, Kat_id=@b", db.baglanti);
+            komut.Parameters.AddWithValue("@a", yad);
+            komut.Parameters.AddWithValue("@b", ykatid);
+            int sonuc = komut.ExecuteNonQuery();
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
         }
     }
 }

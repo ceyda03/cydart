@@ -38,5 +38,36 @@ namespace cydart
             db.kapat();
             return dt;
         }
+
+        public bool sil(int gid)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("delete from Kategori where Kat_No=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", gid);
+            int sonuc = komut.ExecuteNonQuery();
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
+
+        public bool guncelle(int gid, string ykatadi, string yresim)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("update Kategori set Kat_Ad=@a, Kat_Resim=@b", db.baglanti);
+            komut.Parameters.AddWithValue("@a", ykatadi);
+            komut.Parameters.AddWithValue("@b", yresim);
+            int sonuc = komut. ExecuteNonQuery();
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
     }
 }
