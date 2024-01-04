@@ -69,5 +69,21 @@ namespace cydart
             db.kapat();
             return cevap;
         }
+
+        public AltKategori bilgigetir(int gid)
+        {
+            DataTable dt = new DataTable();
+            AltKategori altKategori = new AltKategori();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select * from AltKategori where AltKat_No=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", gid);
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            altKategori.No = Convert.ToInt16(dt.Rows[0][0]);
+            altKategori.Ad = dt.Rows[0][1].ToString();
+            altKategori.Katid = Convert.ToInt16(dt.Rows[0][2]);
+            db.kapat();
+            return altKategori;
+        }
     }
 }
