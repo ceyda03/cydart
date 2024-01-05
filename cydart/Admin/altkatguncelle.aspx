@@ -22,7 +22,7 @@
 
                 <div class="form-group">
                     <label for="inputEmail4">Ana Kategori Adı</label>
-                    <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownList1" CssClass="form-control select2" runat="server"></asp:DropDownList>
                 </div>
 
                 <div class="form-group">
