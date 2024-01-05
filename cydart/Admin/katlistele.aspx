@@ -39,7 +39,7 @@
                                         <% } 
                                            else
                                            { %>
-                                                <img src="#" alt="Alternate Text" style="max-height:50px" />
+                                                <img src="img/default100.jpg" alt="Alternate Text" style="max-height:50px" />
                                         <% } %>
                                     </td>
                                     <td>

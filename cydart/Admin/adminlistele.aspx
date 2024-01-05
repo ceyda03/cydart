@@ -38,13 +38,13 @@
                                     <td><% =tablo.Rows[i][0] %></td>
                                     <td>
                                         <%
-                                            if (tablo.Rows[i][7].ToString() != null) 
+                                            if (tablo.Rows[i][8].ToString() != "") 
                                             { %> 
                                                 <img src="<% =tablo.Rows[i][8] %>" style="max-height:50px" />
                                          <% }  
                                             else
                                             { %>
-                                                <img src="img/p3.jpg" style="max-height:50px" />
+                                                <img src="img/default100.jpg" style="max-height:50px" />
                                          <% }
                                         %>
                                     </td>

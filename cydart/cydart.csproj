@@ -90,8 +90,8 @@
     <Content Include="Admin\assets\products\p3.jpg" />
     <Content Include="Admin\assets\products\p4.jpg" />
     <Content Include="Admin\giris.aspx" />
+    <Content Include="Admin\img\default100.jpg" />
     <Content Include="Admin\img\logo.svg" />
-    <Content Include="Admin\img\p3.jpg" />
     <Content Include="Admin\katekle.aspx" />
     <Content Include="Admin\katguncelle.aspx" />
     <Content Include="Admin\katlistele.aspx" />
