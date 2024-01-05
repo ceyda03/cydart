@@ -9,9 +9,15 @@ namespace cydart.Admin
 {
     public partial class girisyap : System.Web.UI.Page
     {
+        HttpCookie cerez = new HttpCookie("bilgi");
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Request.Cookies["bilgi"] != null)
+            {
+                cerez = Request.Cookies["bilgi"];
+                TextBox1.Text = cerez["kadi"];
+                TextBox2.Text = cerez["sifre"];
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -39,6 +45,17 @@ namespace cydart.Admin
 
                 admin.Ryol = adminCRUD.getir(admin).Ryol;
                 Session["resim"] = admin.Ryol;
+                
+                if (CheckBox1.Checked)
+                {
+                    cerez["kadi"] = TextBox1.Text;
+                    cerez.Expires = DateTime.Now.AddMonths(3);
+                    Response.Cookies.Add(cerez);
+                    cerez["sifre"] = TextBox2.Text;
+                    cerez.Expires = DateTime.Now.AddMonths(3);
+                    Response.Cookies.Add(cerez);
+                }
+
                 Response.Redirect("index.aspx");
             }
             else
