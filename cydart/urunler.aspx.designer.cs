@@ -11,7 +11,7 @@ namespace cydart
 {
 
 
-    public partial class alisveris
+    public partial class urunler
     {
     }
 }

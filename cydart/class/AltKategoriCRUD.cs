@@ -86,5 +86,17 @@ namespace cydart
             db.kapat();
             return altKategori;
         }
+
+        public DataTable filtrele(int gid)
+        {
+            DataTable dt = new DataTable();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select * from AltKategori where Kat_id=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", gid);
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            db.kapat();
+            return dt;
+        }
     }
 }
