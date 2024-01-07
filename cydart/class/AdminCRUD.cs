@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using cydart.Admin;
 
 namespace cydart
 {
@@ -16,9 +17,10 @@ namespace cydart
             bool cevap;
             int kaysay;
             db.ac();
-            SqlCommand komut = new SqlCommand("select count(*) from AdminTbl where Admin_Email=@a and Admin_Sifre=@b", db.baglanti);
+            SqlCommand komut = new SqlCommand("select count(*) from AdminTbl where (Admin_Email=@a or Admin_Kadi=@b) and Admin_Sifre=@c", db.baglanti);
             komut.Parameters.AddWithValue("@a", admin.Email);
-            komut.Parameters.AddWithValue("@b", admin.Sifre);
+            komut.Parameters.AddWithValue("@b", admin.Kadi);
+            komut.Parameters.AddWithValue("@c", admin.Sifre);
             kaysay = Convert.ToInt16(komut.ExecuteScalar());
             if (kaysay == 0)
             {
@@ -37,9 +39,10 @@ namespace cydart
             DataTable dt = new DataTable();
             Adminn bilgi = new Adminn();
             db.ac();
-            SqlCommand komut = new SqlCommand("select * from AdminTbl where Admin_Email=@a and Admin_Sifre=@b", db.baglanti);
+            SqlCommand komut = new SqlCommand("select * from AdminTbl where (Admin_Email=@a or Admin_Kadi=@b) and Admin_Sifre=@c", db.baglanti);
             komut.Parameters.AddWithValue("@a", admin.Email);
-            komut.Parameters.AddWithValue("@b", admin.Sifre);
+            komut.Parameters.AddWithValue("@b", admin.Kadi);
+            komut.Parameters.AddWithValue("@c", admin.Sifre);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);
             bilgi.No = Convert.ToInt16(dt.Rows[0][0]);
@@ -150,6 +153,27 @@ namespace cydart
                 cevap = false;
             }
 
+            db.kapat();
+            return cevap;
+        }
+
+        public bool kayitkontrol(string email, string kadi)
+        {
+            bool cevap;
+            int kaysay;
+            db.ac();
+            SqlCommand komut = new SqlCommand("select count(*) from AdminTbl where Admin_Email=@a or Admin_Kadi=@b", db.baglanti);
+            komut.Parameters.AddWithValue("@a", email);
+            komut.Parameters.AddWithValue("@b", kadi);
+            kaysay = Convert.ToInt16(komut.ExecuteScalar());
+            if (kaysay == 0)
+            {
+                cevap = false;
+            }
+            else
+            {
+                cevap = true;
+            }
             db.kapat();
             return cevap;
         }

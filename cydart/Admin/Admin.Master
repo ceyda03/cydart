@@ -86,6 +86,7 @@
                         <a class="dropdown-item" href="profil.aspx">Profil</a>
                         <a class="dropdown-item" href="#">Ayarlar</a>
                         <a class="dropdown-item" href="#">Etkinlikler</a>
+                        <a class="dropdown-item" href="giris.aspx?cikis=1">Güvenli Çıkış</a>
                     </div>
                 </li>
             </ul>
@@ -99,14 +100,7 @@
                 <!-- nav bar -->
                 <div class="w-100 mb-4 d-flex">
                     <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.aspx">
-                        <img src="assets/images/logo.svg" class="navbar-brand-img" alt="Alternate Text" style="color:#59ab6e" />
-                        <%--<svg version="1.1" id="logo"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
-                            <g>
-                                <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
-                                <polygon class="st0" points="96,69 33,69 42,51 105,51 	" />
-                                <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
-                            </g>
-                        </svg>--%>
+                        <img src="assets/images/logo.svg" class="navbar-brand-img" alt="Alternate Text" />
                     </a>
                 </div>
 
@@ -123,24 +117,27 @@
                     <span>İşlemler</span>
                 </p>
                 <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                            <i class="fe fe-user fe-16"></i>
-                            <span class="ml-3 item-text">Admin</span><span class="sr-only">(current)</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="dashboard">
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="adminekle.aspx">
-                                    <span class="ml-1 item-text">Ekle</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="adminlistele.aspx">
-                                    <span class="ml-1 item-text">Listele</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <%if (Convert.ToInt16(Session["yetki"]) == 0 || Convert.ToInt16(Session["yetki"]) == 1)
+                      {%>
+                        <li class="nav-item dropdown">
+                            <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                                <i class="fe fe-user fe-16"></i>
+                                <span class="ml-3 item-text">Admin</span><span class="sr-only">(current)</span>
+                            </a>
+                            <ul class="collapse list-unstyled pl-4 w-100" id="dashboard">
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="adminekle.aspx">
+                                        <span class="ml-1 item-text">Ekle</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link pl-3" href="adminlistele.aspx">
+                                        <span class="ml-1 item-text">Listele</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    <%} %>
                     
                     <li class="nav-item dropdown">
                         <a href="#ui-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">

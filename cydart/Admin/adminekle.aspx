@@ -4,6 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Admin Kaydı Ekleme</h2>
 
+    <div id="basarili" class="alert alert-success alert-dismissible fade show" role="alert" runat="server">
+        <strong>Kayıt başarılı!</strong> Kayıt başarıyla eklendi
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" role="alert" runat="server">
+        <strong>Hata!</strong> Kullanıcı adı veya email zaten kayıtlı
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <div class="card-deck">
         <div class="card shadow mb-4">
             <div class="card-body">

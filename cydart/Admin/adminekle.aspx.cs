@@ -17,6 +17,9 @@ namespace cydart.Admin
                 DropDownList1.Items.Add("Admin");
                 DropDownList1.Items.Add("Editör");
             }
+
+            basarili.Visible = false;
+            basarisiz.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -29,16 +32,34 @@ namespace cydart.Admin
 
                 Adminn admin = new Adminn(TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, Convert.ToByte(DropDownList1.SelectedIndex), "img/" + sayi + FileUpload1.FileName);
                 AdminCRUD adminCRUD = new AdminCRUD();
-                bool gelen = adminCRUD.ekle(admin);
+                bool kontrol = adminCRUD.kayitkontrol(admin.Email, admin.Kadi);
+                if (kontrol)
+                {
+                    basarisiz.Visible = true;
+                }
+                else
+                {
+                    bool gelen = adminCRUD.ekle(admin);
+                    basarili.Visible = true;
+                    Response.Redirect("adminlistele.aspx");
+                }
             }
             else
             {
                 Adminn admin = new Adminn(TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, Convert.ToByte(DropDownList1.SelectedIndex), "");
                 AdminCRUD adminCRUD = new AdminCRUD();
-                bool gelen = adminCRUD.ekle(admin);
+                bool kontrol = adminCRUD.kayitkontrol(admin.Email, admin.Kadi);
+                if (kontrol)
+                {
+                    basarisiz.Visible = true;
+                }
+                else
+                {
+                    bool gelen = adminCRUD.ekle(admin);
+                    basarili.Visible = true;
+                    Response.Redirect("adminlistele.aspx");
+                }
             }
-
-            Response.Redirect("adminlistele.aspx");
         }
     }
 }

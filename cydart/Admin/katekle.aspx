@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputEmail4">Kategori Resmi</label>
+                    <label for="inputEmail4">Kategori Resmi</label> <br />
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </div>
 

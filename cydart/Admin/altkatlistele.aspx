@@ -2,7 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2 class="page-title">Alt Kategori Listesi</h2>
+    <div class="row">
+        <h2 class="page-title col-9">Alt Kategori Listesi</h2>
+        <span class="col-1">
+            <label>Filtrele:</label>
+        </span>
+        <span class="col-2">
+            <asp:DropDownList ID="DropDownList1" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" runat="server"></asp:DropDownList>
+        </span>
+    </div>
 
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
