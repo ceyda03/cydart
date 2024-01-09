@@ -16,7 +16,7 @@ namespace cydart
             string to = kime;
             MailAddress gonderenmail = new MailAddress("butgemwebtasarim@gmail.com", "Admin");
             MailAddress alicimail = new MailAddress(to, "Müşteri");
-            const string gonderensifre = "bgdk cudp tpvh jzmk";
+            const string gonderensifre = "unie silr vjbw ktcx";
 
             SmtpClient smtp = new SmtpClient();
             System.Net.NetworkCredential networkCredential = new NetworkCredential(gonderenmail.Address, gonderensifre);
@@ -42,7 +42,7 @@ namespace cydart
             string to = kime;
             MailAddress gonderenmail = new MailAddress("butgemwebtasarim@gmail.com", "Admin");
             MailAddress alicimail = new MailAddress(to, "Müşteri");
-            const string gonderensifre = "bgdk cudp tpvh jzmk";
+            const string gonderensifre = "unie silr vjbw ktcx";
 
             SmtpClient smtp = new SmtpClient();
             System.Net.NetworkCredential networkCredential = new NetworkCredential(gonderenmail.Address, gonderensifre);
@@ -56,6 +56,58 @@ namespace cydart
             MailMessage message = new MailMessage(gonderenmail, alicimail);
             string mailbody = "Öneriniz için teşekkürler! Geri bildirimleriniz bizim için çok değerli. Hizmetimizi ilettiğiniz ayrıntılara göre geliştirmek için elimizden geleni yapacağız.";
             message.Subject = "Öneriniz İçin Teşekkürler!";
+            message.Body = mailbody;
+            message.BodyEncoding = Encoding.UTF8;
+            message.IsBodyHtml = true;
+
+            smtp.Send(message);
+        }
+
+        public void sikayetcevapla(string kime)
+        {
+            string to = kime;
+            MailAddress gonderenmail = new MailAddress("butgemwebtasarim@gmail.com", "Admin");
+            MailAddress alicimail = new MailAddress(to, "Müşteri");
+            const string gonderensifre = "unie silr vjbw ktcx";
+
+            SmtpClient smtp = new SmtpClient();
+            System.Net.NetworkCredential networkCredential = new NetworkCredential(gonderenmail.Address, gonderensifre);
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = networkCredential;
+
+            MailMessage message = new MailMessage(gonderenmail, alicimail);
+            string mailbody = "Sorun yaşamanıza üzüldük. Şikayetiniz bize ulaştı. Çözüm için çalışmalara başladık. En kısa zamanda size haber vereceğiz.";
+            message.Subject = "Şikayetiniz Tarafımıza Ulaştı!";
+            message.Body = mailbody;
+            message.BodyEncoding = Encoding.UTF8;
+            message.IsBodyHtml = true;
+
+            smtp.Send(message);
+        }
+
+        public void yorumcevapla(string kime)
+        {
+            string to = kime;
+            MailAddress gonderenmail = new MailAddress("butgemwebtasarim@gmail.com", "Admin");
+            MailAddress alicimail = new MailAddress(to, "Müşteri");
+            const string gonderensifre = "unie silr vjbw ktcx";
+
+            SmtpClient smtp = new SmtpClient();
+            System.Net.NetworkCredential networkCredential = new NetworkCredential(gonderenmail.Address, gonderensifre);
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = networkCredential;
+
+            MailMessage message = new MailMessage(gonderenmail, alicimail);
+            string mailbody = "Yorumunuz için teşekkürler! Geri bildirimleriniz bizim için çok değerli.";
+            message.Subject = "Yorumunuz İçin Teşekkürler!";
             message.Body = mailbody;
             message.BodyEncoding = Encoding.UTF8;
             message.IsBodyHtml = true;
