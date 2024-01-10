@@ -12,6 +12,8 @@ namespace cydart
     {
         Db db = new Db();
 
+        Sifre sifre = new Sifre();
+
         public bool kontrol(Adminn admin)
         {
             bool cevap;
@@ -20,7 +22,7 @@ namespace cydart
             SqlCommand komut = new SqlCommand("select count(*) from AdminTbl where (Admin_Email=@a or Admin_Kadi=@b) and Admin_Sifre=@c", db.baglanti);
             komut.Parameters.AddWithValue("@a", admin.Email);
             komut.Parameters.AddWithValue("@b", admin.Kadi);
-            komut.Parameters.AddWithValue("@c", admin.Sifre);
+            komut.Parameters.AddWithValue("@c", sifre.sifrele(admin.Sifre));
             kaysay = Convert.ToInt16(komut.ExecuteScalar());
             if (kaysay == 0)
             {
@@ -42,7 +44,7 @@ namespace cydart
             SqlCommand komut = new SqlCommand("select * from AdminTbl where (Admin_Email=@a or Admin_Kadi=@b) and Admin_Sifre=@c", db.baglanti);
             komut.Parameters.AddWithValue("@a", admin.Email);
             komut.Parameters.AddWithValue("@b", admin.Kadi);
-            komut.Parameters.AddWithValue("@c", admin.Sifre);
+            komut.Parameters.AddWithValue("@c", sifre.sifrele(admin.Sifre));
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);
             bilgi.No = Convert.ToInt16(dt.Rows[0][0]);
@@ -73,7 +75,7 @@ namespace cydart
             admin.Soyad = dt.Rows[0][3].ToString();
             admin.Email = dt.Rows[0][4].ToString();
             admin.Tel = dt.Rows[0][5].ToString();
-            admin.Sifre = dt.Rows[0][6].ToString();
+            admin.Sifre = sifre.sifreyicoz(dt.Rows[0][6].ToString());
             admin.Yetki = Convert.ToByte(dt.Rows[0][7]);
             admin.Ryol = dt.Rows[0][8].ToString();
             db.kapat();
@@ -90,7 +92,7 @@ namespace cydart
             komut.Parameters.AddWithValue("@soyad", admin.Soyad);
             komut.Parameters.AddWithValue("@mail", admin.Email);
             komut.Parameters.AddWithValue("@tel", admin.Tel);
-            komut.Parameters.AddWithValue("@sfr", admin.Sifre);
+            komut.Parameters.AddWithValue("@sfr", sifre.sifrele(admin.Sifre));
             komut.Parameters.AddWithValue("@yetki", admin.Yetki);
             komut.Parameters.AddWithValue("@yol", admin.Ryol);
             int sonuc = komut.ExecuteNonQuery();
