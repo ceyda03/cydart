@@ -12,11 +12,20 @@ namespace cydart.Admin
         HttpCookie cerez = new HttpCookie("bilgi");
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["bilgi"] != null)
+            if (Request.QueryString["cikis"] != null)
             {
-                cerez = Request.Cookies["bilgi"];
-                TextBox1.Text = cerez["kadi"];
-                TextBox2.Text = cerez["sifre"];
+                Session.Abandon();
+                Session.RemoveAll();
+                Response.Redirect("giris.aspx");
+            }
+
+            if(!IsPostBack)
+            {
+                if (Request.Cookies["bilgi"] != null)
+                {
+                    cerez = Request.Cookies["bilgi"];
+                    TextBox1.Text = cerez["kadi"];
+                }
             }
         }
 
@@ -24,6 +33,7 @@ namespace cydart.Admin
         {
             Adminn admin = new Adminn();
             admin.Email = TextBox1.Text;
+            admin.Kadi = TextBox1.Text;
             admin.Sifre = TextBox2.Text;
             AdminCRUD adminCRUD = new AdminCRUD();
             bool sonuc = adminCRUD.kontrol(admin);
@@ -51,16 +61,13 @@ namespace cydart.Admin
                     cerez["kadi"] = TextBox1.Text;
                     cerez.Expires = DateTime.Now.AddMonths(3);
                     Response.Cookies.Add(cerez);
-                    cerez["sifre"] = TextBox2.Text;
-                    cerez.Expires = DateTime.Now.AddMonths(3);
-                    Response.Cookies.Add(cerez);
                 }
 
                 Response.Redirect("index.aspx");
             }
             else
             {
-                mesaj.InnerHtml = "Email ya da şifre hatalı";
+                mesaj.Visible = true;
             }
         }
     }

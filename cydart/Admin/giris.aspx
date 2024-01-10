@@ -32,8 +32,8 @@
                 </a>
                 <h1 class="h6 mb-3">Giriş Yap</h1>
                 <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Email</label>
-                    <asp:TextBox ID="TextBox1" TextMode="Email" CssClass="form-control form-control-lg" Placeholder="Email" runat="server" ></asp:TextBox>
+                    <label for="inputEmail" class="sr-only">Email ya da Kullanıcı Adı</label>
+                    <asp:TextBox ID="TextBox1" CssClass="form-control form-control-lg" Placeholder="Email ya da Kullanıcı Adı" runat="server" ></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Şifre</label>
@@ -45,8 +45,13 @@
                         Beni Hatırla
                     </label>
                 </div>
-                <asp:Button ID="Button1" CssClass="btn btn-lg btn-primary btn-block" runat="server" Text="Giriş Yap" OnClick="Button1_Click" />
-                <div id="mesaj" runat="server"></div>
+                <asp:Button ID="Button1" CssClass="btn btn-lg btn-primary btn-block mb-3" runat="server" Text="Giriş Yap" OnClick="Button1_Click" />
+                <div class="form-group">
+                    <a href="sifremiunuttum.aspx">Şifremi Unuttum</a>
+                </div>
+                <div id="mesaj" class="alert alert-danger" role="alert" runat="server" visible="false">
+                    Yanlış email/kullanıcı adı veya şifre
+                </div>
                 <p class="mt-5 mb-3 text-muted">© 2020</p>
             </form>
         </div>
