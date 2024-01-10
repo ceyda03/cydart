@@ -144,7 +144,7 @@ namespace cydart
             komut.Parameters.AddWithValue("@b", ysoyad);
             komut.Parameters.AddWithValue("@mail", ymail);
             komut.Parameters.AddWithValue("@tel", ytel);
-            komut.Parameters.AddWithValue("@sfr", ysifre);
+            komut.Parameters.AddWithValue("@sfr", sifre.sifrele(ysifre));
             komut.Parameters.AddWithValue("@yetki", yyetki);
             komut.Parameters.AddWithValue("@yol", yresim);
             komut.Parameters.AddWithValue("@id", gid);
