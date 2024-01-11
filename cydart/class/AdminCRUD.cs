@@ -159,7 +159,7 @@ namespace cydart
             return cevap;
         }
 
-        public bool kayitkontrol(string email, string kadi)
+        public bool eklemekontrol(string email, string kadi)
         {
             bool cevap;
             int kaysay;
@@ -167,6 +167,28 @@ namespace cydart
             SqlCommand komut = new SqlCommand("select count(*) from AdminTbl where Admin_Email=@a or Admin_Kadi=@b", db.baglanti);
             komut.Parameters.AddWithValue("@a", email);
             komut.Parameters.AddWithValue("@b", kadi);
+            kaysay = Convert.ToInt16(komut.ExecuteScalar());
+            if (kaysay == 0)
+            {
+                cevap = false;
+            }
+            else
+            {
+                cevap = true;
+            }
+            db.kapat();
+            return cevap;
+        }
+
+        public bool guncellemekontrol(int id, string email, string kadi)
+        {
+            bool cevap;
+            int kaysay;
+            db.ac();
+            SqlCommand komut = new SqlCommand("select count(*) from AdminTbl where (Admin_Email=@a or Admin_Kadi=@b) and Admin_No!=@c", db.baglanti);
+            komut.Parameters.AddWithValue("@a", email);
+            komut.Parameters.AddWithValue("@b", kadi);
+            komut.Parameters.AddWithValue("@c", id);
             kaysay = Convert.ToInt16(komut.ExecuteScalar());
             if (kaysay == 0)
             {

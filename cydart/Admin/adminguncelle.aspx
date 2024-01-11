@@ -4,6 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Admin Kaydı Güncelleme</h2>
 
+    <div id="basarili" class="alert alert-success alert-dismissible fade show" role="alert" runat="server">
+        <strong>Kayıt başarılı!</strong> Kayıt başarıyla güncellendi
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" role="alert" runat="server">
+        <strong>Hata!</strong> Kullanıcı adı veya email zaten kayıtlı
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <%
         int gid = Convert.ToInt16(Request.QueryString["gunid"]);
         cydart.AdminCRUD adminCRUD = new cydart.AdminCRUD();

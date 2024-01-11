@@ -32,7 +32,7 @@ namespace cydart.Admin
 
                 Adminn admin = new Adminn(TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, Convert.ToByte(DropDownList1.SelectedIndex), "img/" + sayi + FileUpload1.FileName);
                 AdminCRUD adminCRUD = new AdminCRUD();
-                bool kontrol = adminCRUD.kayitkontrol(admin.Email, admin.Kadi);
+                bool kontrol = adminCRUD.eklemekontrol(admin.Email, admin.Kadi);
                 if (kontrol)
                 {
                     basarisiz.Visible = true;
@@ -48,7 +48,7 @@ namespace cydart.Admin
             {
                 Adminn admin = new Adminn(TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, Convert.ToByte(DropDownList1.SelectedIndex), "");
                 AdminCRUD adminCRUD = new AdminCRUD();
-                bool kontrol = adminCRUD.kayitkontrol(admin.Email, admin.Kadi);
+                bool kontrol = adminCRUD.eklemekontrol(admin.Email, admin.Kadi);
                 if (kontrol)
                 {
                     basarisiz.Visible = true;
