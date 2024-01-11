@@ -2,56 +2,71 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- Start Content Page -->
-    <div class="container-fluid bg-light py-5">
-        <div class="col-md-6 m-auto text-center">
-            <h1 class="h1">Bize Ulaşın</h1>
-            <p>
-                Aşağıdaki formu doldurarak her türlü öneri, yorum ve şikayetinizi bize iletebilirsiniz.
-            </p>
+    <div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Ana Sayfa /</a></span> <span>İletişim</span></p>
+                    <h1 class="mb-0 bread">Bize Ulaşın</h1>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Start Contact -->
-    <div class="container py-5">
-        <div class="row py-5">
-            <form class="col-md-9 m-auto" method="post" role="form">
-                <div class="row">
-                    <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Ad</label>
-                        <asp:TextBox ID="TextBox1" CssClass="form-control mt-1" placeholder="Ad" runat="server"></asp:TextBox>
-                        <%--<input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">--%>
-                    </div>
-                    <div class="form-group col-md-6 mb-3">
-                        <label for="inputemail">Email</label>
-                        <asp:TextBox ID="TextBox2" CssClass="form-control mt-1" placeholder="Email" runat="server"></asp:TextBox>
-                        <%--<input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">--%>
+    <section class="ftco-section contact-section bg-light">
+        <div class="container">
+            <div class="row d-flex mb-5 contact-info">
+                <div class="w-100"></div>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Adres:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="inputsubject">Konu</label>
-                    <asp:DropDownList ID="DropDownList1" CssClass="form-select" runat="server"></asp:DropDownList>
-                    <%--<input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">--%>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Telefon:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="inputmessage">Mesaj</label>
-                    <asp:TextBox ID="TextBox3" CssClass="form-control mt-1" placeholder="Mesajınız" runat="server"></asp:TextBox>
-                    <%--<textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>--%>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-8 mt-2">
-                        <div id="yorumyollandi" class="alert alert-success alert-dismissible fade show" role="alert" runat="server" visible="false">
-                          <strong>Geri bildiriminiz için teşekkürler!</strong> Mesajınız sitemize ulaştı
-                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="col-md-3 d-flex">
+                    <div class="info bg-white p-4">
+                        <p><span>Website:</span> <a href="#">yoursite.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row block-9">
+                <div class="col-md-12 order-md-last d-flex">
+                    <div class="bg-white p-5 contact-form">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Adınız" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <asp:TextBox ID="TextBox2" CssClass="form-control" placeholder="Email Adresiniz" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="TextBox3" CssClass="form-control" placeholder="Mesajınız" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="row">
+                            <div class="form-group mr-5">
+                                <asp:Button ID="Button1" runat="server" class="btn btn-primary py-3 px-5" Text="Gönder" OnClick="Button1_Click" />
+                            </div>
+                            <div id="yollandi" class="alert alert-success alert-dismissible fade show" role="alert" runat="server" visible="false">
+                                <strong>Geri bildiriminiz için teşekkürler!</strong> Mesajınız sitemize ulaştı
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col text-end mt-2">
-                        <asp:Button ID="Button1" CssClass="btn btn-success btn-lg px-3" runat="server" Text="Gönder" OnClick="Button1_Click" />
-                        <%--<button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>--%>
-                    </div>
-                </div>
-            </form>
+                </div> 
+            </div>
         </div>
-    </div>
-    <!-- End Contact -->
+    </section> 
 </asp:Content>

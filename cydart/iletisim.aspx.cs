@@ -25,8 +25,8 @@ namespace cydart
             YorumCRUD yorumCRUD = new YorumCRUD();
             bool sonuc = yorumCRUD.ekle(yorum);
             if (sonuc)
-            { 
-                yorumyollandi.Visible = true;
+            {
+                yollandi.Visible = true;
             }
         }
     }
