@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.html" />
+    <Content Include="Admin\markaekle.aspx" />
+    <Content Include="Admin\markaguncelle.aspx" />
+    <Content Include="Admin\markalistele.aspx" />
+    <Content Include="bic.png" />
     <Content Include="blog-single.html" />
     <Content Include="blog.html" />
     <Content Include="cart.html" />
@@ -91,6 +95,7 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\owl.theme.default.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="faber-castell.png" />
     <Content Include="fonts\flaticon\backup.txt" />
     <Content Include="fonts\flaticon\font\flaticon.css" />
     <Content Include="fonts\flaticon\font\flaticon.html" />
@@ -361,6 +366,7 @@
     <Content Include="assets\webfonts\fa-regular-400.svg" />
     <Content Include="assets\webfonts\fa-solid-900.svg" />
     <Content Include="assets\webfonts\slick.svg" />
+    <Content Include="urunler.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -448,6 +454,27 @@
     <Compile Include="Admin\katlistele.aspx.designer.cs">
       <DependentUpon>katlistele.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\markaekle.aspx.cs">
+      <DependentUpon>markaekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\markaekle.aspx.designer.cs">
+      <DependentUpon>markaekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\markaguncelle.aspx.cs">
+      <DependentUpon>markaguncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\markaguncelle.aspx.designer.cs">
+      <DependentUpon>markaguncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\markalistele.aspx.cs">
+      <DependentUpon>markalistele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\markalistele.aspx.designer.cs">
+      <DependentUpon>markalistele.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\musekle.aspx.cs">
       <DependentUpon>musekle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -512,6 +539,8 @@
     <Compile Include="class\Email.cs" />
     <Compile Include="class\Kategori.cs" />
     <Compile Include="class\KategoriCRUD.cs" />
+    <Compile Include="class\Marka.cs" />
+    <Compile Include="class\MarkaCRUD.cs" />
     <Compile Include="class\Sifre.cs" />
     <Compile Include="class\Yorum.cs" />
     <Compile Include="class\YorumCRUD.cs" />
@@ -536,6 +565,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="urunler.aspx.cs">
+      <DependentUpon>urunler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="urunler.aspx.designer.cs">
+      <DependentUpon>urunler.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

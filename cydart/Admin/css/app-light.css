@@ -144,9 +144,10 @@ a {
   color: #59ab6e;
   text-decoration: none;
   background-color: transparent; }
-  a:hover {
-    color: #0045ce;
-    text-decoration: underline; }
+    a:hover {
+        color: #315e3c;
+        text-decoration: underline;
+    }
 
 a:not([href]) {
   color: inherit;
@@ -4831,7 +4832,9 @@ button.bg-dark:focus {
   border-radius: 0.3rem !important; }
 
 .rounded-circle {
-  border-radius: 50% !important; }
+  border-radius: 50% !important;
+  aspect-ratio: 1;
+}
 
 .rounded-pill {
   border-radius: 50rem !important; }

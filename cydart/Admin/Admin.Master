@@ -178,6 +178,25 @@
                     </li>
                     
                     <li class="nav-item dropdown">
+                        <a href="#contact" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-tag fe-16"></i>
+                            <span class="ml-3 item-text">Marka</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="contact">
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="markaekle.aspx">
+                                    <span class="ml-1 item-text">Ekle</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="markalistele.aspx">
+                                    <span class="ml-1 item-text">Listele</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
                         <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-grid fe-16"></i>
                             <span class="ml-3 item-text">Ürün</span>

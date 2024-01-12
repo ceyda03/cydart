@@ -8645,10 +8645,11 @@ h1, h2, h3, h4, h5,
             .owl-carousel.home-slider .slider-item .slider-text p {
               color: rgba(255, 255, 255, 0.7);
               font-size: 23px; } }
-        .owl-carousel.home-slider .slider-item .slider-text .btn-custom {
-          color: #fff;
-          background: #c2a942;
-          padding: 10px 20px; }
+.owl-carousel.home-slider .slider-item .slider-text .btn-custom {
+    color: #fff;
+    background: #266336;
+    padding: 10px 20px;
+}
     .owl-carousel.home-slider .owl-nav {
       position: absolute;
       bottom: 60px !important;
