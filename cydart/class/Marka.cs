@@ -8,10 +8,10 @@ namespace cydart
 
     public class Marka
     {
-        int id;
+        int no;
         string ad, resim;
 
-        public int Id { get => id; set => id = value; }
+        public int No { get => no; set => no = value; }
         public string Ad { get => ad; set => ad = value; }
         public string Resim { get => resim; set => resim = value; }
 
@@ -21,11 +21,6 @@ namespace cydart
         {
             Ad = ad;
             Resim = resim;
-        }
-
-        public static implicit operator Marka(Kategori v)
-        {
-            throw new NotImplementedException();
         }
     }
 }
