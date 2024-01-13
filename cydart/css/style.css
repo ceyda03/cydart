@@ -8518,11 +8518,12 @@ h1, h2, h3, h4, h5,
         outline: none !important; }
       .owl-carousel .owl-dots .owl-dot.active {
         background: #b3b3b3; }
-  .owl-carousel.home-slider {
-    position: relative;
-    height: 750px;
-    z-index: 0;
-    background: #59ab6e; }
+    .owl-carousel.home-slider {
+        position: relative;
+        height: 750px;
+        z-index: 0;
+        background: #cceedd;
+    }
     .owl-carousel.home-slider .slider-item {
       background-size: cover;
       background-repeat: no-repeat;
