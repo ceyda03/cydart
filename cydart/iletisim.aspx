@@ -46,14 +46,14 @@
                                 <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Adınız" runat="server"></asp:TextBox>
                             </div>
                             <div class="form-group col-md-6">
-                                <asp:TextBox ID="TextBox2" CssClass="form-control" placeholder="Email Adresiniz" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox2" CssClass="form-control" TextMode="Email" placeholder="Email Adresiniz" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
                             <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="TextBox3" CssClass="form-control" placeholder="Mesajınız" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox3" CssClass="form-control" TextMode="MultiLine" Rows="7" Columns="30" placeholder="Mesajınız" runat="server"></asp:TextBox>
                         </div>
                         <div class="row">
                             <div class="form-group mr-5">
