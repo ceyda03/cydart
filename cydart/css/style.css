@@ -9639,11 +9639,11 @@ textarea.form-control {
 
 .gallery {
   display: block;
-  height: 270px;
+  height: 200px;
   position: relative; }
   .gallery .icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin: 0 auto;
     z-index: 0;
     opacity: 0;

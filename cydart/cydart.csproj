@@ -124,6 +124,7 @@
     <Content Include="images\image_3.jpg" />
     <Content Include="images\image_5.jpg" />
     <Content Include="images\image_6.jpg" />
+    <Content Include="images\kalemler.png" />
     <Content Include="images\person_1.jpg" />
     <Content Include="images\person_2.jpg" />
     <Content Include="images\person_3.jpg" />
@@ -142,6 +143,7 @@
     <Content Include="images\product-6.png" />
     <Content Include="images\product-7.png" />
     <Content Include="images\product-8.png" />
+    <Content Include="images\siyah-kalemler.png" />
     <Content Include="index.aspx" />
     <Content Include="index.html" />
     <Content Include="js\aos.js" />

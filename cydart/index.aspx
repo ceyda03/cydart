@@ -9,15 +9,15 @@
                 <div class="overlay"></div>
                 <div class="container-fluid p-0">
                     <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                        <img class="one-third order-md-last img-fluid" src="images/bg_1.png" alt="">
+                        <img class="order-md-last img-fluid" src="images/kalemler.png" alt="">
                         <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
                             <div class="text">
-                                <span class="subheading">#New Arrival</span>
+                                <span class="subheading">#Yeni Gelenler</span>
                                 <div class="horizontal">
-                                    <h1 class="mb-4 mt-3">Shoes Collection 2019</h1>
-                                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+                                    <h1 class="mb-4 mt-3">Capcanlı renkleriyle marker kalemler</h1>
+                                    <p class="mb-4">En kaliteli markaların en sevilen kalemleri</p>
 			            
-                                    <p><a href="#" class="btn-custom">Discover Now</a></p>
+                                    <p><a href="#" class="btn-custom">Şimdi Keşfet</a></p>
                                 </div>
                             </div>
                         </div>
@@ -29,15 +29,15 @@
                 <div class="overlay"></div>
                 <div class="container-fluid p-0">
                     <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                        <img class="one-third order-md-last img-fluid" src="images/bg_2.png" alt="">
+                        <img class="one-third order-md-last img-fluid" src="images/siyah-kalemler.png" alt="">
                         <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
                             <div class="text">
-                                <span class="subheading">#New Arrival</span>
+                                <span class="subheading">#Çok Satanlar</span>
                                 <div class="horizontal">
-                                    <h1 class="mb-4 mt-3">New Shoes Winter Collection</h1>
-                                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+                                    <h1 class="mb-4 mt-3">Çizim yapan herkesin favorisi</h1>
+                                    <p class="mb-4">Tüm kullananların vazgeçilmezleri, en uygun fiyatlarla</p>
 			            
-                                    <p><a href="#" class="btn-custom">Discover Now</a></p>
+                                    <p><a href="#" class="btn-custom">Şimdi Keşfet</a></p>
                                 </div>
                             </div>
                         </div>
@@ -195,56 +195,30 @@
     <section class="ftco-gallery">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8 heading-section text-center mb-4 ftco-animate">
-                    <h2 class="mb-4">Follow Us On Instagram</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+                <div class="col-md-8 heading-section text-center my-4 ftco-animate">
+                    <h2 class="mb-4">Satıştaki Markalar</h2>
                 </div>
             </div>
         </div>
+        <%            
+            cydart.MarkaCRUD markaCRUD = new cydart.MarkaCRUD();
+            System.Data.DataTable markalar = markaCRUD.listele();
+        %>
         <div class="container-fluid px-0">
             <div class="row no-gutters">
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(faber-castell.png);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
+                <%for (int i = 0; i < 7; i++)
+                  {
+                      if (markalar.Rows[i][2].ToString() != "")
+                      {%>
+                        <div class="col-md-4 col-lg-2 ftco-animate">
+                            <a href="#" class="gallery image-popup img d-flex align-items-center" style="background-image: url(Admin/<% =markalar.Rows[i][2] %>);">
+                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                    <span style="text-align:center;"><% =markalar.Rows[i][1] %></span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(bic.png);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-3.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-4.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="images/gallery-5.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-5.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-lg-2 ftco-animate">
-                    <a href="images/gallery-6.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-6.jpg);">
-                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                            <span class="icon-instagram"></span>
-                        </div>
-                    </a>
-                </div>
+                      <%}
+                  } %>
             </div>
         </div>
     </section>
