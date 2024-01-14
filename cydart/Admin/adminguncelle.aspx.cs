@@ -43,7 +43,7 @@ namespace cydart.Admin
                 }
                 else
                 {
-                    adminCRUD.guncelle(Convert.ToInt16(TextBox7.Text), TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, Convert.ToByte(DropDownList1.SelectedIndex), "img/" + sayi + FileUpload1.FileName);
+                    adminCRUD.guncelle(Convert.ToInt16(TextBox7.Text), TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, Convert.ToByte(DropDownList1.SelectedIndex), "img/" + sayi + FileUpload1.FileName);
                     basarili.Visible = true;
                 }
             }
@@ -58,7 +58,7 @@ namespace cydart.Admin
                 }
                 else
                 {
-                    adminCRUD.guncelle(Convert.ToInt16(TextBox7.Text), TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, Convert.ToByte(DropDownList1.SelectedIndex), admin.Ryol);
+                    adminCRUD.guncelle(Convert.ToInt16(TextBox7.Text), TextBox6.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, Convert.ToByte(DropDownList1.SelectedIndex), admin.Ryol);
                     basarili.Visible = true;
                 }
             }

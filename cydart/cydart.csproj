@@ -533,19 +533,21 @@
     <Compile Include="Admin\urunlistele.aspx.designer.cs">
       <DependentUpon>urunlistele.aspx</DependentUpon>
     </Compile>
-    <Compile Include="class\AdminCRUD.cs" />
-    <Compile Include="class\Adminn.cs" />
-    <Compile Include="class\AltKategori.cs" />
-    <Compile Include="class\AltKategoriCRUD.cs" />
-    <Compile Include="class\Db.cs" />
-    <Compile Include="class\Email.cs" />
-    <Compile Include="class\Kategori.cs" />
-    <Compile Include="class\KategoriCRUD.cs" />
-    <Compile Include="class\Marka.cs" />
-    <Compile Include="class\MarkaCRUD.cs" />
-    <Compile Include="class\Sifre.cs" />
-    <Compile Include="class\Yorum.cs" />
-    <Compile Include="class\YorumCRUD.cs" />
+    <Compile Include="Class\AdminCRUD.cs" />
+    <Compile Include="Class\Adminn.cs" />
+    <Compile Include="Class\AltKategori.cs" />
+    <Compile Include="Class\AltKategoriCRUD.cs" />
+    <Compile Include="Class\Db.cs" />
+    <Compile Include="Class\Email.cs" />
+    <Compile Include="Class\Kategori.cs" />
+    <Compile Include="Class\KategoriCRUD.cs" />
+    <Compile Include="Class\Marka.cs" />
+    <Compile Include="Class\MarkaCRUD.cs" />
+    <Compile Include="Class\Sifre.cs" />
+    <Compile Include="Class\Urun.cs" />
+    <Compile Include="Class\UrunCRUD.cs" />
+    <Compile Include="Class\Yorum.cs" />
+    <Compile Include="Class\YorumCRUD.cs" />
     <Compile Include="iletisim.aspx.cs">
       <DependentUpon>iletisim.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

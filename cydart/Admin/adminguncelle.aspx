@@ -23,7 +23,7 @@
         TextBox2.Text = admin.Soyad;
         TextBox3.Text = admin.Email;
         TextBox4.Text = admin.Tel;
-        TextBox5.Text = admin.Sifre;
+        //TextBox5.Text = admin.Sifre;
         DropDownList1.SelectedIndex = admin.Yetki;
     %>
 
@@ -60,10 +60,10 @@
                     <asp:TextBox ID="TextBox4" CssClass="form-control" placeholder="Telefon" runat="server"></asp:TextBox>
                 </div>
 
-                <div class="form-group">
+                <%--<div class="form-group">
                     <label for="inputPassword4">Şifre</label>
                     <asp:TextBox ID="TextBox5" CssClass="form-control" placeholder="Şifre" runat="server"></asp:TextBox>
-                </div>
+                </div>--%>
 
                 <div class="form-group">
                     <label for="inputAddress">Yetki</label>

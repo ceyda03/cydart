@@ -134,17 +134,17 @@ namespace cydart
             return cevap;
         }
 
-        public bool guncelle(int gid, string ykadi, string yad, string ysoyad, string ymail, string ytel, string ysifre, byte yyetki, string yresim)
+        public bool guncelle(int gid, string ykadi, string yad, string ysoyad, string ymail, string ytel, byte yyetki, string yresim)
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("update AdminTbl set Admin_Kadi=@kadi, Admin_Ad=@a, Admin_Soyad=@b, Admin_Email=@mail, Admin_Tel=@tel, Admin_Sifre=@sfr, Yetki=@yetki, Admin_Resim=@yol where Admin_No=@id", db.baglanti);
+            SqlCommand komut = new SqlCommand("update AdminTbl set Admin_Kadi=@kadi, Admin_Ad=@a, Admin_Soyad=@b, Admin_Email=@mail, Admin_Tel=@tel, Yetki=@yetki, Admin_Resim=@yol where Admin_No=@id", db.baglanti);
             komut.Parameters.AddWithValue("@kadi", ykadi);
             komut.Parameters.AddWithValue("@a", yad);
             komut.Parameters.AddWithValue("@b", ysoyad);
             komut.Parameters.AddWithValue("@mail", ymail);
             komut.Parameters.AddWithValue("@tel", ytel);
-            komut.Parameters.AddWithValue("@sfr", sifre.sifrele(ysifre));
+            //komut.Parameters.AddWithValue("@sfr", sifre.sifrele(ysifre));
             komut.Parameters.AddWithValue("@yetki", yyetki);
             komut.Parameters.AddWithValue("@yol", yresim);
             komut.Parameters.AddWithValue("@id", gid);

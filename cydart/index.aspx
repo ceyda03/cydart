@@ -191,7 +191,7 @@
     <!-- products end -->
 
 
-    <!-- gallery (brands) start -->
+    <!-- brands start -->
     <section class="ftco-gallery">
         <div class="container">
             <div class="row justify-content-center">
@@ -222,5 +222,5 @@
             </div>
         </div>
     </section>
-    <!-- gallery (brands) end -->
+    <!-- brands end -->
 </asp:Content>

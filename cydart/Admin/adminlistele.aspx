@@ -25,7 +25,7 @@
                                 <th>Soyad</th>
                                 <th>Email</th>
                                 <th>Telefon</th>
-                                <th>Şifre</th>
+                                <%--<th>Şifre</th>--%>
                                 <th>Yetki</th>
                                 <th>İşlemler</th>
                             </tr>
@@ -53,7 +53,7 @@
                                     <td><% =tablo.Rows[i][3] %></td>
                                     <td><% =tablo.Rows[i][4] %></td>
                                     <td><% =tablo.Rows[i][5] %></td>
-                                    <td><% =tablo.Rows[i][6] %></td>
+                                    <%--<td><% =tablo.Rows[i][6] %></td>--%>
                                     <td><% =tablo.Rows[i][7] %></td>
                                     <td>
                                         <button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
