@@ -21,7 +21,7 @@ namespace cydart.Admin
                 for (int i = 0; i < kategoriler.Rows.Count; i++)
                 {
                     DropDownList1.Items.Add(kategoriler.Rows[i][1].ToString());
-                    DropDownList1.Items[i].Value = kategoriler.Rows[i][0].ToString();
+                    DropDownList1.Items[i + 1].Value = kategoriler.Rows[i][0].ToString();
                 }
 
                 MarkaCRUD markaCRUD = new MarkaCRUD();
@@ -39,15 +39,18 @@ namespace cydart.Admin
         {
             DropDownList2.Items.Clear();
 
-            byte kat = Convert.ToByte(DropDownList1.SelectedValue);
-
-            AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
-            DataTable altkategoriler = altKategoriCRUD.filtrele(kat);
-
-            for (int i = 0; i < altkategoriler.Rows.Count; i++)
+            if (DropDownList1.SelectedIndex != 0)
             {
-                DropDownList2.Items.Add(altkategoriler.Rows[i][1].ToString());
-                DropDownList2.Items[i].Value = altkategoriler.Rows[i][0].ToString();
+                byte kat = Convert.ToByte(DropDownList1.SelectedValue);
+
+                AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
+                DataTable altkategoriler = altKategoriCRUD.filtrele(kat);
+
+                for (int i = 0; i < altkategoriler.Rows.Count; i++)
+                {
+                    DropDownList2.Items.Add(altkategoriler.Rows[i][1].ToString());
+                    DropDownList2.Items[i].Value = altkategoriler.Rows[i][0].ToString();
+                }
             }
         }
 
