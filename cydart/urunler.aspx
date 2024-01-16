@@ -13,47 +13,65 @@
         </div>
     </div>
 
+    <%
+        cydart.Class.UrunCRUD urunCRUD = new cydart.Class.UrunCRUD();
+        System.Data.DataTable urunler = new System.Data.DataTable();
+
+        if (Request.QueryString["secim"] != null)
+        {
+            int gid = Convert.ToInt16(Request.QueryString["secim"]);
+            urunler = urunCRUD.secimlistele(gid);
+        }
+        else
+        {
+            urunler = urunCRUD.listele();
+        }
+    %>
+
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-lg-10 order-md-last">
                     <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
-                            <div class="product d-flex flex-column">
-                                <a href="#" class="img-prod">
-                                    <img class="img-fluid" src="images/product-1.png" alt="Colorlib Template">
-                                    <div class="overlay"></div>
-                                </a>
-                                <div class="text py-3 pb-4 px-3">
-                                    <div class="d-flex">
-                                        <div class="cat">
-                                            <span>Lifestyle</span>  
+                        <%for (int i = 0; i < urunler.Rows.Count; i++)
+                          {%>
+                            <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
+                                <div class="product d-flex flex-column">
+                                    <a href="#" class="img-prod">
+                                        <img class="img-fluid" src="Admin/<% =urunler.Rows[i][8] %>" alt="Colorlib Template">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="text py-3 pb-4 px-3">
+                                        <div class="d-flex">
+                                            <div class="cat">
+                                                <span><% =urunler.Rows[i][6] %></span>  
+                                            </div>
+                                            <div class="rating">
+                                                <p class="text-right mb-0">
+                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div class="rating">
-                                            <p class="text-right mb-0">
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                            </p>
+                                        <h3><a href="#"><% =urunler.Rows[i][1] %></a></h3>
+                                        <div class="pricing">
+                                            <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][4]).ToString("0.##") %>₺</span></p>
                                         </div>
+                                        <p class="bottom-area d-flex px-3">
+                                            <a href="#" class="add-to-cart text-center py-2 mr-1">
+                                                <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
+                                            </a>
+                                            <a href="#" class="buy-now text-center py-2">
+                                                Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
+                                            </a>
+                                        </p>
                                     </div>
-                                    <h3><a href="#">Nike Free RN 2019 iD</a></h3>
-                                    <div class="pricing">
-                                        <p class="price"><span>$120.00</span></p>
-                                    </div>
-                                    <p class="bottom-area d-flex px-3">
-                                        <a href="#" class="add-to-cart text-center py-2 mr-1">
-                                            <span>Add to cart <i class="ion-ios-add ml-1"></i></span>
-                                        </a>
-                                        <a href="#" class="buy-now text-center py-2">
-                                            Buy now<span><i class="ion-ios-cart ml-1"></i></span>
-                                        </a>
-                                    </p>
                                 </div>
                             </div>
-                        </div>
+                        <%} %>
                     </div>
                     <div class="row mt-5">
                         <div class="col text-center">
@@ -70,7 +88,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
 
                 <%
                     cydart.KategoriCRUD kategoriCRUD = new cydart.KategoriCRUD();
@@ -102,7 +120,7 @@
                                                             System.Data.DataTable altkattablo = altKategoriCRUD.filtrele(Convert.ToInt16(kattablo.Rows[i][0]));
                                                             for (int j = 0; j < altkattablo.Rows.Count; j++)
                                                             {%>
-                                                                <li><a href="#"><% =altkattablo.Rows[j][1] %></a></li>
+                                                                <li><a href="urunler.aspx?secim=<% =altkattablo.Rows[j][0] %>"><% =altkattablo.Rows[j][1] %></a></li>
                                                         <%} %>
                                                     </ul>
                                                 </div>

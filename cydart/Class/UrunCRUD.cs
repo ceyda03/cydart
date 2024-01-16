@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -40,14 +41,14 @@ namespace cydart.Class
         {
             DataTable dt = new DataTable();
             db.ac();
-            SqlCommand komut = new SqlCommand("select * from Urun", db.baglanti);
+            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Fiyat, Stok, Marka.Marka_Ad, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No", db.baglanti);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);
             db.kapat();
             return dt;
         }
 
-        public bool sil(int gid)
+        public bool sil(string gid)
         {
             bool cevap = true;
             db.ac();
@@ -63,7 +64,7 @@ namespace cydart.Class
             return cevap;
         }
 
-        public bool guncelle(string barkodno, string yad, int ykat, int yaltkat, int yfiyat, int ystok, int ymarka, string yaciklama, string yresim)
+        public bool guncelle(string barkodno, string yad, int ykat, int yaltkat, double yfiyat, int ystok, int ymarka, string yaciklama, string yresim)
         {
             bool cevap = true;
             db.ac();
@@ -100,12 +101,24 @@ namespace cydart.Class
             urun.Ad = dt.Rows[0][1].ToString();
             urun.Katid = Convert.ToInt16(dt.Rows[0][2]);
             urun.Altkatid = Convert.ToInt16(dt.Rows[0][3]);
-            urun.Fiyat = Convert.ToInt16(dt.Rows[0][4]);
+            urun.Fiyat = Convert.ToDouble(dt.Rows[0][4]);
             urun.Stok = Convert.ToInt16(dt.Rows[0][5]);
             urun.Aciklama = dt.Rows[0][7].ToString();
             urun.Resim = dt.Rows[0][8].ToString();
             db.kapat();
             return urun;
+        }
+
+        public DataTable secimlistele(int gid)
+        {
+            DataTable dt = new DataTable();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Fiyat, Stok, Marka.Marka_Ad, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No and AltKat_id=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", gid);
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            db.kapat();
+            return dt;
         }
     }
 }

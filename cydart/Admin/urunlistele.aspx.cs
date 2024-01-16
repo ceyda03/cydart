@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using cydart.Class;
 
 namespace cydart.Admin
 {
@@ -11,6 +12,11 @@ namespace cydart.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["id"] != null)
+            {
+                UrunCRUD urunCRUD = new UrunCRUD();
+                bool sonuc = urunCRUD.sil(Request.QueryString["id"]);
+            }
 
         }
     }
