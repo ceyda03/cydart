@@ -4,6 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Kategori Listesi</h2>
 
+    <script type="text/javascript">
+        function silmeOnay(katNo) {
+            var silmeOnay = confirm("Silme işlemi geri alınamaz. Silmek istediğinizden emin misiniz?");
+            if (silmeOnay) {
+                window.location.href = "katlistele.aspx?id=" + katNo;
+            }
+        }
+    </script>
+
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
         cydart.KategoriCRUD kategoriCRUD = new cydart.KategoriCRUD();
@@ -48,7 +57,7 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="katguncelle.aspx?gunid=<% =tablo.Rows[i][0] %>">Güncelle</a>
-                                            <a class="dropdown-item" href="katlistele.aspx?id=<% =tablo.Rows[i][0] %>">Sil</a>
+                                            <a class="dropdown-item" href="#" onclick="silmeOnay(<% =tablo.Rows[i][0] %>)">Sil</a>
                                         </div>
                                     </td>
                                 </tr>

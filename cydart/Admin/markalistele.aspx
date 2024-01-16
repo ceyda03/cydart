@@ -4,6 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Marka Listesi</h2>
 
+    <script type="text/javascript">
+        function silmeOnay(markaNo) {
+            var silmeOnay = confirm("Silme işlemi geri alınamaz. Silmek istediğinizden emin misiniz?");
+            if (silmeOnay) {
+                window.location.href = "markalistele.aspx?id=" + markaNo;
+            }
+        }
+    </script>
+
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
         cydart.MarkaCRUD markaCRUD = new cydart.MarkaCRUD();
@@ -48,7 +57,7 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="markaguncelle.aspx?gunid=<% =tablo.Rows[i][0] %>">Güncelle</a>
-                                            <a class="dropdown-item" href="markalistele.aspx?id=<% =tablo.Rows[i][0] %>">Sil</a>
+                                            <a class="dropdown-item" href="#" onclick="silmeOnay(<% =tablo.Rows[i][0] %>)">Sil</a>
                                         </div>
                                     </td>
                                 </tr>

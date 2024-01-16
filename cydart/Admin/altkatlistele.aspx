@@ -12,6 +12,15 @@
         </span>
     </div>
 
+    <script type="text/javascript">
+        function silmeOnay(altkatNo) {
+            var silmeOnay = confirm("Silme işlemi geri alınamaz. Silmek istediğinizden emin misiniz?");
+            if (silmeOnay) {
+                window.location.href = "altkatlistele.aspx?id=" + altkatNo;
+            }
+        }
+    </script>
+
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
         cydart.AltKategoriCRUD altKategoriCRUD = new cydart.AltKategoriCRUD();
@@ -47,7 +56,7 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="altkatguncelle.aspx?gunid=<% =tablo.Rows[i][0] %>">Güncelle</a>
-                                            <a class="dropdown-item" href="altkatlistele.aspx?id=<% =tablo.Rows[i][0] %>">Sil</a>
+                                            <a class="dropdown-item" href="#" onclick="silmeOnay(<% =tablo.Rows[i][0] %>)">Sil</a>
                                         </div>
                                     </td>
                                 </tr>

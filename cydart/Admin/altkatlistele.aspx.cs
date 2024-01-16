@@ -30,7 +30,7 @@ namespace cydart.Admin
             {
                 int gid = Convert.ToInt16(Request.QueryString["id"]);
                 AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
-                altKategoriCRUD.sil(gid);
+                bool sonuc= altKategoriCRUD.sil(gid);
             }
         }
 
