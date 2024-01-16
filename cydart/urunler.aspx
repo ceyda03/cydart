@@ -91,7 +91,7 @@
                 </div>                
 
                 <%
-                    cydart.KategoriCRUD kategoriCRUD = new cydart.KategoriCRUD();
+                    cydart.Class.KategoriCRUD kategoriCRUD = new cydart.Class.KategoriCRUD();
                     System.Data.DataTable kattablo = kategoriCRUD.listele();
                 %>
 
@@ -116,7 +116,7 @@
                                             <div id="<% =collapseID %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<% =headingID %>">
                                                 <div class="panel-body">
                                                     <ul>
-                                                        <%cydart.AltKategoriCRUD altKategoriCRUD = new cydart.AltKategoriCRUD();
+                                                        <%cydart.Class.AltKategoriCRUD altKategoriCRUD = new cydart.Class.AltKategoriCRUD();
                                                             System.Data.DataTable altkattablo = altKategoriCRUD.filtrele(Convert.ToInt16(kattablo.Rows[i][0]));
                                                             for (int j = 0; j < altkattablo.Rows.Count; j++)
                                                             {%>
