@@ -6,9 +6,8 @@ using System.Net;
 using System.Text;
 using System.Web;
 
-namespace cydart
+namespace cydart.Class
 {
-
     public class Email
     {
         public void sifreyenile(string kime)

@@ -5,9 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace cydart
+namespace cydart.Class
 {
-
     public class MarkaCRUD
     {
         Db db = new Db();

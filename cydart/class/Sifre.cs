@@ -5,9 +5,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace cydart
+namespace cydart.Class
 {
-
     public class Sifre
     {
         private string hash = "=?Ua5S29_&3l";

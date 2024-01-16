@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace cydart
+namespace cydart.Class
 {
     public class Db
     {
