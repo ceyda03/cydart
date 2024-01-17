@@ -196,12 +196,12 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 heading-section text-center my-4 ftco-animate">
-                    <h2 class="mb-4">Satıştaki Markalar</h2>
+                    <h2 class="mb-4">Satıştaki Bazı Markalar</h2>
                 </div>
             </div>
         </div>
         <%            
-            cydart.MarkaCRUD markaCRUD = new cydart.MarkaCRUD();
+            cydart.Class.MarkaCRUD markaCRUD = new cydart.Class.MarkaCRUD();
             System.Data.DataTable markalar = markaCRUD.listele();
         %>
         <div class="container-fluid px-0">

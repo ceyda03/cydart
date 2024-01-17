@@ -17,10 +17,15 @@
         cydart.Class.UrunCRUD urunCRUD = new cydart.Class.UrunCRUD();
         System.Data.DataTable urunler = new System.Data.DataTable();
 
-        if (Request.QueryString["secim"] != null)
+        if (Request.QueryString["katsecim"] != null)
         {
-            int gid = Convert.ToInt16(Request.QueryString["secim"]);
-            urunler = urunCRUD.secimlistele(gid);
+            int gid = Convert.ToInt16(Request.QueryString["katsecim"]);
+            urunler = urunCRUD.katsecimlistele(gid);
+        }
+        else if (Request.QueryString["altkatsecim"] != null)
+        {
+            int gid = Convert.ToInt16(Request.QueryString["altkatsecim"]);
+            urunler = urunCRUD.altkatsecimlistele(gid);
         }
         else
         {
@@ -31,7 +36,7 @@
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-lg-10 order-md-last">
+                <div class="col-md-8 col-lg-9 order-md-last">
                     <div class="row">
                         <%for (int i = 0; i < urunler.Rows.Count; i++)
                           {%>
@@ -95,7 +100,7 @@
                     System.Data.DataTable kattablo = kategoriCRUD.listele();
                 %>
 
-                <div class="col-md-4 col-lg-2">
+                <div class="col-md-4 col-lg-3">
                     <div class="sidebar">
                         <div class="sidebar-box-2">
                             <h2 class="heading">Kategoriler</h2>
@@ -116,11 +121,12 @@
                                             <div id="<% =collapseID %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<% =headingID %>">
                                                 <div class="panel-body">
                                                     <ul>
+                                                        <li><a href="urunler.aspx?katsecim=<% =kattablo.Rows[i][0] %>">Tüm <% =kattablo.Rows[i][1] %></a></li>
                                                         <%cydart.Class.AltKategoriCRUD altKategoriCRUD = new cydart.Class.AltKategoriCRUD();
                                                             System.Data.DataTable altkattablo = altKategoriCRUD.filtrele(Convert.ToInt16(kattablo.Rows[i][0]));
                                                             for (int j = 0; j < altkattablo.Rows.Count; j++)
                                                             {%>
-                                                                <li><a href="urunler.aspx?secim=<% =altkattablo.Rows[j][0] %>"><% =altkattablo.Rows[j][1] %></a></li>
+                                                                <li><a href="urunler.aspx?altkatsecim=<% =altkattablo.Rows[j][0] %>"><% =altkattablo.Rows[j][1] %></a></li>
                                                         <%} %>
                                                     </ul>
                                                 </div>

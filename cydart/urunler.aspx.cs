@@ -13,12 +13,7 @@ namespace cydart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Request.QueryString["secim"] != null)
-            //{
-            //    int gid = Convert.ToInt16(Request.QueryString["secim"]);
-            //    UrunCRUD urunCRUD = new UrunCRUD();
-            //    DataTable urunler = urunCRUD.secimlistele(gid);
-            //}
+
         }
     }
 }
