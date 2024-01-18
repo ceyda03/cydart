@@ -49,7 +49,7 @@
                                     <td><% =tablo.Rows[i][1] %></td>
                                     <td><% =tablo.Rows[i][2] %></td>
                                     <td><% =tablo.Rows[i][3] %></td>
-                                    <td><% =tablo.Rows[i][4] %></td>
+                                    <td><% =Convert.ToDouble(tablo.Rows[i][4]).ToString("0.##") %></td>
                                     <td><% =tablo.Rows[i][5] %></td>
                                     <td><% =tablo.Rows[i][6] %></td>
                                     <td><% =tablo.Rows[i][7] %></td>

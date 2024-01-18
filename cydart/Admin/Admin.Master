@@ -84,7 +84,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="profil.aspx">Profil</a>
-                        <a class="dropdown-item" href="#">Ayarlar</a>
+                        <a class="dropdown-item" href="ayarlar.aspx">Ayarlar</a>
                         <a class="dropdown-item" href="#">Etkinlikler</a>
                         <a class="dropdown-item" href="giris.aspx?cikis=1">Güvenli Çıkış</a>
                     </div>

@@ -16,8 +16,8 @@
 
     <%
         int gid = Convert.ToInt16(Request.QueryString["gunid"]);
-        cydart.AdminCRUD adminCRUD = new cydart.AdminCRUD();
-        cydart.Adminn admin = adminCRUD.bilgigetir(gid);
+        cydart.Class.AdminCRUD adminCRUD = new cydart.Class.AdminCRUD();
+        cydart.Class.Adminn admin = adminCRUD.bilgigetir(gid);
         TextBox6.Text = admin.Kadi;
         TextBox1.Text = admin.Ad;
         TextBox2.Text = admin.Soyad;

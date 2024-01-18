@@ -6,7 +6,7 @@
     <h2 class="page-title">Hoş geldin <%=Session["ad"] %></h2>
     
     <%
-        cydart.YorumCRUD yorumCRUD = new cydart.YorumCRUD();
+        cydart.Class.YorumCRUD yorumCRUD = new cydart.Class.YorumCRUD();
         System.Data.DataTable tablo = yorumCRUD.listele();
     %>
 

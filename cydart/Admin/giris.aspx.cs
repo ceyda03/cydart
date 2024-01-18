@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using cydart.Class;
 
 namespace cydart.Admin
 {
@@ -41,11 +42,16 @@ namespace cydart.Admin
             {
                 Session["admin"] = true;
 
+                admin.No = adminCRUD.getir(admin).No;
+                Session["id"] = admin.No;
+
                 admin.Ad = adminCRUD.getir(admin).Ad;
                 Session["ad"] = admin.Ad;
 
                 admin.Soyad = adminCRUD.getir(admin).Soyad;
-                Session["soyad"] = admin.Soyad;
+                Session["soyad"] = admin.Soyad; 
+
+                Session["sifre"] = admin.Sifre;
 
                 admin.Tel = adminCRUD.getir(admin).Tel;
                 Session["tel"] = admin.Tel;

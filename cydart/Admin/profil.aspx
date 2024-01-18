@@ -61,7 +61,7 @@
                     </div> <!-- .row -->
                 </div> <!-- .card-body -->
                 <div class="card-footer">
-                    <a href="#" class="d-flex justify-content-between text-muted"><span>Hesap Ayarları</span><i class="fe fe-chevron-right"></i></a>
+                    <a href="ayarlar.aspx" class="d-flex justify-content-between text-muted"><span>Hesap Ayarları</span><i class="fe fe-chevron-right"></i></a>
                 </div> <!-- .card-footer -->
             </div> <!-- .card -->
         </div> <!-- .col-md-->
