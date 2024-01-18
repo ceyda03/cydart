@@ -15,7 +15,7 @@
 
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
-        cydart.KategoriCRUD kategoriCRUD = new cydart.KategoriCRUD();
+        cydart.Class.KategoriCRUD kategoriCRUD = new cydart.Class.KategoriCRUD();
         tablo = kategoriCRUD.listele();
     %>
 

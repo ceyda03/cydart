@@ -59,7 +59,7 @@ namespace cydart.Class
             return cevap;
         }
 
-        public bool guncelle(string yetiket, string ybaslik, string yaciklama, string yresim, string ylink, int no)
+        public bool guncelle(int no, string yetiket, string ybaslik, string yaciklama, string yresim, string ylink)
         {
             bool cevap = true;
             db.ac();
@@ -85,7 +85,7 @@ namespace cydart.Class
             DataTable dt = new DataTable();
             Slider slider = new Slider();
             db.ac();
-            SqlCommand komut = new SqlCommand("select * from Slider where Slider=@a", db.baglanti);
+            SqlCommand komut = new SqlCommand("select * from Slider where Slider_No=@a", db.baglanti);
             komut.Parameters.AddWithValue("@a", gid);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);

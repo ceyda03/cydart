@@ -23,7 +23,7 @@
 
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
-        cydart.AltKategoriCRUD altKategoriCRUD = new cydart.AltKategoriCRUD();
+        cydart.Class.AltKategoriCRUD altKategoriCRUD = new cydart.Class.AltKategoriCRUD();
         tablo = altKategoriCRUD.listele();
     %>
 

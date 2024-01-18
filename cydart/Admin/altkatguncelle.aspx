@@ -6,8 +6,8 @@
 
     <%
         int gid = Convert.ToInt16(Request.QueryString["gunid"]);
-        cydart.AltKategoriCRUD altKategoriCRUD = new cydart.AltKategoriCRUD();
-        cydart.AltKategori altKategori = altKategoriCRUD.bilgigetir(gid);
+        cydart.Class.AltKategoriCRUD altKategoriCRUD = new cydart.Class.AltKategoriCRUD();
+        cydart.Class.AltKategori altKategori = altKategoriCRUD.bilgigetir(gid);
         TextBox1.Text = altKategori.Ad;
         DropDownList1.SelectedValue = altKategori.Katid.ToString();
     %>

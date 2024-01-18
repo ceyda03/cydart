@@ -6,8 +6,8 @@
 
     <%
         int gid = Convert.ToInt16(Request.QueryString["gunid"]);
-        cydart.MarkaCRUD markaCRUD = new cydart.MarkaCRUD();
-        cydart.Marka marka = markaCRUD.bilgigetir(gid);
+        cydart.Class.MarkaCRUD markaCRUD = new cydart.Class.MarkaCRUD();
+        cydart.Class.Marka marka = markaCRUD.bilgigetir(gid);
         TextBox2.Text = marka.Ad;
     %>
 

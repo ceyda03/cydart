@@ -15,7 +15,7 @@
 
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
-        cydart.MarkaCRUD markaCRUD = new cydart.MarkaCRUD();
+        cydart.Class.MarkaCRUD markaCRUD = new cydart.Class.MarkaCRUD();
         tablo = markaCRUD.listele();
     %>
 

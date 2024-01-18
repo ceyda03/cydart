@@ -6,8 +6,8 @@
 
     <%
         int gid = Convert.ToInt16(Request.QueryString["gunid"]);
-        cydart.KategoriCRUD kategoriCRUD = new cydart.KategoriCRUD();
-        cydart.Kategori kategori = kategoriCRUD.bilgigetir(gid);
+        cydart.Class.KategoriCRUD kategoriCRUD = new cydart.Class.KategoriCRUD();
+        cydart.Class.Kategori kategori = kategoriCRUD.bilgigetir(gid);
         TextBox2.Text = kategori.Ad;
     %>
 

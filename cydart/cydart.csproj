@@ -68,9 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.html" />
+    <Content Include="Admin\ayarlar.aspx" />
     <Content Include="Admin\markaekle.aspx" />
     <Content Include="Admin\markaguncelle.aspx" />
     <Content Include="Admin\markalistele.aspx" />
+    <Content Include="Admin\sliderekle.aspx" />
+    <Content Include="Admin\sliderguncelle.aspx" />
+    <Content Include="Admin\sliderlistele.aspx" />
     <Content Include="bic.png" />
     <Content Include="blog-single.html" />
     <Content Include="blog.html" />
@@ -95,7 +99,6 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\owl.theme.default.min.css" />
     <Content Include="css\style.css" />
-    <Content Include="faber-castell.png" />
     <Content Include="fonts\flaticon\backup.txt" />
     <Content Include="fonts\flaticon\font\flaticon.css" />
     <Content Include="fonts\flaticon\font\flaticon.html" />
@@ -125,6 +128,7 @@
     <Content Include="images\image_5.jpg" />
     <Content Include="images\image_6.jpg" />
     <Content Include="images\kalemler.png" />
+    <Content Include="images\markers.png" />
     <Content Include="images\person_1.jpg" />
     <Content Include="images\person_2.jpg" />
     <Content Include="images\person_3.jpg" />
@@ -421,6 +425,13 @@
     <Compile Include="Admin\altkatlistele.aspx.designer.cs">
       <DependentUpon>altkatlistele.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ayarlar.aspx.cs">
+      <DependentUpon>ayarlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ayarlar.aspx.designer.cs">
+      <DependentUpon>ayarlar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\giris.aspx.cs">
       <DependentUpon>giris.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -512,6 +523,27 @@
     <Compile Include="Admin\sifremiunuttum.aspx.designer.cs">
       <DependentUpon>sifremiunuttum.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\sliderekle.aspx.cs">
+      <DependentUpon>sliderekle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\sliderekle.aspx.designer.cs">
+      <DependentUpon>sliderekle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\sliderguncelle.aspx.cs">
+      <DependentUpon>sliderguncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\sliderguncelle.aspx.designer.cs">
+      <DependentUpon>sliderguncelle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\sliderlistele.aspx.cs">
+      <DependentUpon>sliderlistele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\sliderlistele.aspx.designer.cs">
+      <DependentUpon>sliderlistele.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\urunekle.aspx.cs">
       <DependentUpon>urunekle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -544,6 +576,8 @@
     <Compile Include="Class\Marka.cs" />
     <Compile Include="Class\MarkaCRUD.cs" />
     <Compile Include="Class\Sifre.cs" />
+    <Compile Include="Class\Slider.cs" />
+    <Compile Include="Class\SliderCRUD.cs" />
     <Compile Include="Class\Urun.cs" />
     <Compile Include="Class\UrunCRUD.cs" />
     <Compile Include="Class\Yorum.cs" />

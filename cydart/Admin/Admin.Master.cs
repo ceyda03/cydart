@@ -11,10 +11,10 @@ namespace cydart.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Convert.ToBoolean(Session["admin"]) != true)
-            {
-                Response.Redirect("giris.aspx");
-            }
+            //if (Convert.ToBoolean(Session["admin"]) != true)
+            //{
+            //    Response.Redirect("giris.aspx");
+            //}
         }
     }
 }

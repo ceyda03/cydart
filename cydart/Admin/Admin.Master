@@ -233,6 +233,25 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a href="#support" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-compass fe-16"></i>
+                            <span class="ml-3 item-text">Duyuru</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="support">
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="sliderekle.aspx">
+                                    <span class="ml-1 item-text">Ekle</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link pl-3" href="sliderlistele.aspx">
+                                    <span class="ml-1 item-text">Listele</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </aside>

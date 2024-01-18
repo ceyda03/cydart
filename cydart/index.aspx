@@ -5,27 +5,36 @@
     <!-- hero start -->
     <section id="home-section" class="hero">
         <div class="home-slider owl-carousel">
-            <div class="slider-item js-fullheight">
-                <div class="overlay"></div>
-                <div class="container-fluid p-0">
-                    <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                        <img class="order-md-last img-fluid" src="images/kalemler.png" alt="">
-                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                            <div class="text">
-                                <span class="subheading">#Yeni Gelenler</span>
-                                <div class="horizontal">
-                                    <h1 class="mb-4 mt-3">Capcanlı renkleriyle marker kalemler</h1>
-                                    <p class="mb-4">En kaliteli markaların en sevilen kalemleri</p>
+            <%
+                cydart.Class.SliderCRUD sliderCRUD = new cydart.Class.SliderCRUD();
+                System.Data.DataTable slider = sliderCRUD.listele();
+
+                for (int i = 0; i < slider.Rows.Count; i++)
+                {%>
+                    <div class="slider-item js-fullheight">
+                        <div class="overlay"></div>
+                        <div class="container-fluid p-0">
+                            <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                                <img class="one-third order-md-last img-fluid" src="Admin/<% =slider.Rows[i][4] %>" alt="">
+                                <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                                    <div class="text">
+                                        <span class="subheading">#<% =slider.Rows[i][1] %></span>
+                                        <div class="horizontal">
+                                            <h1 class="mb-4 mt-3"><% =slider.Rows[i][2] %></h1>
+                                            <p class="mb-4"><% =slider.Rows[i][3] %></p>
 			            
-                                    <p><a href="#" class="btn-custom">Şimdi Keşfet</a></p>
+                                            <p><a href="<% =slider.Rows[i][5] %>" class="btn-custom">Şimdi Keşfet</a></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+              <%}
+            %>
+            
 
-            <div class="slider-item js-fullheight">
+<%--            <div class="slider-item js-fullheight">
                 <div class="overlay"></div>
                 <div class="container-fluid p-0">
                     <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -43,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
         </div>
     </section>
     <!-- hero end -->

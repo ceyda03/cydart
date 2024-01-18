@@ -15,7 +15,7 @@
 
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
-        cydart.AdminCRUD adminCRUD = new cydart.AdminCRUD();
+        cydart.Class.AdminCRUD adminCRUD = new cydart.Class.AdminCRUD();
         tablo = adminCRUD.tumliste();
     %>
     <div class="row my-4">
