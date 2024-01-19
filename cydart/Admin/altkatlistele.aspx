@@ -12,6 +12,16 @@
         </span>
     </div>
 
+    <div id="basarili" class="alert alert-success alert-dismissible fade show" role="alert" visible="false" runat="server">
+        <strong>Kayıt silindi</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" role="alert" visible="false" runat="server">
+        <strong>Hata!</strong> Kayıt silinemedi
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <script type="text/javascript">
         function silmeOnay(altkatNo) {
             var silmeOnay = confirm("Silme işlemi geri alınamaz. Silmek istediğinizden emin misiniz?");

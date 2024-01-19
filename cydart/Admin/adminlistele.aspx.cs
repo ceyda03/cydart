@@ -17,6 +17,15 @@ namespace cydart.Admin
                 int gid = Convert.ToInt16(Request.QueryString["id"]);
                 AdminCRUD adminCRUD = new AdminCRUD();
                 bool sonuc = adminCRUD.sil(gid);
+
+                if (sonuc)
+                {
+                    basarili.Visible = true;
+                }
+                else
+                {
+                    basarili.Visible = false;
+                }
             }
         }
     }

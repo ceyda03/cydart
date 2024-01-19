@@ -17,8 +17,16 @@ namespace cydart.Admin
                 int gid = Convert.ToInt16(Request.QueryString["id"]);
                 KategoriCRUD kategoriCRUD = new KategoriCRUD();
                 bool sonuc = kategoriCRUD.sil(gid);
-            }
 
+                if (sonuc)
+                {
+                    basarili.Visible = true;
+                }
+                else
+                {
+                    basarili.Visible = false;
+                }
+            }
         }
     }
 }

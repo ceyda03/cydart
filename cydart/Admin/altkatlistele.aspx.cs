@@ -32,6 +32,15 @@ namespace cydart.Admin
                 int gid = Convert.ToInt16(Request.QueryString["id"]);
                 AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
                 bool sonuc= altKategoriCRUD.sil(gid);
+
+                if (sonuc)
+                {
+                    basarili.Visible = true;
+                }
+                else
+                {
+                    basarili.Visible = false;
+                }
             }
         }
 

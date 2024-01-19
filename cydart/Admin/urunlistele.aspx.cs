@@ -16,6 +16,15 @@ namespace cydart.Admin
             {
                 UrunCRUD urunCRUD = new UrunCRUD();
                 bool sonuc = urunCRUD.sil(Request.QueryString["id"]);
+
+                if (sonuc)
+                {
+                    basarili.Visible = true;
+                }
+                else
+                {
+                    basarili.Visible = false;
+                }
             }
 
         }
