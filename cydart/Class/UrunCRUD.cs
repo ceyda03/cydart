@@ -17,14 +17,14 @@ namespace cydart.Class
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("insert into Urun values(@barkod, @ad, @kat, @altkat, @fiyat, @stok, @marka, @acik, @resim)", db.baglanti);
+            SqlCommand komut = new SqlCommand("insert into Urun values(@barkod, @ad, @kat, @altkat, @marka, @fiyat, @stok, 0, @acik, @resim)", db.baglanti);
             komut.Parameters.AddWithValue("@barkod", urun.Barkod);
             komut.Parameters.AddWithValue("@ad", urun.Ad);
             komut.Parameters.AddWithValue("@kat", urun.Katid);
             komut.Parameters.AddWithValue("@altkat", urun.Altkatid);
+            komut.Parameters.AddWithValue("@marka", urun.Markaid);
             komut.Parameters.AddWithValue("@fiyat", urun.Fiyat);
             komut.Parameters.AddWithValue("@stok", urun.Stok);
-            komut.Parameters.AddWithValue("@marka", urun.Markaid);
             komut.Parameters.AddWithValue("@acik", urun.Aciklama);
             komut.Parameters.AddWithValue("@resim", urun.Resim);
             int sonuc = komut.ExecuteNonQuery();
