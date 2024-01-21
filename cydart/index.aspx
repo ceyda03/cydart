@@ -30,175 +30,112 @@
                             </div>
                         </div>
                     </div>
-              <%}
-            %>
-            
-
-<%--            <div class="slider-item js-fullheight">
-                <div class="overlay"></div>
-                <div class="container-fluid p-0">
-                    <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                        <img class="one-third order-md-last img-fluid" src="images/siyah-kalemler.png" alt="">
-                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                            <div class="text">
-                                <span class="subheading">#Çok Satanlar</span>
-                                <div class="horizontal">
-                                    <h1 class="mb-4 mt-3">Çizim yapan herkesin favorisi</h1>
-                                    <p class="mb-4">Tüm kullananların vazgeçilmezleri, en uygun fiyatlarla</p>
-			            
-                                    <p><a href="#" class="btn-custom">Şimdi Keşfet</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>--%>
+              <%}%>
         </div>
     </section>
     <!-- hero end -->
+
+    <!-- categories start -->
+    <section class="ftco-gallery">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 heading-section text-center my-4 ftco-animate">
+                    <h2 class="mb-4">Kategoriler</h2>
+                </div>
+            </div>
+        </div>
+        <%            
+            cydart.Class.KategoriCRUD kategoriCRUD = new cydart.Class.KategoriCRUD();
+            System.Data.DataTable kategoriler = kategoriCRUD.listele();
+        %>
+        <div class="container-fluid px-0 m-auto">
+            <div class="row no-gutters">
+                <%for (int i = 0; i < kategoriler.Rows.Count; i++)
+                  {
+                      if (kategoriler.Rows[i][2].ToString() != "")
+                      {%>
+                        <div class="col-md-4 col-lg-2 ftco-animate">
+                            <a href="urunler.aspx?katsecim=<% =kategoriler.Rows[i][0] %>" class="gallery img d-flex align-items-center" style="background-image: url(Admin/<% =kategoriler.Rows[i][2] %>);">
+                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                    <span style="text-align:center;"><% =kategoriler.Rows[i][1] %></span>
+                                </div>
+                            </a>
+                        </div>
+                    <%}
+                      else 
+                      { %>
+                        <div class="col-md-4 col-lg-2 m-3 ftco-animate">
+                            <a href="urunler.aspx?katsecim=<% =kategoriler.Rows[i][0] %>" class="gallery img d-flex align-items-center" style="background-image: url(Admin/img/default200.jpg);">
+                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                    <span style="text-align:center;"><% =kategoriler.Rows[i][1] %></span>
+                                </div>
+                            </a>
+                        </div>
+                    <%}
+                  } %>
+            </div>
+        </div>
+    </section>
+    <!-- categories end -->
 
     <!-- products start -->
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">New Shoes Arrival</h2>
+                    <h2 class="mb-4">Kalemler</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
                 </div>
             </div>   		
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
-                    <div class="product d-flex flex-column">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.png" alt="Colorlib Template">
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 pb-4 px-3">
-                            <div class="d-flex">
-                                <div class="cat">
-                                    <span>Lifestyle</span>
-                                </div>
-                                <div class="rating">
-                                    <p class="text-right mb-0">
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
+                <%
+                    cydart.Class.UrunCRUD urunCRUD = new cydart.Class.UrunCRUD();
+                    System.Data.DataTable urunler = urunCRUD.katsecimlistele(1);
+
+                    for (int i = 0; i < urunler.Rows.Count; i++)
+                    {%>
+                        <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+                            <div class="product d-flex flex-column">
+                                <a href="#" class="img-prod"><img class="img-fluid" src="Admin/<% =urunler.Rows[i][9] %>" alt="Colorlib Template">
+                                    <div class="overlay"></div>
+                                </a>
+                                <div class="text py-3 pb-4 px-3">
+                                    <div class="d-flex">
+                                        <div class="cat">
+                                            <span><% =urunler.Rows[i][2] %></span>
+                                        </div>
+                                        <div class="rating">
+                                            <p class="text-right mb-0">
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h3><a href="#"><% =urunler.Rows[i][1] %></a></h3>
+                                    <div class="pricing">
+                                        <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][5]).ToString("0.##") %>₺</span></p>
+                                    </div>
+                                    <p class="bottom-area d-flex px-3">
+                                        <a href="#" class="add-to-cart text-center py-2 mr-1">
+                                            <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
+                                        </a>
+                                        <a href="#" class="buy-now text-center py-2">
+                                            Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
+                                        </a>
                                     </p>
                                 </div>
                             </div>
-                            <h3><a href="#">Nike Free RN 2019 iD</a></h3>
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                            <p class="bottom-area d-flex px-3">
-                                <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
-                            </p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
-                    <div class="product d-flex flex-column">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.png" alt="Colorlib Template">
-                            <span class="status">50% Off</span>
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 pb-4 px-3">
-                            <div class="d-flex">
-                                <div class="cat">
-                                    <span>Lifestyle</span>
-                                </div>
-                                <div class="rating">
-                                    <p class="text-right mb-0">
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                    </p>
-                                </div>
-                            </div>
-                            <h3><a href="#">Nike Free RN 2019 iD</a></h3>
-                            <div class="pricing">
-                                <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-                            </div>
-                            <p class="bottom-area d-flex px-3">
-                                <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                                <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
-                <div class="product">
-                <a href="#" class="img-prod"><img class="img-fluid" src="images/product-3.png" alt="Colorlib Template">
-                <div class="overlay"></div>
-                </a>
-                <div class="text py-3 pb-4 px-3">
-                <div class="d-flex">
-                <div class="cat">
-                <span>Lifestyle</span>
-                </div>
-                <div class="rating">
-                <p class="text-right mb-0">
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                </p>
-                </div>
-                </div>
-                <h3><a href="#">Nike Free RN 2019 iD</a></h3>
-                <div class="pricing">
-                <p class="price"><span>$120.00</span></p>
-                </div>
-                <p class="bottom-area d-flex px-3">
-                <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
-                </p>
-                </div>
-                </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
-                <div class="product">
-                <a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.png" alt="Colorlib Template">
-                <div class="overlay"></div>
-                </a>
-                <div class="text py-3 pb-4 px-3">
-                <div class="d-flex">
-                <div class="cat">
-                <span>Lifestyle</span>
-                </div>
-                <div class="rating">
-                <p class="text-right mb-0">
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                </p>
-                </div>
-                </div>
-                <h3><a href="#">Nike Free RN 2019 iD</a></h3>
-                <div class="pricing">
-                <p class="price"><span>$120.00</span></p>
-                </div>
-                <p class="bottom-area d-flex px-3">
-                <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-                <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
-                </p>
-                </div>
-                </div>
-                </div>
+                  <%}%>
             </div>
         </div>
     </section>
     <!-- products end -->
-
 
     <!-- brands start -->
     <section class="ftco-gallery">

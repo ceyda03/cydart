@@ -43,13 +43,13 @@
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
                                 <div class="product d-flex flex-column">
                                     <a href="#" class="img-prod">
-                                        <img class="img-fluid" src="Admin/<% =urunler.Rows[i][8] %>" alt="Colorlib Template">
+                                        <img class="img-fluid" src="Admin/<% =urunler.Rows[i][9] %>" alt="Colorlib Template">
                                         <div class="overlay"></div>
                                     </a>
                                     <div class="text py-3 pb-4 px-3">
                                         <div class="d-flex">
                                             <div class="cat">
-                                                <span><% =urunler.Rows[i][6] %></span>  
+                                                <span><% =urunler.Rows[i][4] %></span>  
                                             </div>
                                             <div class="rating">
                                                 <p class="text-right mb-0">
@@ -63,7 +63,7 @@
                                         </div>
                                         <h3><a href="#"><% =urunler.Rows[i][1] %></a></h3>
                                         <div class="pricing">
-                                            <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][4]).ToString("0.##") %>₺</span></p>
+                                            <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][5]).ToString("0.##") %>₺</span></p>
                                         </div>
                                         <p class="bottom-area d-flex px-3">
                                             <a href="#" class="add-to-cart text-center py-2 mr-1">
