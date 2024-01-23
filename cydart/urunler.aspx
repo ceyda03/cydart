@@ -49,7 +49,7 @@
                                         <%}
                                           else
                                           {%>
-                                            <img class="img-fluid" src="Admin/img/default200.jpg" alt="Colorlib Template">
+                                            <img class="img-fluid" src="Admin/img/default200.png" alt="Colorlib Template">
                                         <%}%>
                                         
                                         <div class="overlay"></div>
