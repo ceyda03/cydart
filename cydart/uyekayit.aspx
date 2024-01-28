@@ -4,6 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="ftco-section contact-section bg-light">
         <div class="container">
+            <div id="basarili" class="alert alert-success alert-dismissible fade show" role="alert" visible="false" runat="server">
+                <strong>Kayıt başarılı.</strong> Aramıza hoş geldiniz!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" role="alert" visible="false" runat="server">
+                <strong>Hata!</strong> Kayıt yapılamadı
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
             <div class="row block-9">
                 <div class="col-md-12 order-md-last d-flex m-auto">
                     <div class="bg-white p-5 contact-form">
