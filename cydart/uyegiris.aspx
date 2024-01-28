@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body class="goto-here bg-light">
-        <section class="ftco-section contact-section">
+     <section class="ftco-section contact-section" style="background-image: url(kalemler.png);">
         <div class="container">
             <div class="row block-9">
                 <div class="col-md-6 order-md-last d-flex m-auto">
