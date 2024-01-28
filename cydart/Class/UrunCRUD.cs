@@ -64,17 +64,18 @@ namespace cydart.Class
             return cevap;
         }
 
-        public bool guncelle(string barkodno, string yad, int ykat, int yaltkat, double yfiyat, int ystok, int ymarka, string yaciklama, string yresim)
+        public bool guncelle(string barkodno, string yad, int ykat, int yaltkat, int ymarka, double yfiyat, int ystok, int ysipadet, string yaciklama, string yresim)
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("update Urun set Urun_Ad=@ad, Kat_id=@kat, AltKat_id=@altkat, Fiyat=@fiyat, Stok=@stok, Marka_id=@marka, Aciklama=@acik, Urun_Resim=@resim where Barkod_No=@barkod", db.baglanti);
+            SqlCommand komut = new SqlCommand("update Urun set Urun_Ad=@ad, Kat_id=@kat, AltKat_id=@altkat, Marka_id=@marka, Fiyat=@fiyat, Stok=@stok, Sip_Adet=@sipadet, Aciklama=@acik, Urun_Resim=@resim where Barkod_No=@barkod", db.baglanti);
             komut.Parameters.AddWithValue("@ad", yad);
             komut.Parameters.AddWithValue("@kat", ykat);
             komut.Parameters.AddWithValue("@altkat", yaltkat);
+            komut.Parameters.AddWithValue("@marka", ymarka);
             komut.Parameters.AddWithValue("@fiyat", yfiyat);
             komut.Parameters.AddWithValue("@stok", ystok);
-            komut.Parameters.AddWithValue("@marka", ymarka);
+            komut.Parameters.AddWithValue("@sipadet", ysipadet);
             komut.Parameters.AddWithValue("@acik", yaciklama);
             komut.Parameters.AddWithValue("@resim", yresim);
             komut.Parameters.AddWithValue("@barkod", barkodno);
@@ -88,7 +89,7 @@ namespace cydart.Class
             return cevap;
         }
 
-        public Urun bilgigetir(int gid)
+        public Urun bilgigetir(string gid)
         {
             DataTable dt = new DataTable();
             Urun urun = new Urun();
@@ -101,10 +102,12 @@ namespace cydart.Class
             urun.Ad = dt.Rows[0][1].ToString();
             urun.Katid = Convert.ToInt16(dt.Rows[0][2]);
             urun.Altkatid = Convert.ToInt16(dt.Rows[0][3]);
-            urun.Fiyat = Convert.ToDouble(dt.Rows[0][4]);
-            urun.Stok = Convert.ToInt16(dt.Rows[0][5]);
-            urun.Aciklama = dt.Rows[0][7].ToString();
-            urun.Resim = dt.Rows[0][8].ToString();
+            urun.Markaid = Convert.ToInt16(dt.Rows[0][4]);
+            urun.Fiyat = Convert.ToDouble(dt.Rows[0][5]);
+            urun.Stok = Convert.ToInt16(dt.Rows[0][6]);
+            urun.SipAdet = Convert.ToInt16(dt.Rows[0][7]);
+            urun.Aciklama = dt.Rows[0][8].ToString();
+            urun.Resim = dt.Rows[0][9].ToString();
             db.kapat();
             return urun;
         }
