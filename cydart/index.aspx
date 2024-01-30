@@ -98,7 +98,15 @@
                     {%>
                         <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
                             <div class="product d-flex flex-column">
-                                <a href="#" class="img-prod"><img class="img-fluid" src="Admin/<% =urunler.Rows[i][9] %>" alt="Colorlib Template">
+                                <a href="#" class="img-prod">
+                                    <%if (urunler.Rows[i][9].ToString() != "")
+                                      {%>
+                                        <img class="img-fluid" src="Admin/<% =urunler.Rows[i][9] %>" alt="Colorlib Template">
+                                    <%}
+                                      else
+                                      {%>
+                                        <img class="img-fluid" src="Admin/img/default200.png" alt="Colorlib Template">
+                                    <%}%>
                                     <div class="overlay"></div>
                                 </a>
                                 <div class="text py-3 pb-4 px-3">

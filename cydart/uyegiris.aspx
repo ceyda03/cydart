@@ -31,12 +31,16 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body class="goto-here bg-light">
-     <section class="ftco-section contact-section" style="background-image: url(kalemler.png);">
+     <section class="ftco-section contact-section" style="background-image: url(Admin/img/145markers.png);">
         <div class="container">
             <div class="row block-9">
                 <div class="col-md-6 order-md-last d-flex m-auto">
                     <form id="form1" runat="server" action="#" class="bg-white p-5 contact-form">
-                        <h2>Giriş Yap</h2>
+                        <div class="row">
+                        <h2 class="col-md-8">Giriş Yap</h2>
+                        <a href="Admin/giris.aspx" class="col-md-4 text-md-center" style="line-height:50px;">Yönetici Girişi</a>
+
+                        </div>
                         <hr/>
                         <div class="form-group">
                             <label>Email</label>
