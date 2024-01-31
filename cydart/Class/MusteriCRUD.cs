@@ -35,7 +35,7 @@ namespace cydart.Class
             DataTable dt = new DataTable();
             Musteri bilgi = new Musteri();
             db.ac();
-            SqlCommand komut = new SqlCommand("select from Musteri where Mus_Email=@a and Mus_Sifre=@b", db.baglanti);
+            SqlCommand komut = new SqlCommand("select * from Musteri where Mus_Email=@a and Mus_Sifre=@b", db.baglanti);
             komut.Parameters.AddWithValue("@a", mus.Email);
             komut.Parameters.AddWithValue("@b", sifre.sifrele(mus.Sifre));
             SqlDataAdapter adp = new SqlDataAdapter(komut);
@@ -112,7 +112,7 @@ namespace cydart.Class
             komut.Parameters.AddWithValue("@email", yemail);
             komut.Parameters.AddWithValue("@adres", yadres);
             komut.Parameters.AddWithValue("@dogtar", ydogtar);
-            komut.Parameters.AddWithValue("@sifre", ysifre);
+            komut.Parameters.AddWithValue("@sifre", sifre.sifrele(ysifre));
             komut.Parameters.AddWithValue("@no", musno);
             int sonuc = komut.ExecuteNonQuery();
 

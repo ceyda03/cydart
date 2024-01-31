@@ -50,15 +50,22 @@
                             <label>Şifre</label>
                             <asp:TextBox ID="TextBox2" CssClass="form-control" TextMode="Password" Placeholder="Şifre"  runat="server"></asp:TextBox>
                         </div>
-                        <div class="row mt-5 mx-auto" style="justify-content: space-between;">
+                        <label>
+                            <asp:CheckBox ID="CheckBox1" Value="remember-me" runat="server" />
+                            Beni Hatırla
+                        </label>                        
+                        <div class="row mt-2 mx-auto" style="justify-content: space-between;">
                             <div class="form-group">
-                                <asp:Button ID="Button1" CssClass="btn btn-primary py-3 px-5" runat="server" Text="Giriş Yap" />
+                                <asp:Button ID="Button1" CssClass="btn btn-primary py-3 px-5" runat="server" Text="Giriş Yap" OnClick="Button1_Click" />
                             </div>
                             <div class="form-group">
                                 <a href="#">
                                     <input type="submit" value="Şifremi Unuttum" class="btn btn-outline-primary py-3 px-5"/>
                                 </a>
                             </div>
+                        </div>
+                        <div id="mesaj" class="alert alert-danger" role="alert" runat="server" visible="false">
+                            Yanlış email veya şifre
                         </div>
                     </form>
                 </div>
