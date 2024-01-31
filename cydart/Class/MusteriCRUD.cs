@@ -11,6 +11,47 @@ namespace cydart.Class
     {
         Db db = new Db();
 
+        Sifre sifre = new Sifre();
+
+        public bool kontrol(Musteri mus)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("select count(*) from Musteri where Mus_Email=@a and Mus_Sifre=@b", db.baglanti);
+            komut.Parameters.AddWithValue("@a", mus.Email);
+            komut.Parameters.AddWithValue("@b", sifre.sifrele(mus.Sifre));
+            int sonuc = Convert.ToInt16(komut.ExecuteScalar());
+
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
+
+        public Musteri getir(Musteri mus)
+        {
+            DataTable dt = new DataTable();
+            Musteri bilgi = new Musteri();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select from Musteri where Mus_Email=@a and Mus_Sifre=@b", db.baglanti);
+            komut.Parameters.AddWithValue("@a", mus.Email);
+            komut.Parameters.AddWithValue("@b", sifre.sifrele(mus.Sifre));
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            bilgi.No = Convert.ToInt16(dt.Rows[0][0]);
+            bilgi.Ad = dt.Rows[0][1].ToString();
+            bilgi.Soyad = dt.Rows[0][2].ToString();
+            bilgi.Tel = dt.Rows[0][3].ToString();
+            bilgi.Email = dt.Rows[0][4].ToString();
+            bilgi.Adres = dt.Rows[0][5].ToString();
+            bilgi.DogTar = Convert.ToDateTime(dt.Rows[0][6]);
+            bilgi.Sifre = sifre.sifreyicoz(dt.Rows[0][7].ToString());
+            db.kapat();
+            return bilgi;
+        }
+
         public bool ekle(Musteri mus)
         {
             bool cevap = true;
@@ -22,7 +63,7 @@ namespace cydart.Class
             komut.Parameters.AddWithValue("@email", mus.Email);
             komut.Parameters.AddWithValue("@adres", mus.Adres);
             komut.Parameters.AddWithValue("@dogtar", mus.DogTar);
-            komut.Parameters.AddWithValue("@sifre", mus.Sifre);
+            komut.Parameters.AddWithValue("@sifre", sifre.sifrele(mus.Sifre));
             int sonuc = komut.ExecuteNonQuery();
 
             if (sonuc == 0)
@@ -99,7 +140,7 @@ namespace cydart.Class
             musteri.Email = dt.Rows[0][4].ToString();
             musteri.Adres = dt.Rows[0][5].ToString();
             musteri.DogTar = Convert.ToDateTime(dt.Rows[0][6]);
-            musteri.Sifre = dt.Rows[0][7].ToString();
+            musteri.Sifre = sifre.sifreyicoz(dt.Rows[0][7].ToString());
             db.kapat();
             return musteri;
         }

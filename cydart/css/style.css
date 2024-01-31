@@ -2079,9 +2079,12 @@ fieldset:disabled a.btn {
         background-color: #1b8b38;
         border-color: #1b8b38;
     }
-  .btn-primary:focus, .btn-primary.focus {
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
-    box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25); }
+    .btn-primary:focus, .btn-primary.focus {
+        background-color: #59ab6e;
+        border-color: #59ab6e;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+    }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
     background-color: #59ab6e;
