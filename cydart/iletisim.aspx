@@ -59,9 +59,8 @@
                             <div class="form-group mr-5">
                                 <asp:Button ID="Button1" runat="server" class="btn btn-primary py-3 px-5" Text="Gönder" OnClick="Button1_Click" />
                             </div>
-                            <div id="yollandi" class="alert alert-success alert-dismissible fade show" role="alert" runat="server" visible="false">
+                            <div id="yollandi" class="alert alert-success" role="alert" runat="server" visible="false">
                                 <strong>Geri bildiriminiz için teşekkürler!</strong> Mesajınız sitemize ulaştı
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         </div>
                     </div>
