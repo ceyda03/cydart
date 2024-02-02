@@ -35,8 +35,17 @@ namespace cydart.Admin
         protected void Button1_Click(object sender, EventArgs e)
         {
             AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
-            altKategoriCRUD.guncelle(Convert.ToInt16(TextBox2.Text), TextBox1.Text, DropDownList1.SelectedValue);
-
+            bool sonuc = altKategoriCRUD.guncelle(Convert.ToInt16(TextBox2.Text), TextBox1.Text, DropDownList1.SelectedValue);
+            if (sonuc)
+            {
+                basarili.Visible = true;
+                basarisiz.Visible = false;
+            }
+            else
+            {
+                basarili.Visible = false;
+                basarisiz.Visible = true;
+            }
         }
     }
 }

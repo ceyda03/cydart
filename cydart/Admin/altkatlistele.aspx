@@ -12,24 +12,13 @@
         </span>
     </div>
 
-    <div id="basarili" class="alert alert-success alert-dismissible fade show" role="alert" visible="false" runat="server">
+    <div id="basarili" class="alert alert-success" role="alert" visible="false" runat="server">
         <strong>Kayıt silindi</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
-    <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" role="alert" visible="false" runat="server">
+    <div id="basarisiz" class="alert alert-warning" role="alert" visible="false" runat="server">
         <strong>Hata!</strong> Kayıt silinemedi
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-
-    <script type="text/javascript">
-        function silmeOnay(altkatNo) {
-            var silmeOnay = confirm("Silme işlemi geri alınamaz. Silmek istediğinizden emin misiniz?");
-            if (silmeOnay) {
-                window.location.href = "altkatlistele.aspx?id=" + altkatNo;
-            }
-        }
-    </script>
 
     <%
         System.Data.DataTable tablo = new System.Data.DataTable();
@@ -79,4 +68,13 @@
         </div> <!-- simple table -->
     </div> <!-- end section -->
 
+
+    <script type="text/javascript">
+        function silmeOnay(altkatNo) {
+            var silmeOnay = confirm("Silme işlemi geri alınamaz. Silmek istediğinizden emin misiniz?");
+            if (silmeOnay) {
+                window.location.href = "altkatlistele.aspx?id=" + altkatNo;
+            }
+        }
+    </script>
 </asp:Content>

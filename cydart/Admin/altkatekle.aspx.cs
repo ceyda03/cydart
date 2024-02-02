@@ -30,9 +30,16 @@ namespace cydart.Admin
         {
             AltKategori altKategori = new AltKategori(Convert.ToInt16(DropDownList1.SelectedValue), TextBox1.Text);
             AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
-            bool gelen = altKategoriCRUD.ekle(altKategori);
+            bool sonuc = altKategoriCRUD.ekle(altKategori);
 
-            Response.Redirect("altkatlistele.aspx");
+            if (sonuc)
+            {
+                Response.Redirect("altkatlistele.aspx");
+            }
+            else
+            {
+                basarisiz.Visible = true;
+            }
         }
     }
 }

@@ -40,8 +40,7 @@ namespace cydart.Admin
                 }
                 else
                 {
-                    bool gelen = adminCRUD.ekle(admin);
-                    basarili.Visible = true;
+                    adminCRUD.ekle(admin);
                     Response.Redirect("adminlistele.aspx");
                 }
             }
@@ -56,8 +55,7 @@ namespace cydart.Admin
                 }
                 else
                 {
-                    bool gelen = adminCRUD.ekle(admin);
-                    basarili.Visible = true;
+                    adminCRUD.ekle(admin);
                     Response.Redirect("adminlistele.aspx");
                 }
             }

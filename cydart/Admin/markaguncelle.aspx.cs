@@ -24,6 +24,8 @@ namespace cydart.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            bool sonuc;
+
             if (FileUpload1.HasFile)
             {
                 Random r = new Random();
@@ -31,13 +33,24 @@ namespace cydart.Admin
                 FileUpload1.SaveAs(Server.MapPath("img/") + sayi + FileUpload1.FileName);
 
                 MarkaCRUD markaCRUD = new MarkaCRUD();
-                markaCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, "img/" + sayi + FileUpload1.FileName);
+                sonuc = markaCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, "img/" + sayi + FileUpload1.FileName);
             }
             else
             {
                 MarkaCRUD markaCRUD = new MarkaCRUD();
                 Marka marka = markaCRUD.bilgigetir(Convert.ToInt16(Request.QueryString["gunid"]));
-                markaCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, marka.Resim);
+                sonuc = markaCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, marka.Resim);
+            }
+
+            if (sonuc)
+            {
+                basarili.Visible = true;
+                basarisiz.Visible = false;
+            }
+            else
+            {
+                basarili.Visible = false;
+                basarisiz.Visible = true;
             }
         }
     }

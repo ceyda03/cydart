@@ -12,8 +12,7 @@ namespace cydart.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            basarili.Visible = false;
-            basarisiz.Visible = false;
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -24,8 +23,16 @@ namespace cydart.Admin
 
             Slider slider = new Slider(TextBox1.Text, TextBox2.Text, TextBox3.Text, "img/" + sayi + FileUpload1.FileName, TextBox4.Text);
             SliderCRUD sliderCRUD = new SliderCRUD();
-            bool gelen = sliderCRUD.ekle(slider);
-            Response.Redirect("sliderlistele.aspx");
+            bool sonuc = sliderCRUD.ekle(slider);
+
+            if (sonuc)
+            {
+                Response.Redirect("sliderlistele.aspx");
+            }
+            else
+            {
+                basarisiz.Visible = true;
+            }
         }
     }
 }

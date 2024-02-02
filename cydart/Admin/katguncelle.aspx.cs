@@ -24,6 +24,8 @@ namespace cydart.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            bool sonuc;
+
             if (FileUpload1.HasFile)
             {
                 Random r = new Random();
@@ -31,13 +33,24 @@ namespace cydart.Admin
                 FileUpload1.SaveAs(Server.MapPath("img/") + sayi + FileUpload1.FileName);
 
                 KategoriCRUD kategoriCRUD = new KategoriCRUD();
-                kategoriCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, "img/" + sayi + FileUpload1.FileName);
+                sonuc = kategoriCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, "img/" + sayi + FileUpload1.FileName);
             }
             else
             {
                 KategoriCRUD kategoriCRUD = new KategoriCRUD();
                 Kategori kategori = kategoriCRUD.bilgigetir(Convert.ToInt16(Request.QueryString["gunid"]));
-                kategoriCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, kategori.Resim);
+                sonuc = kategoriCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, kategori.Resim);
+            }
+
+            if (sonuc)
+            {
+                basarili.Visible = true;
+                basarisiz.Visible = false;
+            }
+            else
+            {
+                basarili.Visible = false;
+                basarisiz.Visible = true;
             }
         }
     }

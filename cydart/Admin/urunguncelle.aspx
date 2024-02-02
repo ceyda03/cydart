@@ -5,14 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Ürün Güncelleme</h2>
 
-    <div id="basarili" class="alert alert-success alert-dismissible fade show" role="alert" visible="false" runat="server">
-        <strong>Kayıt başarıyla güncellendi</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div id="basarili" class="alert alert-success" role="alert" visible="false" runat="server">
+        <strong>Kayıt başarılı!</strong> Kayıt başarıyla güncellendi
     </div>
 
-    <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" role="alert" visible="false" runat="server">
+    <div id="basarisiz" class="alert alert-warning" role="alert" visible="false" runat="server">
         <strong>Hata!</strong> Değişiklikler kaydedilemedi
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
     <%

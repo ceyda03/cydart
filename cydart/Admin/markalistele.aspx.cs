@@ -21,10 +21,12 @@ namespace cydart.Admin
                 if (sonuc)
                 {
                     basarili.Visible = true;
+                    basarisiz.Visible = false;
                 }
                 else
                 {
                     basarili.Visible = false;
+                    basarisiz.Visible = true;
                 }
             }
         }

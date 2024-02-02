@@ -17,6 +17,7 @@ namespace cydart.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            bool sonuc;
 
             if (FileUpload1.HasFile)
             {
@@ -26,16 +27,24 @@ namespace cydart.Admin
 
                 Marka marka = new Marka(TextBox1.Text, "img/" + sayi + FileUpload1.FileName);
                 MarkaCRUD markaCRUD = new MarkaCRUD();
-                bool gelen = markaCRUD.ekle(marka);
+                sonuc = markaCRUD.ekle(marka);
             }
             else
             {
                 Marka marka = new Marka(TextBox1.Text, "");
                 MarkaCRUD markaCRUD = new MarkaCRUD();
-                bool gelen = markaCRUD.ekle(marka);
+                sonuc = markaCRUD.ekle(marka);
             }
 
-            Response.Redirect("markalistele.aspx");
+            if (sonuc)
+            {
+                Response.Redirect("markalistele.aspx");
+            }
+            else
+            {
+                basarisiz.Visible = true;
+            }
+
         }
     }
 }

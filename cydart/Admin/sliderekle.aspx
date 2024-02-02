@@ -4,14 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Duyuru Ekleme</h2>
 
-    <div id="basarili" class="alert alert-success alert-dismissible fade show" role="alert" runat="server">
-        <strong>Kayıt başarılı!</strong> Kayıt başarıyla eklendi
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-
-    <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" role="alert" runat="server">
+    <div id="basarisiz" class="alert alert-warning" role="alert" runat="server">
         <strong>Hata!</strong> Kayıt eklenemedi
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
     <div class="card-deck">

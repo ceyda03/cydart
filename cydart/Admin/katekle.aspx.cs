@@ -17,6 +17,8 @@ namespace cydart.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            bool sonuc;
+
             if (FileUpload1.HasFile)
             {
                 Random r = new Random();
@@ -25,16 +27,23 @@ namespace cydart.Admin
 
                 Kategori kategori = new Kategori(TextBox1.Text, "img/" + sayi + FileUpload1.FileName);
                 KategoriCRUD kategoriCRUD = new KategoriCRUD();
-                bool gelen = kategoriCRUD.ekle(kategori);
+                sonuc = kategoriCRUD.ekle(kategori);
             }
             else
             {
                 Kategori kategori = new Kategori(TextBox1.Text, "");
                 KategoriCRUD kategoriCRUD = new KategoriCRUD();
-                bool gelen = kategoriCRUD.ekle(kategori);
+                sonuc = kategoriCRUD.ekle(kategori);
             }
-            
-            Response.Redirect("katlistele.aspx");
+
+            if (sonuc)
+            {
+                Response.Redirect("katlistele.aspx");
+            }
+            else
+            {
+                basarisiz.Visible = true;
+            }
         }
     }
 }

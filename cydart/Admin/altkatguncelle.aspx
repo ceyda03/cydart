@@ -4,6 +4,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Alt Kategori Güncelleme</h2>
 
+    <div id="basarili" class="alert alert-success" role="alert" runat="server">
+        <strong>Kayıt başarılı!</strong> Kayıt başarıyla güncellendi
+    </div>
+
+    <div id="basarisiz" class="alert alert-warning" role="alert" runat="server">
+        <strong>Hata!</strong> Değişiklikler kaydedilemedi
+    </div>
+
     <%
         int gid = Convert.ToInt16(Request.QueryString["gunid"]);
         cydart.Class.AltKategoriCRUD altKategoriCRUD = new cydart.Class.AltKategoriCRUD();

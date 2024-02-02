@@ -3,7 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Marka Ekleme</h2>
-    
+
+    <div id="basarisiz" class="alert alert-warning" role="alert" runat="server">
+        <strong>Hata!</strong> Kayıt eklenemedi
+    </div>
+
     <div class="card-deck">
         <div class="card shadow mb-4">
             <div class="card-body">

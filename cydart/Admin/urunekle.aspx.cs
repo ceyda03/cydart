@@ -57,6 +57,8 @@ namespace cydart.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            bool sonuc;
+
             if (FileUpload1.HasFile)
             {
                 Random r = new Random();
@@ -65,16 +67,23 @@ namespace cydart.Admin
 
                 Urun urun = new Urun(TextBox1.Text, TextBox2.Text, Convert.ToInt16(DropDownList1.SelectedValue), Convert.ToInt16(DropDownList2.SelectedValue), Convert.ToDouble(TextBox3.Text), Convert.ToInt16(TextBox4.Text), Convert.ToInt16(DropDownList3.SelectedValue), TextBox5.Text, "img/" + sayi + FileUpload1.FileName);
                 UrunCRUD urunCRUD = new UrunCRUD();
-                bool gelen = urunCRUD.ekle(urun);
+                sonuc = urunCRUD.ekle(urun);
             }
             else
             {
                 Urun urun = new Urun(TextBox1.Text, TextBox2.Text, Convert.ToInt16(DropDownList1.SelectedValue), Convert.ToInt16(DropDownList2.SelectedValue), Convert.ToDouble(TextBox3.Text), Convert.ToInt16(TextBox4.Text), Convert.ToInt16(DropDownList3.SelectedValue), TextBox5.Text, "");
                 UrunCRUD urunCRUD = new UrunCRUD();
-                bool gelen = urunCRUD.ekle(urun);
+                sonuc = urunCRUD.ekle(urun);
             }
 
-            Response.Redirect("urunlistele.aspx");
+            if (sonuc)
+            { 
+                Response.Redirect("urunlistele.aspx");
+            }
+            else
+            {
+                basarisiz.Visible = true;
+            }
         }
     }
 }
