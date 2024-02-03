@@ -19,7 +19,6 @@ namespace cydart.Admin
                 DropDownList1.Items.Add("Editör");
             }
 
-            basarili.Visible = false;
             basarisiz.Visible = false;
         }
 
