@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <a href="uyesifremiunuttum.aspx">
-                                    <input type="submit" value="Şifremi Unuttum" class="btn btn-outline-primary py-3 px-5"/>
+                                    <input value="Şifremi Unuttum" class="btn btn-outline-primary py-3 px-5"/>
                                 </a>
                             </div>
                         </div>
