@@ -144,5 +144,21 @@ namespace cydart.Class
             db.kapat();
             return musteri;
         }
+
+        public bool emailkontrol(string email)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("select count(*) from Musteri where Mus_Email=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", email);
+            int sonuc = Convert.ToInt16(komut.ExecuteScalar());
+
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
     }
 }

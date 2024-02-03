@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Web;
+using System.Web.Security;
 
 namespace cydart.Class
 {
@@ -12,6 +13,8 @@ namespace cydart.Class
     {
         public void sifreyenile(string kime)
         {
+            string sifre = Membership.GeneratePassword(10, 3);
+
             string to = kime;
             MailAddress gonderenmail = new MailAddress("butgemwebtasarim@gmail.com", "Admin");
             MailAddress alicimail = new MailAddress(to, "Müşteri");
@@ -27,7 +30,7 @@ namespace cydart.Class
             smtp.Credentials = networkCredential;
 
             MailMessage message = new MailMessage(gonderenmail, alicimail);
-            string mailbody = "Şifre Yenileme İsteği. Yeni Şifreniz: deneme";
+            string mailbody = "Şifre yenileme isteğinizi aldık. Yeni Şifreniz: " + sifre + "<br>Lütfen giriş yaptıktan sonra ayarlar kısmından şifrenizi değiştirin.";
             message.Subject = "Şifre Sıfırlama İşleminiz.";
             message.Body = mailbody;
             message.BodyEncoding = Encoding.UTF8;
