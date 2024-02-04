@@ -8756,6 +8756,12 @@ h1, h2, h3, h4, h5,
       border: 1px solid #59ab6e;
       background: transparent;
       color: #59ab6e; }
+    .btn.btn-primary:focus {
+        background-color: #59ab6e;
+        border-color: #59ab6e;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+    }
     .btn.btn-primary.btn-outline-primary {
       border: 1px solid #59ab6e;
       background: transparent;
@@ -8764,6 +8770,12 @@ h1, h2, h3, h4, h5,
         border: 1px solid transparent;
         background: #59ab6e;
         color: #fff; }
+    .btn.btn-outline-primary:focus {
+        background-color: #59ab6e;
+        border-color: #59ab6e;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(89, 171, 110, 0.25);
+    }
   .btn.btn-white {
     background: #fff;
     border: 1px solid #fff;
