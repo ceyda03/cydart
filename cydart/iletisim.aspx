@@ -39,15 +39,18 @@
                 </div>
             </div>
             <div class="row block-9">
-                <div class="col-md-12 order-md-last d-flex">
+                <div class="col-md-6 d-flex">
+   	                <div id="map" class="bg-white">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3044.373443492444!2d29.082133599999995!3d40.26745390000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca40653791a2d5%3A0xd25ecfe140a173f2!2sBUTGEM%20BTSO%20E%C4%9Fitim%20Vakf%C4%B1!5e0!3m2!1str!2str!4v1706173836746!5m2!1str!2str" width="540" height="530" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   	                </div>
+                </div>
+                <div class="col-md-6 order-md-last d-flex">
                     <div class="bg-white p-5 contact-form">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Adınız" runat="server"></asp:TextBox>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <asp:TextBox ID="TextBox2" CssClass="form-control" TextMode="Email" placeholder="Email Adresiniz" runat="server"></asp:TextBox>
-                            </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Adınız" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="TextBox2" CssClass="form-control" TextMode="Email" placeholder="Email Adresiniz" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server"></asp:DropDownList>
@@ -55,12 +58,12 @@
                         <div class="form-group">
                             <asp:TextBox ID="TextBox3" CssClass="form-control" TextMode="MultiLine" Rows="7" Columns="30" placeholder="Mesajınız" runat="server"></asp:TextBox>
                         </div>
-                        <div class="row">
-                            <div class="form-group mr-5">
+                        <div class="row mb-0">
+                            <div class="form-group mx-3 mb-0">
                                 <asp:Button ID="Button1" runat="server" class="btn btn-primary py-3 px-5" Text="Gönder" OnClick="Button1_Click" />
                             </div>
-                            <div id="yollandi" class="alert alert-success" role="alert" runat="server" visible="false">
-                                <strong>Geri bildiriminiz için teşekkürler!</strong> Mesajınız sitemize ulaştı
+                            <div id="yollandi" class="alert alert-success mb-0" role="alert" runat="server" visible="false">
+                                <strong>Geri bildiriminiz için teşekkürler!</strong>
                             </div>
                         </div>
                     </div>
