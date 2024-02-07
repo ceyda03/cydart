@@ -36,7 +36,8 @@ namespace cydart
                 Session["uye"] = true;
 
                 musteri.Ad = musteriCRUD.getir(musteri).Ad;
-                Session["ad"] = musteri.Ad;
+                musteri.Soyad = musteriCRUD.getir(musteri).Soyad;
+                Session["ad"] = musteri.Ad + " " + musteri.Soyad;
 
                 if (CheckBox1.Checked)
                 {

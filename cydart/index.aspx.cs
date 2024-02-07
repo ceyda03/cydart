@@ -11,7 +11,12 @@ namespace cydart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["cikis"] != null)
+            {
+                Session.Abandon();
+                Session.RemoveAll();
+                Response.Redirect("index.aspx");
+            }
         }
     }
 }
