@@ -1,38 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ayarlar.aspx.cs" Inherits="cydart.Admin.ayarlar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script runat="server">
-        void ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            try
-            {
-                args.IsValid = (args.Value == SuankiSifre());
-            }
-
-            catch (Exception ex)
-            {
-                args.IsValid = false;
-            }
-        }
-
-        private string SuankiSifre()
-        {
-            cydart.Class.AdminCRUD adminCRUD = new cydart.Class.AdminCRUD();
-            cydart.Class.Adminn admin = adminCRUD.bilgigetir(Convert.ToInt16(Session["id"]));
-            return admin.Sifre;
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="h3 mb-4 page-title">Ayarlar</h2>
 
-    <div id="basarili" class="alert alert-success alert-dismissible fade show" data-dismiss="alert" role="alert" runat="server">
+    <div id="basarili" class="alert alert-success" visible="false" role="alert" runat="server">
         <strong>Kayıt başarılı!</strong> Kayıt başarıyla güncellendi
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
-    <div id="basarisiz" class="alert alert-warning alert-dismissible fade show" data-dismiss="alert" role="alert" runat="server">
+    <div id="basarisiz" class="alert alert-warning" visible="false" role="alert" runat="server">
         <strong>Hata!</strong> Kullanıcı adı veya email zaten kayıtlı
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="sifrehata" class="alert alert-warning" visible="false" role="alert" runat="server">
+        <strong>Hata!</strong> Şu anki şifrenizi yanlış girdiniz
     </div>
 
     <%
@@ -146,7 +127,6 @@
                 <div class="form-group">
                     <label for="inputPassword4">Şu Anki Şifre</label>
                     <asp:TextBox ID="TextBox6" CssClass="form-control" runat="server"></asp:TextBox>
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Şifre yanlış!" ControlToValidate="TextBox6" OnServerValidate="ServerValidate"></asp:CustomValidator>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword5">Yeni Şifre</label>
