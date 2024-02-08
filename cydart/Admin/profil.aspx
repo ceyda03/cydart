@@ -15,15 +15,15 @@
                     <h4 class="mb-1"><%=Session["ad"]%> <%=Session["soyad"] %></h4>
                     <p class="small mb-3"><span class="badge badge-primary">
                         <%if (Convert.ToInt16(Session["yetki"]) == 0)
-                            {%>
+                          {%>
                             Süper Admin
                         <%} 
-                            else if (Convert.ToInt16(Session["yetki"]) == 1)
-                            {%>
+                          else if (Convert.ToInt16(Session["yetki"]) == 1)
+                          {%>
                             Admin
                         <%} 
-                            else if (Convert.ToInt16(Session["yetki"]) == 2)
-                            {%>
+                          else if (Convert.ToInt16(Session["yetki"]) == 2)
+                          {%>
                             Editör
                         <%} %></span>
                     </p>

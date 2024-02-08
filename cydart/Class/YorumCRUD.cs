@@ -54,5 +54,17 @@ namespace cydart.Class
             db.kapat();
             return cevap;
         }
+
+        public DataTable filtrele(string konu)
+        {
+            DataTable dt = new DataTable();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select * from Yorum where Konu=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", konu);
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            db.kapat();
+            return dt;
+        }
     }
 }

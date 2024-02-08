@@ -47,7 +47,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="index.aspx" class="nav-link">Ana Sayfa</a></li>
                     <li class="nav-item"><a href="urunler.aspx" class="nav-link">Ürünler</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">Hakkımızda</a></li>
+                    <li class="nav-item"><a href="hakkimizda.aspx" class="nav-link">Hakkımızda</a></li>
                     <li class="nav-item"><a href="iletisim.aspx" class="nav-link">İletişim</a></li>
                     <%if (Convert.ToBoolean(Session["uye"]))
                       {%>
@@ -98,7 +98,7 @@
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">CYDART</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                        <p>20 yıllık tecrübemizle, her zaman daha iyi hizmet verebilmek için uğraşıyoruz.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -111,7 +111,7 @@
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
                             <li><a href="urunler.aspx" class="py-2 d-block">Ürünler</a></li>
-                            <li><a href="#" class="py-2 d-block">Hakkımızda</a></li>
+                            <li><a href="hakkimizda.aspx" class="py-2 d-block">Hakkımızda</a></li>
                             <li><a href="#" class="py-2 d-block">Journal</a></li>
                             <li><a href="iletisim.aspx" class="py-2 d-block">Bize Ulaşın</a></li>
                         </ul>
