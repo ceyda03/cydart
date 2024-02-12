@@ -71,7 +71,7 @@
                     <div class="pb-md-5 pb-4">
                         <p>20 yıllık tecrübemizle, her zaman daha iyi hizmet verebilmek için uğraşıyoruz.</p>
                         <p>Seçkin markalardan geniş ürün kataloğumuzla aradığınız tüm sanat malzemeleri için buradayız. Kaliteli ürünler, hızlı teslimat ve etkili müşteri hizmetlerimizle kolay ve mutlu bir alışveriş serüveni yaşamanız için her ayrıntıyı düşünüyoruz.</p>
-                        <p><a href="#" class="btn btn-primary">Alışverişe Başla</a></p>
+                        <p><a href="urunler.aspx" class="btn btn-primary">Alışverişe Başla</a></p>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="text">
                                 <h3>Ücretsiz Kargo</h3>
-                                <p class="mb-0">300 Tl ve üzeri alışverişlerde kargo ücretsiz!</p>
+                                <p class="mb-0">300 TL ve üzeri alışverişlerde kargo ücretsiz!</p>
                             </div>
                         </div>
                         <div class="services-2 p-4 d-flex ftco-animate">

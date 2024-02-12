@@ -17,9 +17,22 @@ namespace cydart.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Email email = new Email();
-            email.sifreyenile(TextBox1.Text);
-            yollandi.Visible = true;
+            AdminCRUD adminCRUD = new AdminCRUD();
+            bool kontrol = adminCRUD.emailkontrol(TextBox1.Text);
+
+            if (kontrol)
+            {
+                Email email = new Email();
+                string ysifre = email.sifreyenile(TextBox1.Text);
+                adminCRUD.sifreguncelle(ysifre, TextBox1.Text);
+                yollandi.Visible = true;
+                hata.Visible = false;
+            }
+            else
+            {
+                hata.Visible = true;
+                yollandi.Visible = false;
+            }
         }
     }
 }

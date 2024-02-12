@@ -160,5 +160,22 @@ namespace cydart.Class
             db.kapat();
             return cevap;
         }
+
+        public bool sifreguncelle(string ysifre, string email)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("update Musteri set Mus_Sifre=@sifre where Mus_Email=@email", db.baglanti);
+            komut.Parameters.AddWithValue("@sifre", sifre.sifrele(ysifre));
+            komut.Parameters.AddWithValue("@email", email);
+            int sonuc = komut.ExecuteNonQuery();
+
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
     }
 }

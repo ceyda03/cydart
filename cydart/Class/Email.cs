@@ -11,7 +11,7 @@ namespace cydart.Class
 {
     public class Email
     {
-        public void sifreyenile(string kime)
+        public string sifreyenile(string kime)
         {
             string sifre = Membership.GeneratePassword(10, 3);
 
@@ -37,6 +37,8 @@ namespace cydart.Class
             message.IsBodyHtml = true;
 
             smtp.Send(message);
+
+            return sifre;
         }
 
         public void onericevapla(string kime)

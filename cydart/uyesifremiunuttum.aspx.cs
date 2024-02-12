@@ -23,7 +23,8 @@ namespace cydart
             if (kontrol)
             {
                 Email email = new Email();
-                email.sifreyenile(TextBox1.Text);
+                string ysifre = email.sifreyenile(TextBox1.Text);
+                musteriCRUD.sifreguncelle(ysifre,TextBox1.Text);
                 yollandi.Visible = true;
                 hata.Visible = false;
             }

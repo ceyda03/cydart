@@ -42,6 +42,9 @@
                 <div id="yollandi" class="alert alert-success" role="alert" runat="server" visible="false">
                     Yeni şifreniz mailinize yollandı!
                 </div>
+                <div id="hata" class="alert alert-danger" role="alert" runat="server" visible="false">
+                    Bu email adresi sistemde kayıtlı değil.
+                </div>
             </form>
         </div>
     </div>

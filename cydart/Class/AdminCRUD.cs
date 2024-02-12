@@ -201,5 +201,38 @@ namespace cydart.Class
             db.kapat();
             return cevap;
         }
+
+        public bool emailkontrol(string email)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("select count(*) from AdminTbl where Admin_Email=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", email);
+            int sonuc = Convert.ToInt16(komut.ExecuteScalar());
+
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
+
+        public bool sifreguncelle(string ysifre, string email)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("update AdminTbl set Admin_Sifre=@sifre where Admin_Email=@email", db.baglanti);
+            komut.Parameters.AddWithValue("@sifre", sifre.sifrele(ysifre));
+            komut.Parameters.AddWithValue("@email", email);
+            int sonuc = komut.ExecuteNonQuery();
+
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
     }
 }
