@@ -30,7 +30,7 @@ namespace cydart.Admin
             AdminCRUD adminCRUD = new AdminCRUD();
             Adminn admin = adminCRUD.bilgigetir(Convert.ToInt16(Session["id"]));
 
-            if (TextBox7.Text != null) // eğer yeni şifre değeri varsa
+            if (TextBox7.Text != "") // eğer yeni şifre değeri varsa
             {
                 if (TextBox6.Text == admin.Sifre) // şu anki şifreye girilen değer veri tabanındakiyle aynıysa
                 {
