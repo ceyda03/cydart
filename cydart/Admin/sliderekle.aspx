@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Duyuru Ekleme</h2>
 
-    <div id="basarisiz" class="alert alert-warning" role="alert" runat="server">
+    <div id="basarisiz" class="alert alert-warning" role="alert" visible="false" runat="server">
         <strong>Hata!</strong> Kayıt eklenemedi
     </div>
 
@@ -33,7 +33,8 @@
 
                 <div class="form-group">
                     <label for="inputAddress2">Fotoğraf</label> <br />
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                    <img id="imgPreview" src="#" alt="Ön izleme" height="100" runat="server" style="display: none;"/>
+                    <asp:FileUpload ID="FileUpload1" runat="server" onchange="showPreview()"/>
                 </div>
                 
                 <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Kaydet" OnClick="Button1_Click" />
@@ -41,4 +42,22 @@
         </div>
     </div>
 
+    <script>
+        function showPreview() {
+            var fileInput = document.getElementById('<%= FileUpload1.ClientID %>');
+            var imgPreview = document.getElementById('<%= imgPreview.ClientID %>');
+
+            if (fileInput.files && fileInput.files[0]) {
+                imgPreview.style.display = "inline"; 
+
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imgPreview.src = e.target.result;
+                }
+
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
 </asp:Content>

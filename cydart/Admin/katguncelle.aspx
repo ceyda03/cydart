@@ -34,12 +34,34 @@
 
                 <div class="form-group">
                     <label for="inputEmail4">Kategori Resmi</label> <br />
-                    <img src="<%=kategori.Resim %>" alt="Alternate Text" width="100" height="100" />
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                    <img id="imgPreview" src="#" alt="Ön izleme" height="100" runat="server" />
+                    <asp:FileUpload ID="FileUpload1" runat="server" onchange="showPreview()" />
                 </div>
 
                 <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Kaydet" OnClick="Button1_Click"/>
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function () {
+            var imgPreview = document.getElementById('<%= imgPreview.ClientID %>');
+            imgPreview.src = '<% =kategori.Resim %>';
+        }
+
+        function showPreview() {
+            var fileInput = document.getElementById('ContentPlaceHolder1_FileUpload1');
+            var imgPreview = document.getElementById('ContentPlaceHolder1_imgPreview');
+
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imgPreview.src = e.target.result;
+                }
+
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
 </asp:Content>

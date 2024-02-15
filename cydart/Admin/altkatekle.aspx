@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="page-title">Alt Kategori Ekleme</h2>
     
-    <div id="basarisiz" class="alert alert-warning" role="alert" runat="server">
+    <div id="basarisiz" class="alert alert-warning" role="alert" visible="false" runat="server">
         <strong>Hata!</strong> Kayıt eklenemedi
     </div>
 
