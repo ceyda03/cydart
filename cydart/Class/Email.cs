@@ -119,23 +119,30 @@ namespace cydart.Class
             smtp.Send(message);
         }
 
-        //public void yanitgonder(string kime)
-        //{
-        //    string to = kime;
-        //    string from = "ceydatak03@gmail.com";
-        //    MailMessage message = new MailMessage(from, to);
+        public void cevapla(string kime, string baslik, string mesaj)
+        {
+            string to = kime;
+            MailAddress gonderenmail = new MailAddress("butgemwebtasarim@gmail.com", "Admin");
+            MailAddress alicimail = new MailAddress(to, "Müşteri");
+            const string gonderensifre = "unie silr vjbw ktcx";
 
-        //    string mailbody = "Şifre yenileme işlemleri";
-        //    message.Subject = "Şifre yenileme";
-        //    message.Body = mailbody;
-        //    message.BodyEncoding = Encoding.UTF8;
-        //    message.IsBodyHtml = true;
-        //    SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-        //    NetworkCredential basicCredential = new NetworkCredential("ceydatak03@gmail.com", "09876_abc");
-        //    client.EnableSsl = true;
-        //    client.UseDefaultCredentials = false;
-        //    client.Credentials = basicCredential;
-        //    client.Send(message);
-        //}
+            SmtpClient smtp = new SmtpClient();
+            System.Net.NetworkCredential networkCredential = new NetworkCredential(gonderenmail.Address, gonderensifre);
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = networkCredential;
+
+            MailMessage message = new MailMessage(gonderenmail, alicimail);
+            string mailbody = mesaj;
+            message.Subject = baslik;
+            message.Body = mailbody;
+            message.BodyEncoding = Encoding.UTF8;
+            message.IsBodyHtml = true;
+
+            smtp.Send(message);
+        }
     }
 }
