@@ -48,7 +48,7 @@
             cydart.Class.KategoriCRUD kategoriCRUD = new cydart.Class.KategoriCRUD();
             System.Data.DataTable kategoriler = kategoriCRUD.listele();
         %>
-        <div class="container-fluid px-0 m-auto">
+        <div class="container-fluid px-0">
             <div class="row no-gutters">
                 <%for (int i = 0; i < kategoriler.Rows.Count; i++)
                   {

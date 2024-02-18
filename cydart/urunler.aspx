@@ -42,7 +42,7 @@
                           {%>
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
                                 <div class="product d-flex flex-column">
-                                    <a href="#" class="img-prod">
+                                    <a href="urundetay.aspx?urun=<% =urunler.Rows[i][0] %>" class="img-prod">
                                         <%if (urunler.Rows[i][9].ToString() != "")
                                           {%>
                                             <img class="img-fluid" src="Admin/<% =urunler.Rows[i][9] %>" alt="Colorlib Template">
@@ -59,17 +59,8 @@
                                             <div class="cat">
                                                 <span><% =urunler.Rows[i][4] %></span>  
                                             </div>
-                                            <div class="rating">
-                                                <p class="text-right mb-0">
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                </p>
-                                            </div>
                                         </div>
-                                        <h3><a href="#"><% =urunler.Rows[i][1] %></a></h3>
+                                        <h3><a href="urundetay.aspx?urun=<% =urunler.Rows[i][0] %>"><% =urunler.Rows[i][1] %></a></h3>
                                         <div class="pricing">
                                             <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][5]).ToString("0.##") %>₺</span></p>
                                         </div>
