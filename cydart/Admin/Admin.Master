@@ -234,6 +234,13 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item w-100">
+                        <a class="nav-link" href="yorumlistele.aspx">
+                            <i class="fe fe-file fe-16"></i>
+                            <span class="ml-3 item-text">Geri Bildirimler</span>
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a href="#support" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-compass fe-16"></i>
