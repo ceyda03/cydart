@@ -39,6 +39,9 @@ namespace cydart
                 musteri.Soyad = musteriCRUD.getir(musteri).Soyad;
                 Session["ad"] = musteri.Ad + " " + musteri.Soyad;
 
+                musteri.No = musteriCRUD.getir(musteri).No;
+                Session["no"] = musteri.No;
+
                 if (CheckBox1.Checked)
                 {
                     cerez["email"] = TextBox1.Text;

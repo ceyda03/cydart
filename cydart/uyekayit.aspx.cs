@@ -32,5 +32,10 @@ namespace cydart
                 basarisiz.Visible = true;
             }
         }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
