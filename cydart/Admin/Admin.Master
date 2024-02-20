@@ -122,7 +122,7 @@
                         <li class="nav-item dropdown">
                             <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                                 <i class="fe fe-user fe-16"></i>
-                                <span class="ml-3 item-text">Admin</span><span class="sr-only">(current)</span>
+                                <span class="ml-3 item-text">Adminler</span><span class="sr-only">(current)</span>
                             </a>
                             <ul class="collapse list-unstyled pl-4 w-100" id="dashboard">
                                 <li class="nav-item">
@@ -142,7 +142,7 @@
                     <li class="nav-item dropdown">
                         <a href="#ui-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-layers fe-16"></i>
-                            <span class="ml-3 item-text">Kategori</span>
+                            <span class="ml-3 item-text">Kategoriler</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
                             <li class="nav-item">
@@ -161,7 +161,7 @@
                     <li class="nav-item dropdown">
                         <a href="#charts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-list fe-16"></i>
-                            <span class="ml-3 item-text">Alt Kategori</span>
+                            <span class="ml-3 item-text">Alt Kategoriler</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="charts">
                             <li class="nav-item">
@@ -180,7 +180,7 @@
                     <li class="nav-item dropdown">
                         <a href="#contact" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-tag fe-16"></i>
-                            <span class="ml-3 item-text">Marka</span>
+                            <span class="ml-3 item-text">Markalar</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="contact">
                             <li class="nav-item">
@@ -199,7 +199,7 @@
                     <li class="nav-item dropdown">
                         <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-grid fe-16"></i>
-                            <span class="ml-3 item-text">Ürün</span>
+                            <span class="ml-3 item-text">Ürünler</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="forms">
                             <li class="nav-item">
@@ -215,7 +215,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown">
+                    <%--<li class="nav-item dropdown">
                         <a href="#tables" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-credit-card fe-16"></i>
                             <span class="ml-3 item-text">Müşteri</span>
@@ -232,8 +232,15 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>--%>
 
+                    <li class="nav-item w-100">
+                        <a class="nav-link" href="muslistele.aspx">
+                            <i class="fe fe-credit-card fe-16"></i>
+                            <span class="ml-3 item-text">Müşteriler</span>
+                        </a>
+                    </li>
+                    
                     <li class="nav-item w-100">
                         <a class="nav-link" href="yorumlistele.aspx">
                             <i class="fe fe-file fe-16"></i>
@@ -244,7 +251,7 @@
                     <li class="nav-item dropdown">
                         <a href="#support" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                             <i class="fe fe-compass fe-16"></i>
-                            <span class="ml-3 item-text">Duyuru</span>
+                            <span class="ml-3 item-text">Duyurular</span>
                         </a>
                         <ul class="collapse list-unstyled pl-4 w-100" id="support">
                             <li class="nav-item">

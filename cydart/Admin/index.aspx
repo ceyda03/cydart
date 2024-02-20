@@ -10,47 +10,19 @@
         System.Data.DataTable tablo = yorumCRUD.listele();
     %>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-              <div class="mb-3">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="row my-4">
         <!-- Small table -->
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header">
                     <strong class="card-title">Yorum / Öneri / Şikayet</strong>
-                    <a class="float-right small text-muted" href="#!">Tümünü gör</a>
+                    <a class="float-right small text-muted" href="yorumlistele.aspx">Tümünü gör</a>
                 </div>
                 <div class="card-body">
                     <!-- table -->
                     <table class="table datatables" id="dataTable-1">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th>No</th>
                                 <th>Gönderen Adı</th>
                                 <th>Gönderen Email</th>
@@ -60,15 +32,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%for (int i = 0; i < tablo.Rows.Count; i++)
+                            <%for (int i = 0; i < 3; i++)
                               { %>
                                 <tr>
-                                    <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <label class="custom-control-label"></label>
-                                        </div>
-                                    </td>
                                     <td><% =tablo.Rows[i][0] %></td>
                                     <td><% =tablo.Rows[i][1] %></td>
                                     <td><% =tablo.Rows[i][2] %></td>

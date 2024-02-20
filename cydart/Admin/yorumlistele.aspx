@@ -44,7 +44,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="respCancel()">İptal</button>
-                <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Gönder" OnClientClick="respond()" />
+                <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Gönder" OnClick="Button1_Click" />
             </div>
         </div>
     </div>
@@ -60,14 +60,12 @@
             <div class="card shadow">
                 <div class="card-header">
                     <strong class="card-title">Yorum / Öneri / Şikayet</strong>
-                    <input type="button" value="Seçilenleri Sil" onclick="sil()" />
                 </div>
                 <div class="card-body">
                     <!-- table -->
                     <table class="table datatables" id="dataTable-1">
                         <thead>
                             <tr>
-                                <th></th>
                                 <th>No</th>
                                 <th>Gönderen Adı</th>
                                 <th>Gönderen Email</th>
@@ -80,11 +78,6 @@
                             <%for (int i = 0; i < tablo.Rows.Count; i++)
                               { %>
                                 <tr>
-                                    <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <asp:CheckBox ID="CheckBox1" runat="server" />
-                                        </div>
-                                    </td>
                                     <td><% =tablo.Rows[i][0] %></td>
                                     <td><% =tablo.Rows[i][1] %></td>
                                     <td><% =tablo.Rows[i][2] %></td>
@@ -157,44 +150,6 @@
             };
 
             xhr.send(JSON.stringify({ alici: alici, baslik: baslik, mesaj: mesaj }));
-
         };
-    </script>
-
-    <script>
-        function sil() {
-            var table = document.getElementById("dataTable-1");
-            var rowCount = table.rows.length;
-
-            for (var i = 1; i < rowCount; i++) {
-                var row = table.rows[i];
-                var chkbox = row.cells[0].getElementsByTagName('input')[0];
-
-                if (chkbox.checked) {
-                    var noText = row.cells[1].innerText; // Hücrenin metin içeriğini alır
-                    var no = parseInt(noText); // Metni tam sayıya çevirir
-                    
-                    // AJAX isteği gönder
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("DELETE", "/Admin/SilmeServisiController.cs/Delete", true);
-                    xhr.setRequestHeader("Content-Type", "application/json");
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            // Başarılı bir şekilde tamamlandığında yapılacak işlemler
-                        }
-                    };
-                    xhr.send(JSON.stringify({ id: no }));
-                }
-
-                <%--if (chkbox.checked) {
-                    <% 
-                        cydart.Class.YorumCRUD yorum = new cydart.Class.YorumCRUD();
-                        yorum.sil(no);
-                    %>
-                    rowCount--;
-                    i--;
-                }--%>
-            }
-        }
     </script>
 </asp:Content>

@@ -8,16 +8,16 @@ using cydart.Class;
 
 namespace cydart.Admin
 {
-    public partial class muslistele : System.Web.UI.Page
+    public partial class yorumliste : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] != null)
             {
                 int gid = Convert.ToInt16(Request.QueryString["id"]);
-                MusteriCRUD musteriCRUD = new MusteriCRUD();
-                bool sonuc = musteriCRUD.sil(gid);
-
+                YorumCRUD yorumCRUD = new YorumCRUD();
+                bool sonuc = yorumCRUD.sil(gid);
+                
                 if (sonuc)
                 {
                     basarili.Visible = true;
@@ -28,7 +28,25 @@ namespace cydart.Admin
                     basarili.Visible = false;
                     basarisiz.Visible = true;
                 }
+
+                Response.Redirect("yorumlistele.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                Session["alici"] = TextBox1.Text;
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string alici = Session["alici"].ToString();
+            string baslik = TextBox2.Text;
+            string mesaj = TextBox3.Text;
+
+            Email email = new Email();
+            email.cevapla(alici, baslik, mesaj);
+            gonderildi.Visible = true;
         }
     }
 }

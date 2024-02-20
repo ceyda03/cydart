@@ -17,6 +17,7 @@ namespace cydart.Admin
                 int gid = Convert.ToInt16(Request.QueryString["id"]);
                 YorumCRUD yorumCRUD = new YorumCRUD();
                 yorumCRUD.sil(gid);
+                Response.Redirect("index.aspx");
             }
 
             if (Request.QueryString["cevap"] != null)
