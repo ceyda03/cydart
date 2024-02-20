@@ -177,5 +177,27 @@ namespace cydart.Class
             db.kapat();
             return cevap;
         }
+
+        public bool guncellemekontrol(int id, string email)
+        {
+            bool cevap;
+            int kaysay;
+            db.ac();
+            SqlCommand komut = new SqlCommand("select count(*) from Musteri where Mus_Email=@a and Mus_No!=@b", db.baglanti);
+            komut.Parameters.AddWithValue("@a", email);
+            komut.Parameters.AddWithValue("@b", id);
+            kaysay = Convert.ToInt16(komut.ExecuteScalar());
+
+            if (kaysay == 0)
+            {
+                cevap = false;
+            }
+            else
+            {
+                cevap = true;
+            }
+            db.kapat();
+            return cevap;
+        }
     }
 }
