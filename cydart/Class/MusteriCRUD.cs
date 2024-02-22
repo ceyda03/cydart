@@ -89,7 +89,7 @@ namespace cydart.Class
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("delete from Musteri where Mus_No=@no");
+            SqlCommand komut = new SqlCommand("delete from Musteri where Mus_No=@no", db.baglanti);
             komut.Parameters.AddWithValue("@no", musno);
             int sonuc = komut.ExecuteNonQuery();
 
