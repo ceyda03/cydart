@@ -102,11 +102,10 @@ namespace cydart.Class
             urun.Katid = Convert.ToInt16(dt.Rows[0][2]);
             urun.Altkatid = Convert.ToInt16(dt.Rows[0][3]);
             urun.Markaid = Convert.ToInt16(dt.Rows[0][4]);
-            urun.Fiyat = Convert.ToDouble(dt.Rows[0][5]);
+            urun.Fiyat = Convert.ToInt16(dt.Rows[0][5]);
             urun.Stok = Convert.ToInt16(dt.Rows[0][6]);
-            urun.SipAdet = Convert.ToInt16(dt.Rows[0][7]);
-            urun.Aciklama = dt.Rows[0][8].ToString();
-            urun.Resim = dt.Rows[0][9].ToString();
+            urun.Aciklama = dt.Rows[0][7].ToString();
+            urun.Resim = dt.Rows[0][8].ToString();
             db.kapat();
             return urun;
         }

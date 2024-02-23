@@ -33,19 +33,6 @@
                     <p class="price"><span><% =urun.Fiyat %> ₺</span></p>
                     <p><% =urun.Aciklama %></p>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="form-group d-flex">
-                                <div class="select-wrap">
-                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Small</option>
-                                        <option value="">Medium</option>
-                                        <option value="">Large</option>
-                                        <option value="">Extra Large</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                         <div class="w-100"></div>
                         <div class="input-group col-md-6 d-flex mb-3">
                             <span class="input-group-btn mr-2">
@@ -53,7 +40,7 @@
                                     <i class="ion-ios-remove"></i>
                                 </button>
                             </span>
-                            <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                            <asp:TextBox ID="TextBox1" name="quantity" cssclass="quantity form-control input-number" value="1" min="1" max="100" runat="server"></asp:TextBox>
                             <span class="input-group-btn ml-2">
                                 <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                                     <i class="ion-ios-add"></i>
@@ -61,11 +48,17 @@
                             </span>
                         </div>
                         <div class="w-100"></div>
-                        <div class="col-md-12">
-                            <p style="color: #000;">80 piece available</p>
-                        </div>
+                        <%if (urun.Stok <= 10)
+                          {%>
+                            <div class="col-md-12">
+                                <p style="color: #000;">Stokta son <% =urun.Stok %> adet kaldı!</p>
+                            </div>
+                        <%}%>
                     </div>
-                    <p><a href="cart.html" class="btn btn-black py-3 px-5 mr-2">Add to Cart</a><a href="cart.html" class="btn btn-primary py-3 px-5">Buy now</a></p>
+                    <p>
+                        <a href="urundetay.aspx?ekle=<% =urun.Barkod %>" class="btn btn-black py-3 px-5 mr-2">Sepete Ekle</a>
+                        <a href="urundetay.aspx?ekle=<% =urun.Barkod %>&sepet=true" class="btn btn-primary py-3 px-5">Hemen Al</a>
+                    </p>
                 </div>
             </div>
 
@@ -236,52 +229,19 @@
 
             document.querySelector('.quantity-right-plus').addEventListener('click', function (e) {
                 e.preventDefault();
-                var quantityField = document.getElementById('quantity');
+                var quantityField = document.getElementById('<% =TextBox1.ClientID %>');
                 var quantity = parseInt(quantityField.value);
                 quantityField.value = quantity + 1;
             });
 
             document.querySelector('.quantity-left-minus').addEventListener('click', function (e) {
                 e.preventDefault();
-                var quantityField = document.getElementById('quantity');
+                var quantityField = document.getElementById('<% =TextBox1.ClientID %>');
                 var quantity = parseInt(quantityField.value);
                 if (quantity > 0) {
                     quantityField.value = quantity - 1;
                 }
             });
         });
-
-        //$(document).ready(function () {
-        //    var quantity = 0;
-        //    $('.quantity-right-plus').click(function (e) {
-
-        //        // Stop acting like a button
-        //        e.preventDefault();
-        //        // Get the field name
-        //        var quantity = parseInt($('#quantity').val());
-
-        //        // If is not undefined
-
-        //        $('#quantity').val(quantity + 1);
-
-
-        //        // Increment
-
-        //    });
-
-        //    $('.quantity-left-minus').click(function (e) {
-        //        // Stop acting like a button
-        //        e.preventDefault();
-        //        // Get the field name
-        //        var quantity = parseInt($('#quantity').val());
-
-        //        // If is not undefined
-
-        //        // Increment
-        //        if (quantity > 0) {
-        //            $('#quantity').val(quantity - 1);
-        //        }
-        //    });
-        //});
 	</script>
 </asp:Content>

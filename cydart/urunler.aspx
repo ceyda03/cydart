@@ -2,16 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center">
-                <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.aspx">Ana Sayfa /</a></span> <span>Ürünler</span></p>
-                    <h1 class="mb-0 bread">Ürünler</h1>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <%
         cydart.Class.UrunCRUD urunCRUD = new cydart.Class.UrunCRUD();
@@ -43,9 +33,9 @@
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
                                 <div class="product d-flex flex-column">
                                     <a href="urundetay.aspx?urun=<% =urunler.Rows[i][0] %>" class="img-prod">
-                                        <%if (urunler.Rows[i][9].ToString() != "")
+                                        <%if (urunler.Rows[i][8].ToString() != "")
                                           {%>
-                                            <img class="img-fluid" src="Admin/<% =urunler.Rows[i][9] %>" alt="Colorlib Template">
+                                            <img class="img-fluid" src="Admin/<% =urunler.Rows[i][8] %>" alt="Colorlib Template">
                                         <%}
                                           else
                                           {%>
@@ -65,10 +55,10 @@
                                             <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][5]).ToString("0.##") %>₺</span></p>
                                         </div>
                                         <p class="bottom-area d-flex px-3">
-                                            <a href="#" class="add-to-cart text-center py-2 mr-1">
+                                            <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>" class="add-to-cart text-center py-2 mr-1">
                                                 <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
                                             </a>
-                                            <a href="#" class="buy-now text-center py-2">
+                                            <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>&sepet=true" class="buy-now text-center py-2">
                                                 Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
                                             </a>
                                         </p>
