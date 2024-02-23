@@ -54,8 +54,7 @@ namespace cydart.Admin
                 DropDownList3.SelectedValue = urun.Markaid.ToString();
                 TextBox3.Text = urun.Fiyat.ToString();
                 TextBox4.Text = urun.Stok.ToString();
-                TextBox5.Text = urun.SipAdet.ToString();
-                TextBox6.Text = urun.Aciklama;
+                TextBox5.Text = urun.Aciklama;
             }
         }
 
@@ -89,13 +88,13 @@ namespace cydart.Admin
                 FileUpload1.SaveAs(Server.MapPath("img/") + sayi + FileUpload1.FileName);
 
                 UrunCRUD urunCRUD = new UrunCRUD();
-                sonuc = urunCRUD.guncelle(TextBox1.Text, TextBox2.Text, Convert.ToInt16(DropDownList1.SelectedValue), Convert.ToInt16(DropDownList2.SelectedValue), Convert.ToInt16(DropDownList3.SelectedValue), Convert.ToDouble(TextBox3.Text), Convert.ToInt16(TextBox4.Text), Convert.ToInt16(TextBox5.Text), TextBox6.Text, "img/" + sayi + FileUpload1.FileName);
+                sonuc = urunCRUD.guncelle(TextBox1.Text, TextBox2.Text, Convert.ToInt16(DropDownList1.SelectedValue), Convert.ToInt16(DropDownList2.SelectedValue), Convert.ToInt16(DropDownList3.SelectedValue), Convert.ToDouble(TextBox3.Text), Convert.ToInt16(TextBox4.Text), TextBox5.Text, "img/" + sayi + FileUpload1.FileName);
             }
             else
             {
                 UrunCRUD urunCRUD = new UrunCRUD();
                 Urun urun = urunCRUD.bilgigetir(Request.QueryString["gunid"]);
-                sonuc = urunCRUD.guncelle(TextBox1.Text, TextBox2.Text, Convert.ToInt16(DropDownList1.SelectedValue), Convert.ToInt16(DropDownList2.SelectedValue), Convert.ToInt16(DropDownList3.SelectedValue), Convert.ToDouble(TextBox3.Text), Convert.ToInt16(TextBox4.Text), Convert.ToInt16(TextBox5.Text), TextBox6.Text, urun.Resim);
+                sonuc = urunCRUD.guncelle(TextBox1.Text, TextBox2.Text, Convert.ToInt16(DropDownList1.SelectedValue), Convert.ToInt16(DropDownList2.SelectedValue), Convert.ToInt16(DropDownList3.SelectedValue), Convert.ToDouble(TextBox3.Text), Convert.ToInt16(TextBox4.Text), TextBox5.Text, urun.Resim);
             }
 
             if (sonuc)

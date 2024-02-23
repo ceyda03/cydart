@@ -58,13 +58,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="inputEmail4">Sipariş Adet</label>
-                    <asp:TextBox ID="TextBox5" CssClass="form-control" TextMode="Number" placeholder="Stok" runat="server"></asp:TextBox>
-                </div>
-
-                <div class="form-group">
                     <label for="inputEmail4">Açıklama</label>
-                    <asp:TextBox ID="TextBox6" CssClass="form-control" TextMode="MultiLine" Rows="3" placeholder="Açıklama" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox5" CssClass="form-control" TextMode="MultiLine" Rows="3" placeholder="Açıklama" runat="server"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
