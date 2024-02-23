@@ -4,12 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <h2 class="page-title col-9">Alt Kategori Listesi</h2>
-        <span class="col-1">
-            <label>Filtrele:</label>
-        </span>
-        <span class="col-2">
-            <asp:DropDownList ID="DropDownList1" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" runat="server"></asp:DropDownList>
-        </span>
     </div>
 
     <div id="basarili" class="alert alert-success" role="alert" visible="false" runat="server">

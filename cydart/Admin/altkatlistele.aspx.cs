@@ -14,19 +14,6 @@ namespace cydart.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                DataTable dt = new DataTable();
-                KategoriCRUD kategoriCRUD = new KategoriCRUD();
-                dt = kategoriCRUD.listele();
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    DropDownList1.Items.Add(dt.Rows[i][1].ToString());
-                    DropDownList1.Items[i].Value = dt.Rows[i][0].ToString();
-                }
-            }
-
             if (Request.QueryString["id"] != null)
             {
                 int gid = Convert.ToInt16(Request.QueryString["id"]);
@@ -44,12 +31,6 @@ namespace cydart.Admin
                     basarisiz.Visible = true;
                 }
             }
-        }
-
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AltKategoriCRUD altKategoriCRUD = new AltKategoriCRUD();
-            DataTable tablo = altKategoriCRUD.filtrele(Convert.ToInt16(DropDownList1.SelectedValue));
         }
     }
 }
