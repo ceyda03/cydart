@@ -89,13 +89,13 @@ namespace cydart.Class
             return cevap;
         }
 
-        public Urun bilgigetir(string gid)
+        public Urun bilgigetir(string barkodno)
         {
             DataTable dt = new DataTable();
             Urun urun = new Urun();
             db.ac();
             SqlCommand komut = new SqlCommand("select * from Urun where Barkod_No=@a", db.baglanti);
-            komut.Parameters.AddWithValue("@a", gid);
+            komut.Parameters.AddWithValue("@a", barkodno);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);
             urun.Barkod = dt.Rows[0][0].ToString();
