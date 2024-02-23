@@ -8,7 +8,7 @@ namespace cydart.Class
     public class Urun
     {
         string barkod, ad, aciklama, resim;
-        int katid, altkatid, markaid, stok, sipAdet;
+        int katid, altkatid, markaid, stok;
         double fiyat;
 
         public string Barkod { get => barkod; set => barkod = value; }
@@ -19,7 +19,6 @@ namespace cydart.Class
         public int Altkatid { get => altkatid; set => altkatid = value; }
         public int Markaid { get => markaid; set => markaid = value; }
         public int Stok { get => stok; set => stok = value; }
-        public int SipAdet { get => sipAdet; set => sipAdet = value; }
         public double Fiyat { get => fiyat; set => fiyat = value; }
 
         public Urun() { }

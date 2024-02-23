@@ -17,7 +17,7 @@ namespace cydart.Class
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("insert into Urun values(@barkod, @ad, @kat, @altkat, @marka, @fiyat, @stok, 0, @acik, @resim)", db.baglanti);
+            SqlCommand komut = new SqlCommand("insert into Urun values(@barkod, @ad, @kat, @altkat, @marka, @fiyat, @stok, @acik, @resim)", db.baglanti);
             komut.Parameters.AddWithValue("@barkod", urun.Barkod);
             komut.Parameters.AddWithValue("@ad", urun.Ad);
             komut.Parameters.AddWithValue("@kat", urun.Katid);
@@ -41,7 +41,7 @@ namespace cydart.Class
         {
             DataTable dt = new DataTable();
             db.ac();
-            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Marka.Marka_Ad, Fiyat, Stok, Sip_Adet, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No", db.baglanti);
+            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Marka.Marka_Ad, Fiyat, Stok, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No", db.baglanti);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);
             db.kapat();
@@ -64,18 +64,17 @@ namespace cydart.Class
             return cevap;
         }
 
-        public bool guncelle(string barkodno, string yad, int ykat, int yaltkat, int ymarka, double yfiyat, int ystok, int ysipadet, string yaciklama, string yresim)
+        public bool guncelle(string barkodno, string yad, int ykat, int yaltkat, int ymarka, double yfiyat, int ystok, string yaciklama, string yresim)
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("update Urun set Urun_Ad=@ad, Kat_id=@kat, AltKat_id=@altkat, Marka_id=@marka, Fiyat=@fiyat, Stok=@stok, Sip_Adet=@sipadet, Aciklama=@acik, Urun_Resim=@resim where Barkod_No=@barkod", db.baglanti);
+            SqlCommand komut = new SqlCommand("update Urun set Urun_Ad=@ad, Kat_id=@kat, AltKat_id=@altkat, Marka_id=@marka, Fiyat=@fiyat, Stok=@stok, Aciklama=@acik, Urun_Resim=@resim where Barkod_No=@barkod", db.baglanti);
             komut.Parameters.AddWithValue("@ad", yad);
             komut.Parameters.AddWithValue("@kat", ykat);
             komut.Parameters.AddWithValue("@altkat", yaltkat);
             komut.Parameters.AddWithValue("@marka", ymarka);
             komut.Parameters.AddWithValue("@fiyat", yfiyat);
             komut.Parameters.AddWithValue("@stok", ystok);
-            komut.Parameters.AddWithValue("@sipadet", ysipadet);
             komut.Parameters.AddWithValue("@acik", yaciklama);
             komut.Parameters.AddWithValue("@resim", yresim);
             komut.Parameters.AddWithValue("@barkod", barkodno);
@@ -116,7 +115,7 @@ namespace cydart.Class
         {
             DataTable dt = new DataTable();
             db.ac();
-            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Marka.Marka_Ad, Fiyat, Stok, Sip_Adet, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No and Urun.Kat_id=@a", db.baglanti);
+            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Marka.Marka_Ad, Fiyat, Stok, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No and Urun.Kat_id=@a", db.baglanti);
             komut.Parameters.AddWithValue("@a", gid);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);
@@ -128,7 +127,7 @@ namespace cydart.Class
         {
             DataTable dt = new DataTable();
             db.ac();
-            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Marka.Marka_Ad, Fiyat, Stok, Sip_Adet, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No and AltKat_id=@a", db.baglanti);
+            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Marka.Marka_Ad, Fiyat, Stok, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No and AltKat_id=@a", db.baglanti);
             komut.Parameters.AddWithValue("@a", gid);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
             adp.Fill(dt);

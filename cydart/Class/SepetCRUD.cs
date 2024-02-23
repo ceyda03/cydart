@@ -29,13 +29,13 @@ namespace cydart.Class
             return cevap;
         }
 
-        public bool detayekle(int sipid, int urunid, double bfiyat, int miktar, double tfiyat)
+        public bool detayekle(int sipid, string barkodno, double bfiyat, int miktar, double tfiyat)
         {
             bool cevap = true;
             db.ac();
             SqlCommand komut = new SqlCommand("insert into S_Detay values(@sipid, @uid, @bfiyat, @miktar, @tfiyat)", db.baglanti);
             komut.Parameters.AddWithValue("@sipid", sipid);
-            komut.Parameters.AddWithValue("@uid", urunid);
+            komut.Parameters.AddWithValue("@uid", barkodno);
             komut.Parameters.AddWithValue("@bfiyat", bfiyat);
             komut.Parameters.AddWithValue("@miktar", miktar);
             komut.Parameters.AddWithValue("@tfiyat", tfiyat);
@@ -49,7 +49,7 @@ namespace cydart.Class
             return cevap;
         }
 
-        public bool detayekle(int sipid, double aratop, double kargo, double geneltop)
+        public bool tutarekle(int sipid, double aratop, double kargo, double geneltop)
         {
             bool cevap = true;
             db.ac();
