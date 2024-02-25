@@ -92,6 +92,22 @@ namespace cydart.Class
             return dt;
         }
 
+        public bool detaysil(int detayno)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("delete from S_Detay where Sira_No=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", detayno);
+            int sonuc = komut.ExecuteNonQuery();
+
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
+
         public int sipariskontrol(int musid)
         {
             int cevap = 0;

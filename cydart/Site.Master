@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -45,7 +47,7 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.aspx" class="nav-link">Ana Sayfa</a></li>
+                    <li class="nav-item"><a href="index.aspx" class="nav-link">Ana Sayfa</a></li>
                     <li class="nav-item"><a href="urunler.aspx" class="nav-link">Ürünler</a></li>
                     <li class="nav-item"><a href="hakkimizda.aspx" class="nav-link">Hakkımızda</a></li>
                     <li class="nav-item"><a href="iletisim.aspx" class="nav-link">İletişim</a></li>
@@ -69,7 +71,7 @@
                             </div>
                         </li>
                     <%}%>
-                    <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                    <li class="nav-item cta cta-colored"><a href="sepet.aspx" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
                 </ul>
             </div>
