@@ -104,7 +104,7 @@ namespace cydart.Class
             {
                 DataTable dt = new DataTable();
                 SqlCommand cmd = new SqlCommand("select * from Siparis where Mus_id=@b and Satis_Durum=0", db.baglanti);
-                komut.Parameters.AddWithValue("@b", musid);
+                cmd.Parameters.AddWithValue("@b", musid);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 adp.Fill(dt);
                 cevap = Convert.ToInt16(dt.Rows[0][0]);
@@ -117,7 +117,7 @@ namespace cydart.Class
         {
             bool cevap = false;
             db.ac();
-            SqlCommand komut = new SqlCommand("select count(*) Siparis where Mus_id=@a and Satis_Durum=0", db.baglanti);
+            SqlCommand komut = new SqlCommand("select count(*) from Siparis where Mus_id=@a and Satis_Durum=0", db.baglanti);
             komut.Parameters.AddWithValue("@a", musid);
             int sonuc = Convert.ToInt16(komut.ExecuteScalar());
 
