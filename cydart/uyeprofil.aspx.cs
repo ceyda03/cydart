@@ -13,22 +13,28 @@ namespace cydart
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            basarili.Visible = false;
-            basarisiz.Visible = false;
-            sifrehata.Visible = false;
-
-            if (Request.QueryString["sil"] != null)
+            if (Convert.ToBoolean(Session["uye"]) != true)
             {
-                int id = Convert.ToInt16(Session["no"]);
+                Response.Redirect("index.aspx");
+            }
+            else 
+            {
+                basarili.Visible = false;
+                basarisiz.Visible = false;
+                sifrehata.Visible = false;
 
-                MusteriCRUD musteriCRUD = new MusteriCRUD();
-                bool sonuc = musteriCRUD.sil(id);
-
-                if (sonuc)
+                if (Request.QueryString["sil"] =="1")
                 {
-                    Session.Abandon();
-                    Session.RemoveAll();
-                    Response.Redirect("index.aspx");
+                    int id = Convert.ToInt16(Session["no"]);
+
+                    MusteriCRUD musteriCRUD = new MusteriCRUD();
+                    bool sonuc = musteriCRUD.sil(id);
+                    if (sonuc)
+                    {
+                        Session.Abandon();
+                        Session.RemoveAll();
+                        Response.Redirect("uyeprofil.aspx");
+                    }
                 }
             }
         }
