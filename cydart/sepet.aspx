@@ -99,28 +99,34 @@
                 </div>
             </div>
             <div class="row justify-content-start">
-                <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
-                    <div class="cart-total mb-3">
-                        <h3>Sepet Tutarı</h3>
-                        <p class="d-flex">
-                            <span>Ara Toplam</span>
-                            <span class="t-price">$20.60</span>
-                        </p>
-                        <p class="d-flex">
-                            <span>Kargo Ücreti</span>
-                            <span>$0.00</span>
-                        </p>
-                        <p class="d-flex">
-                            <span>İndirim</span>
-                            <span>$3.00</span>
-                        </p>
-                        <hr>
-                        <p class="d-flex total-price">
-                            <span>Genel Toplam</span>
-                            <span>$17.60</span>
-                        </p>
+                <div class="col col-lg-12 col-md-12 mt-5 cart-wrap ftco-animate">
+                    <div class="row">
+                        <div class="cart-total mb-3 col-md-5">
+                            <h3>Sepet Tutarı</h3>
+                            <p class="d-flex">
+                                <span>Ara Toplam</span>
+                                <span class="t-price">$20.60</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Kargo Ücreti</span>
+                                <span>$0.00</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>İndirim</span>
+                                <span>$3.00</span>
+                            </p>
+                            <hr>
+                            <p class="d-flex total-price">
+                                <span>Genel Toplam</span>
+                                <span>$17.60</span>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Lütfen ödeme sayfasına gitmeden önce "Sepeti Güncelle" butonuna tıklayınız.</p>
+                            <asp:Button ID="Button1" CssClass="btn btn-primary py-3 px-4 mb-3" runat="server" Text="SEPETİ GÜNCELLE" />
+                            <p class="text-center"><a href="odeme.aspx" class="btn btn-primary py-3 px-4">ÖDEMEYE GİT</a></p>
+                        </div>
                     </div>
-                    <p class="text-center"><a href="odeme.aspx" class="btn btn-primary py-3 px-4">ÖDEMEYE GİT</a></p>
                 </div>
             </div>
         </div>
