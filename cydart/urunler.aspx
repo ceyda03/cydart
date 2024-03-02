@@ -17,6 +17,11 @@
             int gid = Convert.ToInt16(Request.QueryString["altkatsecim"]);
             urunler = urunCRUD.altkatsecimlistele(gid);
         }
+        else if (Request.QueryString["markasecim"] != null)
+        {
+            int gid = Convert.ToInt16(Request.QueryString["markasecim"]);
+            urunler = urunCRUD.markasecimlistele(gid);
+        }
         else
         {
             urunler = urunCRUD.listele();
