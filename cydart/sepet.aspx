@@ -55,7 +55,8 @@
 
                                         System.Data.DataTable sepettekiler = sepetCRUD.sepetliste(sipID);
                                         for (int i = 0; i < sepettekiler.Rows.Count; i++)
-                                        {%>
+                                        {
+                                            TextBox1.Text = sepettekiler.Rows[i][13].ToString();%>
                                             <tr class="text-center">
                                                 <td class="product-remove"><a href="sepet.aspx?urunsil=<% =sepettekiler.Rows[i][9] %>"><span class="ion-ios-close"></span></a></td>
 
@@ -76,7 +77,7 @@
                                                                 <i class="ion-ios-remove"></i>
                                                             </button>
                                                         </span>
-                                                        <asp:TextBox ID="TextBox1" name="quantity" cssclass="quantity form-control input-number" value="1" min="1" max="100" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" name="quantity" cssclass="quantity form-control input-number" min="1" max="100" runat="server"></asp:TextBox>
                                                         <span class="input-group-btn ml-2">
                                                             <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                                                                 <i class="ion-ios-add"></i>

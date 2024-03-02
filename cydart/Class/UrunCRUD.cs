@@ -133,5 +133,17 @@ namespace cydart.Class
             db.kapat();
             return dt;
         }
+
+        public DataTable markasecimlistele(int gid)
+        {
+            DataTable dt = new DataTable();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select Barkod_No, Urun_Ad, Kategori.Kat_Ad, AltKategori.AltKat_Ad, Marka.Marka_Ad, Fiyat, Stok, Aciklama, Urun_Resim from Urun, Kategori, AltKategori, Marka where Urun.Kat_id=Kategori.Kat_No and Urun.AltKat_id=AltKategori.AltKat_No and Urun.Marka_id=Marka.Marka_No and Marka_id=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", gid);
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            db.kapat();
+            return dt;
+        }
     }
 }

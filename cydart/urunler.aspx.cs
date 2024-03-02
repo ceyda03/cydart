@@ -36,7 +36,20 @@ namespace cydart
                 }
                 else
                 {
-                    sepetCRUD.detayekle(kayit, urun.Barkod, urun.Fiyat, 1, urun.Fiyat * 1);
+                    int detaykayit = sepetCRUD.detaykontrol(musID, urun.Barkod);
+
+                    if (detaykayit == 0)
+                    {
+                        sepetCRUD.detayekle(kayit, urun.Barkod, urun.Fiyat, 1, urun.Fiyat * 1);
+                    }
+                    else
+                    {
+                        DataTable dt = sepetCRUD.detaylistele(musID, urun.Barkod);
+                        int sirano = Convert.ToInt16(dt.Rows[0][0]);
+                        int miktar = Convert.ToInt16(dt.Rows[0][4]);
+                        double tfiyat = Convert.ToDouble(dt.Rows[0][5]);
+                        sepetCRUD.detayguncelle(sirano, miktar + 1, tfiyat + urun.Fiyat);
+                    }
                 }
 
                 if (Request.QueryString["sepet"] != null)
