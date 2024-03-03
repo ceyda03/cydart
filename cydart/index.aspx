@@ -62,16 +62,6 @@
                             </a>
                         </div>
                     <%}
-                      else 
-                      { %>
-                        <div class="col-md-4 col-lg-2 m-3 ftco-animate">
-                            <a href="urunler.aspx?katsecim=<% =kategoriler.Rows[i][0] %>" class="gallery img d-flex align-items-center" style="background-image: url(Admin/img/default200.jpg);">
-                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                    <span style="text-align:center;"><% =kategoriler.Rows[i][1] %></span>
-                                </div>
-                            </a>
-                        </div>
-                    <%}
                   } %>
             </div>
         </div>
@@ -84,7 +74,6 @@
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Kalemler</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
                 </div>
             </div>   		
         </div>
@@ -99,9 +88,9 @@
                         <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
                             <div class="product d-flex flex-column">
                                 <a href="#" class="img-prod">
-                                    <%if (urunler.Rows[i][9].ToString() != "")
+                                    <%if (urunler.Rows[i][8].ToString() != "")
                                       {%>
-                                        <img class="img-fluid" src="Admin/<% =urunler.Rows[i][9] %>" alt="Colorlib Template">
+                                        <img class="img-fluid" src="Admin/<% =urunler.Rows[i][8] %>" alt="Colorlib Template">
                                     <%}
                                       else
                                       {%>
@@ -165,7 +154,7 @@
                       if (markalar.Rows[i][2].ToString() != "")
                       {%>
                         <div class="col-md-4 col-lg-2 ftco-animate">
-                            <a href="#" class="gallery image-popup img d-flex align-items-center" style="background-image: url(Admin/<% =markalar.Rows[i][2] %>);">
+                            <a href="urunler.aspx?markasecim=<% =markalar.Rows[i][0] %>" class="gallery img d-flex align-items-center" style="background-image: url(Admin/<% =markalar.Rows[i][2] %>);">
                                 <div class="icon mb-4 d-flex align-items-center justify-content-center">
                                     <span style="text-align:center;"><% =markalar.Rows[i][1] %></span>
                                 </div>

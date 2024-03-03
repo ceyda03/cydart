@@ -44,7 +44,6 @@
                                 <th>Marka Adı</th>
                                 <th>Fiyat</th>
                                 <th>Stok</th>
-                                <th>Sipariş Adet</th>
                                 <th>Açıklama</th>
                                 <th>Ürün Resmi</th>
                                 <th>İşlemler</th>
@@ -63,11 +62,10 @@
                                     <td><% =Convert.ToDouble(tablo.Rows[i][5]).ToString("0.##") %></td>
                                     <td><% =tablo.Rows[i][6] %></td>
                                     <td><% =tablo.Rows[i][7] %></td>
-                                    <td><% =tablo.Rows[i][8] %></td>
                                     <td>
-                                        <% if (tablo.Rows[i][9].ToString() != "")
+                                        <% if (tablo.Rows[i][8].ToString() != "")
                                            { %>
-                                                <img src="<% =tablo.Rows[i][9] %>" alt="Alternate Text" style="max-height:50px" />
+                                                <img src="<% =tablo.Rows[i][8] %>" alt="Alternate Text" style="max-height:50px" />
                                         <% } 
                                            else
                                            { %>
