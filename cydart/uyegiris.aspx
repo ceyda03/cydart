@@ -32,7 +32,7 @@
 </head>
 <body class="goto-here bg-light">
      <section class="ftco-section contact-section">
-        <div class="container" style="background-image: url('Admin/img/145markers.png');">
+        <div class="container">
             <div class="row block-9">
                 <div class="col-md-6 order-md-last d-flex m-auto">
                     <form id="form1" runat="server" action="#" class="bg-white p-5 contact-form">

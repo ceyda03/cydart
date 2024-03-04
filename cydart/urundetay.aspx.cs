@@ -19,7 +19,7 @@ namespace cydart
                 int musID = Convert.ToInt16(Session["no"]);
 
                 DateTime tarih = DateTime.Now;
-                int adet = Convert.ToInt16(TextBox1.Text);
+                int adet = 1;
 
                 UrunCRUD urunCRUD = new UrunCRUD();
                 Urun urun = urunCRUD.bilgigetir(barkod);
@@ -36,7 +36,20 @@ namespace cydart
                 }
                 else
                 {
-                    sepetCRUD.detayekle(kayit, urun.Barkod, urun.Fiyat, adet, urun.Fiyat * adet);
+                    int detaykayit = sepetCRUD.detaykontrol(musID, urun.Barkod);
+
+                    if (detaykayit == 0)
+                    {
+                        sepetCRUD.detayekle(kayit, urun.Barkod, urun.Fiyat, adet, urun.Fiyat * adet);
+                    }
+                    else
+                    {
+                        DataTable dt = sepetCRUD.detaylistele(musID, urun.Barkod);
+                        int sirano = Convert.ToInt16(dt.Rows[0][0]);
+                        int miktar = Convert.ToInt16(dt.Rows[0][4]);
+                        double tfiyat = Convert.ToDouble(dt.Rows[0][5]);
+                        sepetCRUD.detayguncelle(sirano, miktar + adet, tfiyat + (urun.Fiyat * adet));
+                    }
                 }
 
                 if (Request.QueryString["sepet"] != null)

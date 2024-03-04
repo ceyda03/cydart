@@ -93,6 +93,18 @@ namespace cydart.Class
             return dt;
         }
 
+        public DataTable sepetdetaylistele(int detayid)
+        {
+            DataTable dt = new DataTable();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select * from S_Detay where Sira_No=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", detayid);
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            db.kapat();
+            return dt;
+        }
+
         public DataTable sepetliste(int sipid)
         {
             DataTable dt = new DataTable();
@@ -113,6 +125,25 @@ namespace cydart.Class
             komut.Parameters.AddWithValue("@a", miktar);
             komut.Parameters.AddWithValue("@b", tfiyat);
             komut.Parameters.AddWithValue("@c", sirano);
+            int sonuc = komut.ExecuteNonQuery();
+
+            if (sonuc == 0)
+            {
+                cevap = false;
+            }
+            db.kapat();
+            return cevap;
+        }
+
+        public bool tutarguncelle(int sipid, double aratop, double kargo, double geneltop)
+        {
+            bool cevap = true;
+            db.ac();
+            SqlCommand komut = new SqlCommand("update Tutar_Detay set Ara_Toplam=@ara, Kargo_Ucret=@kargo, Genel_Toplam=@genel where Sip_Kodu=@sipid", db.baglanti);
+            komut.Parameters.AddWithValue("@sipid", sipid);
+            komut.Parameters.AddWithValue("@ara", aratop);
+            komut.Parameters.AddWithValue("@kargo", kargo);
+            komut.Parameters.AddWithValue("@genel", geneltop);
             int sonuc = komut.ExecuteNonQuery();
 
             if (sonuc == 0)
@@ -194,6 +225,27 @@ namespace cydart.Class
             if (sonuc == 1)
             {
                 cevap = true;
+            }
+            db.kapat();
+            return cevap;
+        }
+
+        public int tutarkontrol(int sipid)
+        {
+            int cevap = 0;
+            db.ac();
+            SqlCommand komut = new SqlCommand("select count(*) from Tutar_Detay where Sip_Kodu=@a", db.baglanti);
+            komut.Parameters.AddWithValue("@a", sipid);
+            int sonuc = Convert.ToInt16(komut.ExecuteScalar());
+
+            if (sonuc != 0)
+            {
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("select * from Tutar_Detay where Sip_Kodu=@b", db.baglanti);
+                cmd.Parameters.AddWithValue("@b", sipid);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
+                cevap = Convert.ToInt16(dt.Rows[0][1]);
             }
             db.kapat();
             return cevap;

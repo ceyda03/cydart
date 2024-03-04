@@ -59,33 +59,21 @@
                                         <div class="pricing">
                                             <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][5]).ToString("0.##") %>₺</span></p>
                                         </div>
-                                        <p class="bottom-area d-flex px-3">
-                                            <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>" class="add-to-cart text-center py-2 mr-1">
-                                                <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
-                                            </a>
-                                            <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>&sepet=true" class="buy-now text-center py-2">
-                                                Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
-                                            </a>
-                                        </p>
+                                        <%if (Session["uye"] != null)
+                                          {%>
+                                            <p class="bottom-area d-flex px-3">
+                                                <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>" class="add-to-cart text-center py-2 mr-1">
+                                                    <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
+                                                </a>
+                                                <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>&sepet=true" class="buy-now text-center py-2">
+                                                    Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
+                                                </a>
+                                            </p>
+                                        <%} %>
                                     </div>
                                 </div>
                             </div>
                         <%} %>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col text-center">
-                            <div class="block-27">
-                                <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>                
 
@@ -129,43 +117,6 @@
                                     <%} %>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sidebar-box-2">
-                            <h2 class="heading">Fiyat Aralığı</h2>
-                            <form method="post" class="colorlib-form-2">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="guests">Price from:</label>
-                                            <div class="form-field">
-                                                <i class="icon icon-arrow-down3"></i>
-                                                <select name="people" id="people" class="form-control">
-                                                    <option value="#">1</option>
-                                                    <option value="#">200</option>
-                                                    <option value="#">300</option>
-                                                    <option value="#">400</option>
-                                                    <option value="#">1000</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="guests">Price to:</label>
-                                            <div class="form-field">
-                                                <i class="icon icon-arrow-down3"></i>
-                                                <select name="people" id="people" class="form-control">
-                                                    <option value="#">2000</option>
-                                                    <option value="#">4000</option>
-                                                    <option value="#">6000</option>
-                                                    <option value="#">8000</option>
-                                                    <option value="#">10000</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

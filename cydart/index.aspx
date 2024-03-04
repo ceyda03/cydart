@@ -68,7 +68,7 @@
     </section>
     <!-- categories end -->
 
-    <!-- products start -->
+    <!-- pens start -->
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
@@ -83,7 +83,7 @@
                     cydart.Class.UrunCRUD urunCRUD = new cydart.Class.UrunCRUD();
                     System.Data.DataTable urunler = urunCRUD.katsecimlistele(1);
 
-                    for (int i = 0; i < urunler.Rows.Count; i++)
+                    for (int i = 0; i < 4; i++)
                     {%>
                         <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
                             <div class="product d-flex flex-column">
@@ -132,7 +132,73 @@
             </div>
         </div>
     </section>
-    <!-- products end -->
+    <!-- pens end -->
+
+    <!-- paints start -->
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Boyalar</h2>
+                </div>
+            </div>   		
+        </div>
+        <div class="container">
+            <div class="row">
+                <%
+                    cydart.Class.UrunCRUD uruncrud = new cydart.Class.UrunCRUD();
+                    System.Data.DataTable boyalar = urunCRUD.katsecimlistele(2);
+
+                    for (int i = 0; i < 4; i++)
+                    {%>
+                        <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
+                            <div class="product d-flex flex-column">
+                                <a href="#" class="img-prod">
+                                    <%if (boyalar.Rows[i][8].ToString() != "")
+                                      {%>
+                                        <img class="img-fluid" src="Admin/<% =boyalar.Rows[i][8] %>" alt="Colorlib Template">
+                                    <%}
+                                      else
+                                      {%>
+                                        <img class="img-fluid" src="Admin/img/default200.png" alt="Colorlib Template">
+                                    <%}%>
+                                    <div class="overlay"></div>
+                                </a>
+                                <div class="text py-3 pb-4 px-3">
+                                    <div class="d-flex">
+                                        <div class="cat">
+                                            <span><% =boyalar.Rows[i][2] %></span>
+                                        </div>
+                                        <div class="rating">
+                                            <p class="text-right mb-0">
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h3><a href="#"><% =boyalar.Rows[i][1] %></a></h3>
+                                    <div class="pricing">
+                                        <p class="price"><span><% =Convert.ToDouble(boyalar.Rows[i][5]).ToString("0.##") %>₺</span></p>
+                                    </div>
+                                    <p class="bottom-area d-flex px-3">
+                                        <a href="#" class="add-to-cart text-center py-2 mr-1">
+                                            <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
+                                        </a>
+                                        <a href="#" class="buy-now text-center py-2">
+                                            Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                  <%}%>
+            </div>
+        </div>
+    </section>
+    <!-- paints end -->
 
     <!-- brands start -->
     <section class="ftco-gallery">

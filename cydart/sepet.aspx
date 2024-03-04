@@ -25,7 +25,17 @@
                             cydart.Class.SepetCRUD sepetCRUD = new cydart.Class.SepetCRUD();
                             bool sepet = sepetCRUD.sepetkontrol(musID);
 
-                            if (sepet == false)
+                            if (Session["uye"] == null)
+                            {%>
+                                <table class="table">
+                                    <thead class="thead-primary">
+                                        <tr>
+                                            <th>Sepete Ürün Eklemek İçin <a href="uyegiris.aspx" style="color:white;">Giriş Yapın</a></th>  
+                                        </tr>
+                                    </thead>
+                                </table>
+                            <%}
+                            else if (sepet == false)
                             {%>
                                 <table class="table">
                                     <thead class="thead-primary">
@@ -56,7 +66,8 @@
                                         System.Data.DataTable sepettekiler = sepetCRUD.sepetliste(sipID);
                                         for (int i = 0; i < sepettekiler.Rows.Count; i++)
                                         {
-                                            TextBox1.Text = sepettekiler.Rows[i][13].ToString();%>
+                                            TextBox1.Text = sepettekiler.Rows[i][13].ToString();
+                                            %>
                                             <tr class="text-center">
                                                 <td class="product-remove"><a href="sepet.aspx?urunsil=<% =sepettekiler.Rows[i][9] %>"><span class="ion-ios-close"></span></a></td>
 
@@ -73,21 +84,21 @@
                                                 <td class="quantity">
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-btn mr-2">
-                                                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-                                                                <i class="ion-ios-remove"></i>
-                                                            </button>
+                                                            <a href="sepet.aspx?id=<% =sepettekiler.Rows[i][9] %>&btn=Azalt">
+                                                                <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+                                                                    <i class="ion-ios-remove"></i>
+                                                                </button>
+                                                            </a>
                                                         </span>
                                                         <asp:TextBox ID="TextBox1" name="quantity" cssclass="quantity form-control input-number" min="1" max="100" runat="server"></asp:TextBox>
                                                         <span class="input-group-btn ml-2">
-                                                            <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                                                <i class="ion-ios-add"></i>
-                                                            </button>
+                                                            <a href="sepet.aspx?id=<% =sepettekiler.Rows[i][9] %>&btn=Artir">
+                                                                <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                                                                    <i class="ion-ios-add"></i>
+                                                                </button>
+                                                            </a>
                                                         </span>
                                                     </div>
-
-                                                    <%--<div class="input-group mb-3">
-                                                        <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                                    </div>--%>
                                                 </td>
 
                                                 <td class="total"><% =String.Format("{0:0.00}", sepettekiler.Rows[i][14]) %> ₺</td>
@@ -99,81 +110,53 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-start">
-                <div class="col col-lg-12 col-md-12 mt-5 cart-wrap ftco-animate">
-                    <div class="row">
-                        <div class="cart-total mb-3 col-md-5">
-                            <h3>Sepet Tutarı</h3>
-                            <p class="d-flex">
-                                <span>Ara Toplam</span>
-                                <span class="t-price">$20.60</span>
-                            </p>
-                            <p class="d-flex">
-                                <span>Kargo Ücreti</span>
-                                <span>$0.00</span>
-                            </p>
-                            <p class="d-flex">
-                                <span>İndirim</span>
-                                <span>$3.00</span>
-                            </p>
-                            <hr>
-                            <p class="d-flex total-price">
-                                <span>Genel Toplam</span>
-                                <span>$17.60</span>
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p>Lütfen ödeme sayfasına gitmeden önce "Sepeti Güncelle" butonuna tıklayınız.</p>
-                            <asp:Button ID="Button1" CssClass="btn btn-primary py-3 px-4 mb-3" runat="server" Text="SEPETİ GÜNCELLE" />
-                            <p class="text-center"><a href="odeme.aspx" class="btn btn-primary py-3 px-4">ÖDEMEYE GİT</a></p>
+
+            <%
+                if (sepet == true)
+                {
+                    System.Data.DataTable dt = sepetCRUD.siplistele(musID);
+                    int sipid = Convert.ToInt16(dt.Rows[0][0]);
+
+                    System.Data.DataTable sepettutar = sepetCRUD.sepetliste(sipid);
+
+                    double aratop = 0;
+                    for (int i = 0; i < sepettutar.Rows.Count; i++)
+                    {
+                        aratop += Convert.ToDouble(sepettutar.Rows[i][14]);
+                    }
+                    %>
+                    <div class="row justify-content-start">
+                        <div class="col col-lg-12 col-md-12 mt-5 cart-wrap ftco-animate">
+                            <div class="row">
+                                <div class="cart-total mb-3 col-md-5">
+                                    <h3>Sepet Tutarı</h3>
+                                    <p class="d-flex">
+                                        <span>Ara Toplam</span>
+                                        <span class="t-price">
+                                            <% =aratop %> ₺
+                                        </span>
+                                    </p>
+                                    <p class="d-flex">
+                                        <span>Kargo Ücreti</span>
+                                        <span>0.00 ₺</span>
+                                    </p>
+                                    <hr>
+                                    <p class="d-flex total-price">
+                                        <span>Genel Toplam</span>
+                                        <span>
+                                            <asp:TextBox ID="TextBox2" runat="server" Enabled="false"></asp:TextBox>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>Lütfen ödeme sayfasına gitmeden önce "Sepeti Güncelle" butonuna tıklayınız.</p>
+                                    <asp:Button ID="Button1" CssClass="btn btn-primary py-3 px-4 mb-3" runat="server" Text="SEPETİ GÜNCELLE" OnClick="Button1_Click" />
+                                    <p class="text-center"><a href="odeme.aspx" class="btn btn-primary py-3 px-4">ÖDEMEYE GİT</a></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+              <%} %>
         </div>
     </section>
-
-    <script>
-        $(document).ready(function () {
-            total();
-
-            $('.quantity-right-plus').on('click', function (e) {
-                e.preventDefault();
-                var quantityField = $(this).closest("td").find(".quantity");
-                var quantity = parseInt(quantityField.val());
-                quantityField.val(quantity + 1);
-
-                rowtotal($(this).closest("tr"));
-            });
-
-            $('.quantity-left-minus').on('click', function(e) {
-                e.preventDefault();
-                var quantityField = $(this).closest("td").find(".quantity");
-                var quantity = parseInt(quantityField.val());
-
-                if (quantity > 1) {
-                    quantityField.val(quantity - 1);
-                }
-
-                rowtotal($(this).closest("tr"));
-            });
-
-
-            function rowtotal($row) {
-                var quantity = parseInt($row.find("#<%=TextBox1.ClientID %>").val());
-                var price = parseInt($row.find(".price").text());
-                var total = quantity * price;
-                $row.find(".total").text(total.toFixed(2) + " ₺");
-                total();
-            };
-
-            function total() {
-                var total = 0;
-                $(".total").each(function () {
-                    total += parseInt($(this).text()) || 0;
-                });
-                $(".t-price").text(total.toFixed(2) + " ₺");
-            };
-        });
-    </script>
 </asp:Content>
