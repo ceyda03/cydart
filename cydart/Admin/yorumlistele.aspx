@@ -16,38 +16,6 @@
     <div id="gonderildi" class="alert alert-success" role="alert" visible="false" runat="server">
         <strong>Mail gönderildi</strong>
     </div>
-    
-    <div class="row my-4 mx-auto" id="cevapla" style="display:none;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title fs-5" id="exampleModalLabel">Cevapla</h3>
-            </div>
-            <div class="modal-body">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Alıcı:</label>
-                            <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Başlık:</label>
-                            <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Mesaj:</label>
-                            <asp:TextBox ID="TextBox3" CssClass="form-control" TextMode="MultiLine" Rows="2" runat="server"></asp:TextBox>
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="respCancel()">İptal</button>
-                <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Gönder" OnClick="Button1_Click" />
-            </div>
-        </div>
-    </div>
 
     <%
         cydart.Class.YorumCRUD yorumCRUD = new cydart.Class.YorumCRUD();
@@ -91,9 +59,7 @@
                                             <a class="dropdown-item" 
                                                href="index.aspx?cevap=<%if (tablo.Rows[i][3].ToString() == "Şikayet") {%>Şikayet<% }
                                                 else if (tablo.Rows[i][3].ToString() == "Öneri") {%>Öneri<% } 
-                                                else if (tablo.Rows[i][3].ToString() == "Yorum") {%>Yorum<% } %>&email=<% =tablo.Rows[i][2] %>">Otomatik Cevapla</a>
-
-                                            <a class="dropdown-item" href="#" onclick="cevapla(this)" data-alici-mail="<% =tablo.Rows[i][2] %>">Cevapla</a>
+                                                else if (tablo.Rows[i][3].ToString() == "Yorum") {%>Yorum<% } %>&email=<% =tablo.Rows[i][2] %>">Cevapla</a>
 
                                             <a class="dropdown-item" href="#" onclick="silmeOnay(<% =tablo.Rows[i][0] %>)">Sil</a>
                                         </div>
@@ -115,7 +81,7 @@
             }
         }
 
-        function cevapla(element) {
+<%--        function cevapla(element) {
             document.getElementById("cevapla").style.display = "block";
 
             var mail = element.getAttribute("data-alici-mail");
@@ -150,6 +116,6 @@
             };
 
             xhr.send(JSON.stringify({ alici: alici, baslik: baslik, mesaj: mesaj }));
-        };
+        };--%>
     </script>
 </asp:Content>

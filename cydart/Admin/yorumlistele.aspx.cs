@@ -31,22 +31,6 @@ namespace cydart.Admin
 
                 Response.Redirect("yorumlistele.aspx");
             }
-
-            if (!IsPostBack)
-            {
-                Session["alici"] = TextBox1.Text;
-            }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string alici = Session["alici"].ToString();
-            string baslik = TextBox2.Text;
-            string mesaj = TextBox3.Text;
-
-            Email email = new Email();
-            email.cevapla(alici, baslik, mesaj);
-            gonderildi.Visible = true;
         }
     }
 }

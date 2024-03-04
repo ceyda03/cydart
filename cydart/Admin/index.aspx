@@ -48,9 +48,7 @@
                                             <a class="dropdown-item" 
                                                href="index.aspx?cevap=<%if (tablo.Rows[i][3].ToString() == "Şikayet") {%>Şikayet<% }
                                                 else if (tablo.Rows[i][3].ToString() == "Öneri") {%>Öneri<% } 
-                                                else if (tablo.Rows[i][3].ToString() == "Yorum") {%>Yorum<% } %>&email=<% =tablo.Rows[i][2] %>">Otomatik Cevapla</a>
-
-                                            <a class="dropdown-item" href="#" onclick="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Cevapla</a>
+                                                else if (tablo.Rows[i][3].ToString() == "Yorum") {%>Yorum<% } %>&email=<% =tablo.Rows[i][2] %>">Cevapla</a>
 
                                             <a class="dropdown-item" href="#" onclick="silmeOnay(<% =tablo.Rows[i][0] %>)">Sil</a>
                                         </div>
