@@ -84,7 +84,7 @@ namespace cydart.Class
         {
             DataTable dt = new DataTable();
             db.ac();
-            SqlCommand komut = new SqlCommand("select * from S_Detay, Siparis where Mus_id=@a and Satis_Durum=0 and Urun_id=@b", db.baglanti);
+            SqlCommand komut = new SqlCommand("select * from S_Detay, Siparis where Siparis.Sip_Kodu=S_Detay.Sip_Kodu and Mus_id=@a and Satis_Durum=0 and Urun_id=@b", db.baglanti);
             komut.Parameters.AddWithValue("@a", musid);
             komut.Parameters.AddWithValue("@b", barkod);
             SqlDataAdapter adp = new SqlDataAdapter(komut);
@@ -195,7 +195,7 @@ namespace cydart.Class
         {
             int cevap = 0;
             db.ac();
-            SqlCommand komut = new SqlCommand("select count(*) from S_Detay, Siparis where Mus_id=@a and Satis_Durum=0 and Urun_id=@b", db.baglanti);
+            SqlCommand komut = new SqlCommand("select count(*) from S_Detay, Siparis where Siparis.Sip_Kodu=S_Detay.Sip_Kodu and Mus_id=@a and Satis_Durum=0 and Urun_id=@b", db.baglanti);
             komut.Parameters.AddWithValue("@a", musid);
             komut.Parameters.AddWithValue("@b", barkod);
             int sonuc = Convert.ToInt16(komut.ExecuteScalar());
@@ -203,7 +203,7 @@ namespace cydart.Class
             if (sonuc == 1)
             {
                 DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("select * from S_Detay, Siparis where Mus_id=@c and Satis_Durum=0 and Urun_id=@d", db.baglanti);
+                SqlCommand cmd = new SqlCommand("select * from S_Detay, Siparis where Siparis.Sip_Kodu=S_Detay.Sip_Kodu and Mus_id=@c and Satis_Durum=0 and Urun_id=@d", db.baglanti);
                 cmd.Parameters.AddWithValue("@c", musid);
                 cmd.Parameters.AddWithValue("@d", barkod);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
