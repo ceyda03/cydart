@@ -14,16 +14,19 @@
                 <div class="form-group">
                     <label for="inputEmail4">Barkod No</label>
                     <asp:TextBox ID="TextBox1" CssClass="form-control" TextMode="Number" placeholder="Barkod No" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail4">Ürün Adı</label>
                     <asp:TextBox ID="TextBox2" CssClass="form-control" placeholder="Ürün Adı" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail4">Ana Kategori Adı</label>
                     <asp:DropDownList ID="DropDownList1" CssClass="form-control select2" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Lütfen bu alanı doldurun" InitialValue="Lütfen Seçiniz"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
@@ -39,16 +42,19 @@
                 <div class="form-group">
                     <label for="inputEmail4">Fiyat</label>
                     <asp:TextBox ID="TextBox3" CssClass="form-control" TextMode="Number" placeholder="Fiyat" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox3" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail4">Stok</label>
                     <asp:TextBox ID="TextBox4" CssClass="form-control" TextMode="Number" placeholder="Stok" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox4" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail4">Açıklama</label>
                     <asp:TextBox ID="TextBox5" CssClass="form-control" TextMode="MultiLine" Rows="3" placeholder="Açıklama" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBox5" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">

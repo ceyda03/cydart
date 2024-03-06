@@ -68,7 +68,6 @@
                                             <span class="text-muted sr-only">Action</span>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="adminguncelle.aspx?gunid=<% =tablo.Rows[i][0] %>">Güncelle</a>
                                             <a class="dropdown-item" href="#" onclick="silmeOnay(<% =tablo.Rows[i][0] %>)">Sil</a>
                                         </div>
                                     </td>

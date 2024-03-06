@@ -14,6 +14,7 @@
                 <div class="form-group">
                     <label for="inputEmail4">Marka Adı</label>
                     <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Marka Adı" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">

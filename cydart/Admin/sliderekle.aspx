@@ -14,21 +14,25 @@
                 <div class="form-group">
                     <label for="inputEmail4">Etiket</label>
                     <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="Etiket" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail">Başlık</label>
                     <asp:TextBox ID="TextBox2" CssClass="form-control" placeholder="Başlık" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
                 
                 <div class="form-group">
                     <label for="inputEmail">Açıklama</label>
                     <asp:TextBox ID="TextBox3" CssClass="form-control" placeholder="Açıklama" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
                 
                 <div class="form-group">
                     <label for="inputEmail">Link</label>
                     <asp:TextBox ID="TextBox4" CssClass="form-control" placeholder="Link" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="Lütfen bu alanı doldurun"></asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">

@@ -66,6 +66,7 @@
                         <div class="form-group">
                             <label>Doğum Tarihi</label>
                             <asp:TextBox ID="TextBox6" CssClass="form-control" TextMode="Date" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox6" ErrorMessage="Lütfen seçim yapın"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="row">

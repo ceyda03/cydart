@@ -190,7 +190,6 @@
     <Content Include="sepet.aspx" />
     <Content Include="shop.html" />
     <Content Include="Admin\adminekle.aspx" />
-    <Content Include="Admin\adminguncelle.aspx" />
     <Content Include="Admin\adminlistele.aspx" />
     <Content Include="Admin\altkatekle.aspx" />
     <Content Include="Admin\altkatguncelle.aspx" />
@@ -412,13 +411,6 @@
     </Compile>
     <Compile Include="Admin\adminekle.aspx.designer.cs">
       <DependentUpon>adminekle.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\adminguncelle.aspx.cs">
-      <DependentUpon>adminguncelle.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\adminguncelle.aspx.designer.cs">
-      <DependentUpon>adminguncelle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\adminlistele.aspx.cs">
       <DependentUpon>adminlistele.aspx</DependentUpon>

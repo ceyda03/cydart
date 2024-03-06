@@ -18,10 +18,11 @@ namespace cydart.Admin
                 KategoriCRUD kategoriCRUD = new KategoriCRUD();
                 DataTable dt = kategoriCRUD.listele();
 
+                DropDownList1.Items.Add("Lütfen Seçiniz");
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     DropDownList1.Items.Add(dt.Rows[i][1].ToString());
-                    DropDownList1.Items[i].Value = dt.Rows[i][0].ToString();
+                    DropDownList1.Items[i + 1].Value = dt.Rows[i][0].ToString();
                 }
             }
         }
