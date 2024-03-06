@@ -14,12 +14,21 @@
         </div>
     </div>
 
+    
 
     <section class="ftco-section ftco-cart">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ftco-animate">
                     <div class="cart-list">
+                        <div id="basarili" class="alert alert-success" role="alert" runat="server" visible="false">
+                            <strong>Siparişiniz Alındı!</strong> Ödeme tamamlandı ve siparişiniz hazırlanmaya başladı.
+                        </div>
+
+                        <div id="basarisiz" class="alert alert-danger" role="alert" runat="server" visible="false">
+                            <strong>Bir Hata Oluştu!</strong> Ödeme tamamlanamadı. Lütfen tekrar deneyin.
+                        </div>
+
                         <%
                             int musID = Convert.ToInt16(Session["no"]);
                             cydart.Class.SepetCRUD sepetCRUD = new cydart.Class.SepetCRUD();
@@ -117,13 +126,9 @@
                     System.Data.DataTable dt = sepetCRUD.siplistele(musID);
                     int sipid = Convert.ToInt16(dt.Rows[0][0]);
 
-                    System.Data.DataTable sepettutar = sepetCRUD.sepetliste(sipid);
+                    System.Data.DataTable sepettutar = sepetCRUD.tutarliste(sipid);
 
-                    double aratop = 0;
-                    for (int i = 0; i < sepettutar.Rows.Count; i++)
-                    {
-                        aratop += Convert.ToDouble(sepettutar.Rows[i][14]);
-                    }
+                    
                     %>
                     <div class="row justify-content-start">
                         <div class="col col-lg-12 col-md-12 mt-5 cart-wrap ftco-animate">
@@ -133,25 +138,25 @@
                                     <p class="d-flex">
                                         <span>Ara Toplam</span>
                                         <span class="t-price">
-                                            <% =aratop %> ₺
+                                            <% =Convert.ToDouble(sepettutar.Rows[0][2]) %> ₺
                                         </span>
                                     </p>
                                     <p class="d-flex">
                                         <span>Kargo Ücreti</span>
-                                        <span>0.00 ₺</span>
+                                        <span>
+                                            <% =Convert.ToDouble(sepettutar.Rows[0][3]) %> ₺
+                                        </span>
                                     </p>
                                     <hr>
                                     <p class="d-flex total-price">
                                         <span>Genel Toplam</span>
                                         <span>
-                                            <asp:TextBox ID="TextBox2" runat="server" Enabled="false"></asp:TextBox>
+                                            <% =Convert.ToDouble(sepettutar.Rows[0][4]) %> ₺
                                         </span>
                                     </p>
                                 </div>
                                 <div class="col-md-4">
-                                    <p>Lütfen ödeme sayfasına gitmeden önce "Sepeti Güncelle" butonuna tıklayınız.</p>
-                                    <asp:Button ID="Button1" CssClass="btn btn-primary py-3 px-4 mb-3" runat="server" Text="SEPETİ GÜNCELLE" OnClick="Button1_Click" />
-                                    <p class="text-center"><a href="odeme.aspx" class="btn btn-primary py-3 px-4">ÖDEMEYE GİT</a></p>
+                                    <asp:Button ID="Button1" CssClass="btn btn-primary py-3 px-4" runat="server" Text="ÖDEMEYE GİT" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>

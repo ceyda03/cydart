@@ -14,24 +14,6 @@ namespace cydart
         protected void Page_Load(object sender, EventArgs e)
         {
             SepetCRUD sepetCRUD = new SepetCRUD();
-            //if (Session["uye"] != null)
-            //{            
-            //    int musID = Convert.ToInt16(Session["no"]);
-            //    sepetCRUD = new SepetCRUD();
-            //    DataTable dt = sepetCRUD.siplistele(musID);
-            //    int sipkod = Convert.ToInt16(dt.Rows[0][0]);
-
-            //    int tutar = sepetCRUD.tutarkontrol(sipkod);
-
-            //    if (tutar == 0)
-            //    {
-            //        sepetCRUD.tutarekle(sipkod, 0, 0, 0);
-            //    }
-            //    else
-            //    {
-            //        sepetCRUD.tutarguncelle(sipkod, 0, 0, 0);
-            //    }
-            //}
 
             if (Request.QueryString["urunsil"] != null)
             {
@@ -64,22 +46,6 @@ namespace cydart
                 }
 
                 sepetCRUD.detayguncelle(detayID, adet, toplamfiy);
-
-                int musID = Convert.ToInt16(Session["no"]);
-                sepetCRUD = new SepetCRUD();
-                DataTable dt = sepetCRUD.siplistele(musID);
-                int sipkod = Convert.ToInt16(dt.Rows[0][0]);
-
-                int tutar = sepetCRUD.tutarkontrol(sipkod);
-                
-                if (tutar == 0)
-                {
-                    sepetCRUD.tutarekle(sipkod, 0, 0, 0);
-                }
-                else
-                {
-                    sepetCRUD.tutarguncelle(sipkod, 0, 0, 0);
-                }
             }
         }
 
@@ -87,18 +53,21 @@ namespace cydart
         {
             int musID = Convert.ToInt16(Session["no"]);
             SepetCRUD sepetCRUD = new SepetCRUD();
-            DataTable dt = sepetCRUD.siplistele(musID);
-            int sipkod = Convert.ToInt16(dt.Rows[0][1]);
 
-            int tutar = sepetCRUD.tutarkontrol(sipkod);
+            System.Data.DataTable dt = sepetCRUD.siplistele(musID);
+            int sipid = Convert.ToInt16(dt.Rows[0][0]);
 
-            if (tutar == 0)
+            bool sonuc = sepetCRUD.sipguncelle(sipid);
+
+            if (sonuc)
             {
-                sepetCRUD.tutarekle(sipkod, 0, 0, 0);
+                basarili.Visible = true;
+                basarisiz.Visible = false;
             }
             else
             {
-                sepetCRUD.tutarguncelle(sipkod, 0, 0, 0);
+                basarili.Visible = false;
+                basarisiz.Visible = true;
             }
         }
     }

@@ -48,25 +48,6 @@ namespace cydart.Class
             db.kapat();
             return cevap;
         }
-
-        public bool tutarekle(int sipid, double aratop, double kargo, double geneltop)
-        {
-            bool cevap = true;
-            db.ac();
-            SqlCommand komut = new SqlCommand("insert into Tutar_Detay values(@sipid, @ara, @kargo, @genel)", db.baglanti);
-            komut.Parameters.AddWithValue("@sipid", sipid);
-            komut.Parameters.AddWithValue("@ara", aratop);
-            komut.Parameters.AddWithValue("@kargo", kargo);
-            komut.Parameters.AddWithValue("@genel", geneltop);
-            int sonuc = komut.ExecuteNonQuery();
-
-            if (sonuc == 0)
-            {
-                cevap = false;
-            }
-            db.kapat();
-            return cevap;
-        }
         
         public DataTable siplistele(int musid)
         {
@@ -117,6 +98,18 @@ namespace cydart.Class
             return dt;
         }
 
+        public DataTable tutarliste(int sipid)
+        {
+            DataTable dt = new DataTable();
+            db.ac();
+            SqlCommand komut = new SqlCommand("select * from Tutar_Detay where Sip_Kodu=@kod", db.baglanti);
+            komut.Parameters.AddWithValue("@kod", sipid);
+            SqlDataAdapter adp = new SqlDataAdapter(komut);
+            adp.Fill(dt);
+            db.kapat();
+            return dt;
+        }
+
         public bool detayguncelle(int sirano, int miktar, double tfiyat)
         {
             bool cevap = true;
@@ -135,15 +128,12 @@ namespace cydart.Class
             return cevap;
         }
 
-        public bool tutarguncelle(int sipid, double aratop, double kargo, double geneltop)
+        public bool sipguncelle(int sipid)
         {
             bool cevap = true;
             db.ac();
-            SqlCommand komut = new SqlCommand("update Tutar_Detay set Ara_Toplam=@ara, Kargo_Ucret=@kargo, Genel_Toplam=@genel where Sip_Kodu=@sipid", db.baglanti);
-            komut.Parameters.AddWithValue("@sipid", sipid);
-            komut.Parameters.AddWithValue("@ara", aratop);
-            komut.Parameters.AddWithValue("@kargo", kargo);
-            komut.Parameters.AddWithValue("@genel", geneltop);
+            SqlCommand komut = new SqlCommand("update Siparis set Satis_Durum=1, Sip_Durum=1 where Sip_Kodu=@kod", db.baglanti);
+            komut.Parameters.AddWithValue("@kod", sipid); 
             int sonuc = komut.ExecuteNonQuery();
 
             if (sonuc == 0)
