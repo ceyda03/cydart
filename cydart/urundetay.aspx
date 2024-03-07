@@ -32,7 +32,7 @@
                     <div class="cat">
                         <span></span>
                     </div>
-                    <p class="price"><span><% =urun.Fiyat %> ₺</span></p>
+                    <p class="price"><span><% =String.Format("{0:0.00}", urun.Fiyat) %> ₺</span></p>
                     <p><% =urun.Aciklama %></p>
                     <div class="w-100"></div>
                     <%if (urun.Stok <= 10)

@@ -57,7 +57,7 @@
                                         </div>
                                         <h3><a href="urundetay.aspx?urun=<% =urunler.Rows[i][0] %>"><% =urunler.Rows[i][1] %></a></h3>
                                         <div class="pricing">
-                                            <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][5]).ToString("0.##") %>₺</span></p>
+                                            <p class="price"><span><% =String.Format("{0:0.00}", urunler.Rows[i][5]) %>₺</span></p>
                                         </div>
                                         <%if (Session["uye"] != null)
                                           {%>

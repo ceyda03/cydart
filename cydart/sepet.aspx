@@ -99,7 +99,7 @@
                                                                 </button>
                                                             </a>
                                                         </span>
-                                                        <asp:TextBox ID="TextBox1" name="quantity" cssclass="quantity form-control input-number" min="1" max="100" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" name="quantity" cssclass="quantity form-control input-number" min="1" max="100" runat="server" enabled="false"></asp:TextBox>
                                                         <span class="input-group-btn ml-2">
                                                             <a href="sepet.aspx?id=<% =sepettekiler.Rows[i][9] %>&btn=Artir">
                                                                 <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
@@ -138,20 +138,20 @@
                                     <p class="d-flex">
                                         <span>Ara Toplam</span>
                                         <span class="t-price">
-                                            <% =Convert.ToDouble(sepettutar.Rows[0][2]) %> ₺
+                                            <% =String.Format("{0:0.00}", sepettutar.Rows[0][2]) %> ₺
                                         </span>
                                     </p>
                                     <p class="d-flex">
                                         <span>Kargo Ücreti</span>
                                         <span>
-                                            <% =Convert.ToDouble(sepettutar.Rows[0][3]) %> ₺
+                                            <% =String.Format("{0:0.00}", sepettutar.Rows[0][3]) %> ₺
                                         </span>
                                     </p>
                                     <hr>
                                     <p class="d-flex total-price">
                                         <span>Genel Toplam</span>
                                         <span>
-                                            <% =Convert.ToDouble(sepettutar.Rows[0][4]) %> ₺
+                                            <% =String.Format("{0:0.00}", sepettutar.Rows[0][4]) %> ₺
                                         </span>
                                     </p>
                                 </div>

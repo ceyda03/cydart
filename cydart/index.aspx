@@ -74,6 +74,7 @@
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Kalemler</h2>
+                    <a href="urunler.aspx?katsecim=1">Tümünü Gör</a>
                 </div>
             </div>   		
         </div>
@@ -87,7 +88,7 @@
                     {%>
                         <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
                             <div class="product d-flex flex-column">
-                                <a href="#" class="img-prod">
+                                <a href="urundetay.aspx?urun=<% =urunler.Rows[i][0] %>" class="img-prod">
                                     <%if (urunler.Rows[i][8].ToString() != "")
                                       {%>
                                         <img class="img-fluid" src="Admin/<% =urunler.Rows[i][8] %>" alt="Colorlib Template">
@@ -115,15 +116,20 @@
                                     </div>
                                     <h3><a href="#"><% =urunler.Rows[i][1] %></a></h3>
                                     <div class="pricing">
-                                        <p class="price"><span><% =Convert.ToDouble(urunler.Rows[i][5]).ToString("0.##") %>₺</span></p>
+                                        <p class="price"><span><% =String.Format("{0:0.00}", urunler.Rows[i][5]) %>₺</span></p>
                                     </div>
                                     <p class="bottom-area d-flex px-3">
-                                        <a href="#" class="add-to-cart text-center py-2 mr-1">
-                                            <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
-                                        </a>
-                                        <a href="#" class="buy-now text-center py-2">
-                                            Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
-                                        </a>
+                                        <%if (Session["uye"] != null)
+                                          {%>
+                                            <p class="bottom-area d-flex px-3">
+                                                <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>" class="add-to-cart text-center py-2 mr-1">
+                                                    <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
+                                                </a>
+                                                <a href="urunler.aspx?ekle=<% =urunler.Rows[i][0] %>&sepet=true" class="buy-now text-center py-2">
+                                                    Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
+                                                </a>
+                                            </p>
+                                        <%} %>
                                     </p>
                                 </div>
                             </div>
@@ -140,6 +146,7 @@
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Boyalar</h2>
+                    <a href="urunler.aspx?katsecim=2">Tümünü Gör</a>
                 </div>
             </div>   		
         </div>
@@ -153,7 +160,7 @@
                     {%>
                         <div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
                             <div class="product d-flex flex-column">
-                                <a href="#" class="img-prod">
+                                <a href="urundetay.aspx?urun=<% =boyalar.Rows[i][0] %>" class="img-prod">
                                     <%if (boyalar.Rows[i][8].ToString() != "")
                                       {%>
                                         <img class="img-fluid" src="Admin/<% =boyalar.Rows[i][8] %>" alt="Colorlib Template">
@@ -169,27 +176,23 @@
                                         <div class="cat">
                                             <span><% =boyalar.Rows[i][2] %></span>
                                         </div>
-                                        <div class="rating">
-                                            <p class="text-right mb-0">
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                            </p>
-                                        </div>
                                     </div>
                                     <h3><a href="#"><% =boyalar.Rows[i][1] %></a></h3>
                                     <div class="pricing">
-                                        <p class="price"><span><% =Convert.ToDouble(boyalar.Rows[i][5]).ToString("0.##") %>₺</span></p>
+                                        <p class="price"><span><% =String.Format("{0:0.00}", boyalar.Rows[i][5]) %>₺</span></p>
                                     </div>
                                     <p class="bottom-area d-flex px-3">
-                                        <a href="#" class="add-to-cart text-center py-2 mr-1">
-                                            <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
-                                        </a>
-                                        <a href="#" class="buy-now text-center py-2">
-                                            Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
-                                        </a>
+                                        <%if (Session["uye"] != null)
+                                          {%>
+                                            <p class="bottom-area d-flex px-3">
+                                                <a href="urunler.aspx?ekle=<% =boyalar.Rows[i][0] %>" class="add-to-cart text-center py-2 mr-1">
+                                                    <span>Sepete Ekle <i class="ion-ios-add ml-1"></i></span>
+                                                </a>
+                                                <a href="urunler.aspx?ekle=<% =boyalar.Rows[i][0] %>&sepet=true" class="buy-now text-center py-2">
+                                                    Hemen Al<span><i class="ion-ios-cart ml-1"></i></span>
+                                                </a>
+                                            </p>
+                                        <%} %>
                                     </p>
                                 </div>
                             </div>

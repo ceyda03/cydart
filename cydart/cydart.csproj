@@ -126,6 +126,7 @@
     <Content Include="fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="fonts\open-iconic\open-iconic.svg" />
     <Content Include="hakkimizda.aspx" />
+    <Content Include="hata.aspx" />
     <Content Include="iletisim.aspx" />
     <Content Include="images\about.jpg" />
     <Content Include="images\bg_1.jpg" />
@@ -599,6 +600,13 @@
     </Compile>
     <Compile Include="hakkimizda.aspx.designer.cs">
       <DependentUpon>hakkimizda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="hata.aspx.cs">
+      <DependentUpon>hata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hata.aspx.designer.cs">
+      <DependentUpon>hata.aspx</DependentUpon>
     </Compile>
     <Compile Include="iletisim.aspx.cs">
       <DependentUpon>iletisim.aspx</DependentUpon>
