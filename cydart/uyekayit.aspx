@@ -5,7 +5,7 @@
     <section class="ftco-section contact-section bg-light">
         <div class="container">
             <div id="basarili" class="alert alert-success" role="alert" visible="false" runat="server">
-                <strong>Kayıt başarılı.</strong> Aramıza hoş geldiniz!
+                <strong>Kayıt başarılı.</strong> Aramıza hoş geldiniz! Alışverişe başlamak için <a href="uyegiris.aspx">giriş yapın.</a>
             </div>
 
             <div id="basarisiz" class="alert alert-warning" role="alert" visible="false" runat="server">

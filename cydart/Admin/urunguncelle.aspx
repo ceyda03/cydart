@@ -6,7 +6,7 @@
     <h2 class="page-title">Ürün Güncelleme</h2>
 
     <div id="basarili" class="alert alert-success" role="alert" visible="false" runat="server">
-        <strong>Kayıt başarılı!</strong> Kayıt başarıyla güncellendi
+        <strong>Kayıt başarılı!</strong> Kayıt başarıyla güncellendi. <a href="urunlistele.aspx">Listeye git</a>
     </div>
 
     <div id="basarisiz" class="alert alert-warning" role="alert" visible="false" runat="server">

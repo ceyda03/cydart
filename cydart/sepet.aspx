@@ -22,7 +22,7 @@
                 <div class="col-md-12 ftco-animate">
                     <div class="cart-list">
                         <div id="basarili" class="alert alert-success" role="alert" runat="server" visible="false">
-                            <strong>Siparişiniz Alındı!</strong> Ödeme tamamlandı ve siparişiniz hazırlanmaya başladı.
+                            <strong>Siparişiniz Alındı!</strong> Ödeme tamamlandı ve siparişiniz hazırlanmaya başladı. <a href="urunler.aspx">Alışverişe devam et.</a>
                         </div>
 
                         <div id="basarisiz" class="alert alert-danger" role="alert" runat="server" visible="false">
