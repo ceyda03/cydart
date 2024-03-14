@@ -31,7 +31,7 @@ namespace cydart.Admin
                 FileUpload1.SaveAs(Server.MapPath("img/") + sayi + FileUpload1.FileName);
 
                 SliderCRUD sliderCRUD = new SliderCRUD();
-                bool sonuc = sliderCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, TextBox2.Text, TextBox3.Text, "img/" + sayi + FileUpload1.FileName, TextBox5.Text);
+                bool sonuc = sliderCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, TextBox3.Text, TextBox4.Text, "img/" + sayi + FileUpload1.FileName, TextBox5.Text);
 
                 if (sonuc)
                 {
@@ -48,7 +48,7 @@ namespace cydart.Admin
             {
                 SliderCRUD sliderCRUD = new SliderCRUD();
                 Slider slider = sliderCRUD.bilgigetir(Convert.ToInt16(Request.QueryString["gunid"]));
-                bool sonuc = sliderCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, TextBox2.Text, TextBox3.Text, slider.Resim, TextBox5.Text);
+                bool sonuc = sliderCRUD.guncelle(Convert.ToInt16(TextBox1.Text), TextBox2.Text, TextBox3.Text, TextBox4.Text, slider.Resim, TextBox5.Text);
 
                 if (sonuc)
                 {
